@@ -439,8 +439,8 @@
             "type": 1
         },
         {
-            "api": "csp_Libvio",
-            "ext": "https://www.libvio.fun/",
+            "api": "./js/drpy2.min.js",
+            "ext": "./js/LIBVIO.js",
             "filterable": 0,
             "key": "csp_Lib",
             "name": "🌟利播",
