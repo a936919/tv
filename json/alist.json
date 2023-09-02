@@ -1,0 +1,25 @@
+{
+  "drives": [
+    {
+      "name": "小丫",
+      "server": "http://xn--qq3aapa.cc:5555"
+    },
+    {
+      "name": "超超越越",
+      "server": "http://xn--qq3aapa.cc:5245"
+    },
+    {
+      "name": "动漫盘",
+      "server": "http://pan.smjc.cc/自用Open/动画片/"
+    },
+    {
+      "name": "触光",
+      "server": "https://pan.ichuguang.com"
+    },
+    {
+      "name": "星梦",
+      "server": "https://pan.bashroot.top"
+    }
+    
+  ]
+}
