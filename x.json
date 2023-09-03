@@ -591,6 +591,7 @@
         {
             "api": "csp_Czsapp",
             "filterable": 1,
+            "ext": "https://cz01.me/",
             "key": "py_czspp",
             "name": "🏭厂长",
             "quickSearch": 1,
