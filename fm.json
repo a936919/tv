@@ -454,8 +454,17 @@
             "key": "365",
             "name": "🎨365",
             "type": 3
-        },{"key": "天天","name": "🔆天天","type": 3,"api": "csp_AppYsV2","searchable": 1,"quickSearch": 1,"changeable": 1,"ext": "https://ttsp.live/api.php/app/"},
-  
+        },
+        {
+            "key": "天天",
+            "name": "🔆天天",
+            "type": 3,
+            "api": "csp_AppYsV2",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "ext": "https://ttsp.live/api.php/app/"
+        },
         {
             "api": "csp_AppYsV2",
             "ext": "http://103.42.31.123:8787/api.php/app/",
@@ -735,267 +744,194 @@
             "searchable": 1,
             "type": 3
         },
-                },
-        {
-            "key": "drpy_js_美剧迷",
-            "name": "美剧迷[js]",
-            "type": 3,
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/meijumi.js",
-            "quickSearch": 1,
-            "changeable": 1,
-            "timeout": 30
-        },
-        {
-            "key": "drpy_js_dydhhy",
-            "name": "dydhhy[js]",
-            "type": 3,
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/dydhhy.js",
-            "quickSearch": 1,
-            "changeable": 1,
-            "timeout": 30
-        },
-        {
-            "key": "drpy_js_yyets",
-            "name": "人人影视[js]",
-            "type": 3,
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/yyets.js",
-            "quickSearch": 1,
-            "changeable": 1,
-            "timeout": 30
-        },
-        {
-            "key": "drpy_js_kkpans",
-            "name": "kk盘[js]",
-            "type": 3,
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/kkpans.js",
-            "quickSearch": 1,
-            "changeable": 1,
-            "timeout": 30
-        },
-        {
-            "key": "drpy_js_校长影视",
-            "name": "校长影视[js]",
-            "type": 3,
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/xzys.js",
-            "quickSearch": 1,
-            "changeable": 1,
-            "timeout": 30
-        },
-        {
-            "key": "drpy_js_愛盤搜",
-            "name": "爱盘搜[js]",
-            "type": 3,
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/aipanso.js",
-            "quickSearch": 1,
-            "changeable": 1,
-            "timeout": 30
-        },
-        {
-            "key": "drpy_js_趣盤搜",
-            "name": "趣盘搜[js]",
-            "type": 3,
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/funletu.js",
-            "quickSearch": 1,
-            "changeable": 1,
-            "timeout": 30
-        },
-        {
-            "api": "csp_XiaoZhiTao",
-            "filterable": 0,
-            "key": "csp_Nmys",
-            "name": "🌾农民",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Dy1010",
-            "filterable": 1,
-            "key": "csp_Dy1010",
-            "name": "❤️双十",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Ys555",
-            "ext": "https://www.555dyy1.com",
-            "filterable": 1,
-            "key": "csp_555",
-            "name": "5️⃣️三五",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Ddrk",
-            "filterable": 0,
-            "key": "csp_DiDuan",
-            "name": "📺低端",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "./js/drpy2.min.js",
-            "ext": "./js/ddys.js",
-            "key": "低端",
-            "name": "🔅低端",
-            "playerType": 2,
-            "type": 3
-        },
-        {
-            "api": "csp_Voflix",
-            "filterable": 1,
-            "key": "csp_Vofl",
-            "name": "🎉Voflix",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Kunyu77",
-            "filterable": 1,
-            "key": "csp_Kunyu77",
-            "name": "🌤七七",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Bttwoo",
-            "filterable": 1,
-            "key": "csp_Bttoo",
-            "name": "✌两个BT",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Anime1",
-            "filterable": 1,
-            "key": "csp_Anime1",
-            "name": "🌸动漫",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_NiNi",
-            "filterable": 1,
-            "key": "csp_Nbys",
-            "name": "💣泥巴(墙外)",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_If101",
-            "filterable": 1,
-            "key": "If101",
-            "name": "🌃If101(墙外)",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Yj1211",
-            "filterable": 1,
-            "key": "csp_Yj1211",
-            "name": "📸直播合集",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_YiSo",
-            "ext": "./tv/token.txt",
-            "filterable": 0,
-            "key": "YiSo",
-            "name": "😹易搜",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Zhaozy",
-            "ext": "./tv/token.txt$$$fanfan$$$qqq111",
-            "filterable": 0,
-            "key": "Zhaozy",
-            "name": "🐺找资源",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_PanSou",
-            "ext": "./tv/token.txt",
-            "filterable": 0,
-            "key": "PanSou",
-            "name": "🦊盘搜",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_UpYun",
-            "ext": "./tv/token.txt",
-            "filterable": 0,
-            "key": "UpYun",
-            "name": "😻Up搜",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_PanSearch",
-            "ext": "./tv/token.txt",
-            "filterable": 0,
-            "key": "PanSearch",
-            "name": "🙀盘Se",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Push",
-            "ext": "./tv/token.json",
-            "filterable": 0,
-            "jar": "./fm.jar",
-            "key": "push_agent",
-            "name": "📨推送",
-            "quickSearch": 0,
-            "searchable": 0,
-            "type": 3
-        },
-        {
-            "api": "csp_XPathFilter",
-            "ext": "./json/%E8%BE%BE%E8%BE%BE%E9%BE%9F.json",
-            "filterable": 0,
-            "key": "csp_biubiu_dadagui",
-            "name": "🐢达达龟",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_LocalFile",
-            "filterable": 0,
-            "key": "csp_bendi",
-            "name": "📂本地",
-            "quickSearch": 0,
-            "searchable": 0,
-            "type": 3,
-            "type_flag": 1
-        }
-    ],
-    "spider": "./fm.jar",
-    "wallpaper": "https://tool.weetai.cn/api"
+    },
+    {
+        "key": "drpy_js_美剧迷",
+        "name": "🌈美剧迷",
+        "type": 3,
+        "api": "./lib/drpy2.min.js",
+        "ext": "./js/meijumi.js",
+        "quickSearch": 1,
+        "changeable": 1,
+        "timeout": 30
+    },
+    {
+        "key": "drpy_js_dydhhy",
+        "name": "🐼dydhhy",
+        "type": 3,
+        "api": "./lib/drpy2.min.js",
+        "ext": "./js/dydhhy.js",
+        "quickSearch": 1,
+        "changeable": 1,
+        "timeout": 30
+    },
+    {
+        "key": "drpy_js_yyets",
+        "name": "🍥人人",
+        "type": 3,
+        "api": "./lib/drpy2.min.js",
+        "ext": "./js/yyets.js",
+        "quickSearch": 1,
+        "changeable": 1,
+        "timeout": 30
+    },
+    {
+        "key": "drpy_js_kkpans",
+        "name": "🚵kk盘",
+        "type": 3,
+        "api": "./lib/drpy2.min.js",
+        "ext": "./js/kkpans.js",
+        "quickSearch": 1,
+        "changeable": 1,
+        "timeout": 30
+    },
+    {
+        "key": "drpy_js_校长影视",
+        "name": "💂🏿‍♀️校长影视",
+        "type": 3,
+        "api": "./lib/drpy2.min.js",
+        "ext": "./js/xzys.js",
+        "quickSearch": 1,
+        "changeable": 1,
+        "timeout": 30
+    },
+    {
+        "key": "drpy_js_愛盤搜",
+        "name": "💅🏻爱盘搜",
+        "type": 3,
+        "api": "./lib/drpy2.min.js",
+        "ext": "./js/aipanso.js",
+        "quickSearch": 1,
+        "changeable": 1,
+        "timeout": 30
+    },
+    {
+        "key": "drpy_js_趣盤搜",
+        "name": "⛄趣盘搜",
+        "type": 3,
+        "api": "./lib/drpy2.min.js",
+        "ext": "./js/funletu.js",
+        "quickSearch": 1,
+        "changeable": 1,
+        "timeout": 30
+    },
+    {
+        "api": "./js/drpy2.min.js",
+        "ext": "./js/ddys.js",
+        "key": "低端",
+        "name": "🔅低端",
+        "playerType": 2,
+        "type": 3
+    },
+    {
+        "api": "csp_NiNi",
+        "filterable": 1,
+        "key": "csp_Nbys",
+        "name": "💣泥巴(墙外)",
+        "quickSearch": 1,
+        "searchable": 1,
+        "type": 3
+    },
+    {
+        "api": "csp_If101",
+        "filterable": 1,
+        "key": "If101",
+        "name": "🌃If101(墙外)",
+        "quickSearch": 1,
+        "searchable": 1,
+        "type": 3
+    },
+    {
+        "api": "csp_Yj1211",
+        "filterable": 1,
+        "key": "csp_Yj1211",
+        "name": "📸直播合集",
+        "quickSearch": 1,
+        "searchable": 1,
+        "type": 3
+    },
+    {
+        "api": "csp_YiSo",
+        "ext": "./tv/token.txt",
+        "filterable": 0,
+        "key": "YiSo",
+        "name": "😹易搜",
+        "quickSearch": 1,
+        "searchable": 1,
+        "type": 3
+    },
+    {
+        "api": "csp_Zhaozy",
+        "ext": "./tv/token.txt$$$fanfan$$$qqq111",
+        "filterable": 0,
+        "key": "Zhaozy",
+        "name": "🐺找资源",
+        "quickSearch": 1,
+        "searchable": 1,
+        "type": 3
+    },
+    {
+        "api": "csp_PanSou",
+        "ext": "./tv/token.txt",
+        "filterable": 0,
+        "key": "PanSou",
+        "name": "🦊盘搜",
+        "quickSearch": 1,
+        "searchable": 1,
+        "type": 3
+    },
+    {
+        "api": "csp_UpYun",
+        "ext": "./tv/token.txt",
+        "filterable": 0,
+        "key": "UpYun",
+        "name": "😻Up搜",
+        "quickSearch": 1,
+        "searchable": 1,
+        "type": 3
+    },
+    {
+        "api": "csp_PanSearch",
+        "ext": "./tv/token.txt",
+        "filterable": 0,
+        "key": "PanSearch",
+        "name": "🙀盘Se",
+        "quickSearch": 1,
+        "searchable": 1,
+        "type": 3
+    },
+    {
+        "api": "csp_Push",
+        "ext": "./tv/token.json",
+        "filterable": 0,
+        "jar": "./fm.jar",
+        "key": "push_agent",
+        "name": "📨推送",
+        "quickSearch": 0,
+        "searchable": 0,
+        "type": 3
+    },
+    {
+        "api": "csp_XPathFilter",
+        "ext": "./json/%E8%BE%BE%E8%BE%BE%E9%BE%9F.json",
+        "filterable": 0,
+        "key": "csp_biubiu_dadagui",
+        "name": "🐢达达龟",
+        "quickSearch": 1,
+        "searchable": 1,
+        "type": 3
+    },
+    {
+        "api": "csp_LocalFile",
+        "filterable": 0,
+        "key": "csp_bendi",
+        "name": "📂本地",
+        "quickSearch": 0,
+        "searchable": 0,
+        "type": 3,
+        "type_flag": 1
+    }
+],
+"spider": "./fm.jar",
+"wallpaper": "https://tool.weetai.cn/api"
 }
