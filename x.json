@@ -466,8 +466,8 @@
             "type": 3
         },
         {
-            "api": "http://xhww.fun:63/js/drpy1.min.js",
-            "ext": "./js/荐片js",
+            "api": "./js/drpy2.min.js",
+            "ext": "./js/荐片.js",
             "filterable": 0,
             "key": "磁力",
             "name": "🍈荐片",
