@@ -430,18 +430,7 @@
             "name": "🐼️厂长",
             "playerType": 2,
             "type": 3
-        },      	
-		{
-            "api": "./js/drpy2.min.js",
-            "ext": "./js/tzfile.js",
-            "filterable": 0,
-            "key": "团长",
-            "name": "🍬团长",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
         },
-
         {
             "api": "http://xn--yetu07f.xn--yetu07f.icu:66/api.php/provide/vod/",
             "key": "xhtx",
@@ -463,8 +452,18 @@
             "api": "csp_AppYsV2",
             "ext": "http://guan.yy365.vip/api.php/app/",
             "key": "365",
-            "name": "🎨ZNJ",
+            "name": "🎨365",
             "type": 3
+        },
+        {
+            "key": "天天",
+            "name": "🔆天天",
+            "type": 3,
+            "api": "csp_AppYsV2",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "ext": "https://ttsp.live/api.php/app/"
         },
         {
             "api": "csp_AppYsV2",
@@ -529,16 +528,6 @@
             "key": "迷你库",
             "name": "🐹迷你",
             "type": 3
-        },
-        {
-            "key": "csp_AppYsV2_嘉靓",
-            "name": "🛩️嘉靓",
-            "type": 3,
-            "api": "csp_AppYsV2",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "ext": "http://s.ether-mine.com/api.php/app/"
         },
         {
             "api": "./js/drpy2.min.js",
@@ -717,114 +706,81 @@
             "type": 3
         },
         {
-            "api": "csp_AppMr",
-            "filterable": 1,
-            "key": "csp_AppMr",
-            "name": "👻明明",
+            "key": "drpy_js_美剧迷",
+            "name": "🌈美剧迷",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/meijumi.js",
             "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
+            "changeable": 1,
+            "timeout": 30
         },
         {
-            "api": "csp_YQKAPP",
-            "ext": "https://api-aws.11ty.top",
-            "filterable": 1,
-            "key": "csp_YQKAPP",
-            "name": "🎉一起看",
+            "key": "drpy_js_dydhhy",
+            "name": "🐼dydhhy",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/dydhhy.js",
             "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
+            "changeable": 1,
+            "timeout": 30
         },
         {
-            "api": "csp_XPathMacFilter",
-            "ext": "./json/shaohuotv.json",
-            "filterable": 1,
-            "key": "烧火",
-            "name": "📂烧火",
-            "quickSearch": 0,
-            "searchable": 1,
-            "type": 3
+            "key": "drpy_js_yyets",
+            "name": "🍥人人",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/yyets.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
         },
         {
-            "api": "csp_Nmys",
-            "ext": "http://饭太硬.top/x/json/nmys.json",
-            "filterable": 0,
-            "key": "csp_Nmys",
-            "name": "🌾农民",
+            "key": "drpy_js_kkpans",
+            "name": "🚵kk盘",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/kkpans.js",
             "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
+            "changeable": 1,
+            "timeout": 30
         },
         {
-            "api": "csp_Dy1010",
-            "filterable": 1,
-            "key": "csp_Dy1010",
-            "name": "❤️双十",
+            "key": "drpy_js_校长影视",
+            "name": "💂🏿‍♀️校长影视",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/xzys.js",
             "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
+            "changeable": 1,
+            "timeout": 30
         },
         {
-            "api": "csp_Ys555",
-            "ext": "https://www.555dyy1.com",
-            "filterable": 1,
-            "key": "csp_555",
-            "name": "5️⃣️三五",
+            "key": "drpy_js_愛盤搜",
+            "name": "💅🏻爱盘搜",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/aipanso.js",
             "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
+            "changeable": 1,
+            "timeout": 30
         },
         {
-            "api": "csp_Ddrk",
-            "filterable": 0,
-            "key": "csp_DiDuan",
-            "name": "📺低端",
+            "key": "drpy_js_趣盤搜",
+            "name": "⛄趣盘搜",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/funletu.js",
             "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
+            "changeable": 1,
+            "timeout": 30
         },
         {
             "api": "./js/drpy2.min.js",
-            "ext": "./js/低端.js",
+            "ext": "./js/ddys.js",
             "key": "低端",
-            "name": "🔅低端（js）",
+            "name": "🔅低端",
             "playerType": 2,
-            "type": 3
-        },
-        {
-            "api": "csp_Voflix",
-            "filterable": 1,
-            "key": "csp_Vofl",
-            "name": "🎉Voflix",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Kunyu77",
-            "filterable": 1,
-            "key": "csp_Kunyu77",
-            "name": "🌤七七",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Bttwoo",
-            "filterable": 1,
-            "key": "csp_Bttoo",
-            "name": "✌两个BT",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Anime1",
-            "filterable": 1,
-            "key": "csp_Anime1",
-            "name": "🌸动漫",
-            "quickSearch": 1,
-            "searchable": 1,
             "type": 3
         },
         {
@@ -936,6 +892,6 @@
             "type_flag": 1
         }
     ],
-    "spider": "./xo.jar",
+    "spider": "./fm.jar",
     "wallpaper": "https://tool.weetai.cn/api"
 }
