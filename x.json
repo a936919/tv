@@ -452,7 +452,7 @@
             "api": "./js/drpy2.min.js",
             "ext": "./js/livb.js",
             "filterable": 0,
-            "key": "csp_Lib",
+            "key": "Lib",
             "name": "📀LIBVIO",
             "quickSearch": 1,
             "searchable": 1,
