@@ -430,7 +430,18 @@
             "name": "🐼️厂长",
             "playerType": 2,
             "type": 3
+        },      	
+		{
+            "api": "./js/drpy2.min.js",
+            "ext": "./js/tzfile.js",
+            "filterable": 0,
+            "key": "团长",
+            "name": "🍬团长",
+            "quickSearch": 1,
+            "searchable": 1,
+            "type": 3
         },
+
         {
             "api": "http://xn--yetu07f.xn--yetu07f.icu:66/api.php/provide/vod/",
             "key": "xhtx",
@@ -528,19 +539,6 @@
             "quickSearch": 1,
             "filterable": 1,
             "ext": "http://s.ether-mine.com/api.php/app/"
-        },
-        {
-            "key": "csp_XBPQ_毛毛子",
-            "name": "🍬毛子",
-            "type": 3,
-            "api": "csp_XBPQ",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "ext": {
-                "分类url": "http://ys.qtw.asia/index.php/vod/show/area/{area}/by/{by}/class/{class}/id/{cateId}/lang/{lang}/letter/{letter}/year/{year}.html",
-                "分类": "电影$1#连续剧$2#综艺$3#动漫$4#短剧$6#4K$8"
-            }
         },
         {
             "api": "./js/drpy2.min.js",
