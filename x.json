@@ -612,7 +612,7 @@
             "key": "csp_XBPQ_JOJO",
             "name": "🥗JOJO",
             "type": 3,
-            "jar": "http://xhww.fun:63/小米/5.jar;md5;c570b052645834a1109b54421c1552f9",
+            "jar": "./xyq.jar",
             "api": "csp_XBPQ",
             "searchable": 1,
             "quickSearch": 1,
