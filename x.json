@@ -609,6 +609,29 @@
             "type": 3
         },
         {
+            "key": "csp_XBPQ_JOJO",
+            "name": "🥗JOJO",
+            "type": 3,
+            "jar": "http://xhww.fun:63/小米/5.jar;md5;c570b052645834a1109b54421c1552f9",
+            "api": "csp_XBPQ",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": {
+                "二次截取": "class=\"content-body\"&&class=\"content-lift\"",
+                "数组": "<a&&</a>",
+                "图片": "src=\"&&\"",
+                "标题": "class=\"card-title\">&&</p>",
+                "副标题": "class=\"item-speed\">&&</p>",
+                "链接": "href=\"&&\"",
+                "播放数组": "class=\"plyr-sidebar-list&&</div>",
+                "嗅探词": "aliyundrive.net#cn-beijing-data.aliyundrive.net#alicloudccp.com#srcurity-token",
+                "搜索url": "https://jojo.bdys.top/video/search?q={wd}",
+                "分类": "电影$电影#美剧$美剧#日剧$日剧#韩剧$韩剧#动漫$动漫#纪录$纪录",
+                "分类url": "https://jojo.bdys.top/video/{cateId}?page={catePg}&size=18;;u0"
+            }
+        },
+        {
             "api": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/libs/drpy2.min.js",
             "ext": "https://ghproxy.com/https://raw.githubusercontent.com/hjdhnx/dr_py/main/js/新片场.js",
             "filterable": 0,
@@ -715,6 +738,15 @@
             "key": "apv2_瑞丰",
             "name": "⛄瑞丰",
             "type": 3
+        },     {
+            "key": "磁力熊",
+            "name": "🦌磁力熊",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/cilixiong.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
         },
         {
             "key": "drpy_js_美剧迷",
