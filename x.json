@@ -642,6 +642,50 @@
             "type": 3
         },
         {
+            "key": "厂长xyq",
+            "name": "👨‍🌾厂长",
+            "type": 3,
+            "jar": "./xyq.jar",
+            "api": "csp_XYQHiker",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "./xyq/xyq厂长影视.json"
+        },
+        {
+            "key": "csp_hd魔力",
+            "name": "🍃魔力",
+            "type": 3,
+            "jar": "./xyq.jar",
+            "api": "csp_XBPQ",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "./xbpq/hdmoli.json"
+        },
+        {
+            "key": "csp_XYQHiker_六度",
+            "name": "🛫六度",
+            "type": 3,
+            "jar": "./xyq.jar",
+            "api": "csp_XYQHiker",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "./xyq/六度.json"
+        },
+        {
+            "key": "csp_XYQHiker_新视觉1",
+            "name": "🚂新视",
+            "type": 3,
+            "jar": "./xyq.jar",
+            "api": "csp_XYQHiker",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "./xyq/新视觉.json"
+        },
+        {
             "api": "csp_AppYsV2",
             "ext": "http://cms.maoyingshi.cc/api.php/app/",
             "filterable": 1,
