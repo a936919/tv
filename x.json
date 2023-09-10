@@ -476,7 +476,7 @@
             "type": 3,
             "api": "./js/yt.js",
             "ext": "http://ytcms.lyyytv.cn/api.php/app/"
-          },
+        },
         {
             "api": "./lib/drpy2.min.js",
             "ext": "./js/tengxun.js",
