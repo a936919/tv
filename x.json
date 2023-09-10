@@ -465,27 +465,59 @@
             "ext": "./js/livb.js",
             "filterable": 0,
             "key": "Lib",
-            "name": "📀LIBVIO",
+            "name": "📀LIB",
             "quickSearch": 1,
             "searchable": 1,
             "type": 3
-        },   
+        },
+        {
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/tengxun.js",
+            "key": "腾讯",
+            "name": "🐧腾讯",
+            "type": 3
+        },
+        {
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/iqy.js",
+            "key": "爱奇艺",
+            "name": "💜奇艺",
+            "type": 3
+        },
+        {
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/youku.js",
+            "key": "优酷",
+            "name": "🆒优酷",
+            "type": 3
+        },
+        {
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/360.js",
+            "key": "360",
+            "name": "🔍360",
+            "type": 3
+        },
+        {
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/sougou.js",
+            "key": "搜狗",
+            "name": "🐶搜狗",
+            "type": 3
+        },
+        {
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/mangguo.js",
+            "key": "芒果",
+            "name": "🍋芒果",
+            "type": 3
+        },
         {
             "api": "csp_AppYsV2",
             "changeable": 1,
             "ext": "https://ttsp.live/api.php/app/",
             "key": "天天",
             "name": "🔆天天",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_AppYsV2",
-            "ext": "http://103.42.31.123:8787/api.php/app/",
-            "filterable": 1,
-            "key": "csp_AppYsV2_奇腾",
-            "name": "🚈奇腾",
             "quickSearch": 1,
             "searchable": 1,
             "type": 3
@@ -626,16 +658,6 @@
             "type": 3
         },
         {
-            "api": "csp_XPathMac",
-            "ext": "./json/奇优.json",
-            "filterable": 0,
-            "key": "qiyou",
-            "name": "📒奇游",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
             "api": "csp_XBPQ",
             "ext": {
                 "二次截取": "class=\"content-body\"&&class=\"content-lift\"",
@@ -732,46 +754,12 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/tengxun.js",
-            "key": "腾讯",
-            "name": "🐧腾讯",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/iqy.js",
-            "key": "爱奇艺",
-            "name": "💜奇艺",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/youku.js",
-            "key": "优酷",
-            "name": "🆒优酷",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/360.js",
-            "key": "360",
-            "name": "🔍360",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/sougou.js",
-            "key": "搜狗",
-            "name": "🐶搜狗",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/mangguo.js",
-            "key": "芒果",
-            "name": "🍋芒果",
-            "type": 3
+            "key": "星影1080cms",
+            "name": "🦛星影",
+            "type": 1,
+            "api": "https://www.xy1080.net/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1
         },
         {
             "api": "csp_AppYsV2",
@@ -880,24 +868,6 @@
             "type": 3
         },
         {
-            "api": "csp_If101",
-            "filterable": 1,
-            "key": "If101",
-            "name": "🌃If101(墙外)",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Yj1211",
-            "filterable": 1,
-            "key": "csp_Yj1211",
-            "name": "📸直播合集",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
             "api": "csp_YiSo",
             "ext": "./tv/token.txt",
             "filterable": 0,
@@ -956,16 +926,6 @@
             "name": "📨推送",
             "quickSearch": 0,
             "searchable": 0,
-            "type": 3
-        },
-        {
-            "api": "csp_XPathFilter",
-            "ext": "./json/%E8%BE%BE%E8%BE%BE%E9%BE%9F.json",
-            "filterable": 0,
-            "key": "csp_biubiu_dadagui",
-            "name": "🐢达达龟",
-            "quickSearch": 1,
-            "searchable": 1,
             "type": 3
         },
         {
