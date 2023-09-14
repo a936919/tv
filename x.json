@@ -578,7 +578,7 @@
             "filterable": 1,
             "jar": "./xyq.jar",
             "key": "csp_XBPQ_花花",
-            "name": "👶花花",
+            "name": "💐花花",
             "quickSearch": 1,
             "searchable": 1,
             "type": 3
@@ -666,7 +666,7 @@
                 "副标题": "class=\"item-speed\">&&</p>",
                 "嗅探词": "aliyundrive.net#cn-beijing-data.aliyundrive.net#alicloudccp.com#srcurity-token",
                 "图片": "src=\"&&\"",
-                "搜索url": "https://jojo.bdys.top/video/search?q={wd}",
+                "搜索url": "https://jojo.bdys.top/video/search?q={wd}&pid=bB1Kab3-WDn8d6cfsfnR7K4O1zcGkEOp-8rQ2qJDu9U=",
                 "播放数组": "class=\"plyr-sidebar-list&&</div>",
                 "数组": "<a&&</a>",
                 "标题": "class=\"card-title\">&&</p>",
@@ -782,6 +782,16 @@
             "type": 3
         },
         {
+            "api": "./lib/drpy2.min.js",
+            "changeable": 1,
+            "ext": "./js/meow.js",
+            "key": "drpy-meow",
+            "name": "🐈喵搜",
+            "quickSearch": 1,
+            "timeout": 30,
+            "type": 3
+        },
+        {
             "api": "csp_AppYsV2",
             "ext": "http://www.miniku.cc/xgapp.php/v2/",
             "key": "apv2_瑞丰",
@@ -863,6 +873,25 @@
             "filterable": 1,
             "key": "csp_Nbys",
             "name": "💣泥巴(墙外)",
+            "quickSearch": 1,
+            "searchable": 1,
+            "type": 3
+        },
+        {
+            "api": "csp_Star",
+            "filterable": 1,
+            "key": "csp_star",
+            "name": "⭐️星星(墙外)",
+            "quickSearch": 1,
+            "searchable": 1,
+            "type": 3
+        },
+        {
+            "api": "csp_XiaoZhiTiao",
+            "ext": "./tv/token.txt",
+            "filterable": 0,
+            "key": "xiaozhitiao",
+            "name": "📃小纸条",
             "quickSearch": 1,
             "searchable": 1,
             "type": 3
