@@ -376,7 +376,7 @@
     ],
     "sites": [
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/douban.js",
             "filterable": 0,
             "key": "豆瓣",
@@ -394,7 +394,7 @@
             "quickSearch": 1,
             "searchable": 0,
             "style": {
-                "ratio": 1.6,
+                "ratio": 1.433,
                 "type": "rect"
             },
             "type": 3
@@ -434,7 +434,7 @@
             "quickSearch": 1,
             "searchable": 1,
             "type": 3
-        },
+        },{ "key": "宇宙哥哥", "name": " 宇宙影视", "type": 1, "api": "http://tv.yuzhoukeji.top/app/admin/drpy/lib/qq.php", "searchable": 1, "quickSearch": 1, "filterable": 1,"playUrl": "json:http://101.200.184.252/yzwd.php?url="},
         {
             "api": "csp_YingShi",
             "ext": "socks5://Clash:a2171802833@192.168.2.1:7891",
@@ -443,7 +443,7 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/厂长.js",
             "key": "厂长",
             "name": "🐼️厂长",
@@ -451,7 +451,7 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/libvio.js",
             "filterable": 0,
             "key": "csp_Lib",
@@ -461,7 +461,7 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/livb.js",
             "filterable": 0,
             "key": "Lib",
@@ -471,42 +471,42 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/tengxun.js",
             "key": "腾讯",
             "name": "🐧腾讯",
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/iqy.js",
             "key": "爱奇艺",
             "name": "💜奇艺",
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/youku.js",
             "key": "优酷",
             "name": "🆒优酷",
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/360.js",
             "key": "360",
             "name": "🔍360",
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/sougou.js",
             "key": "搜狗",
             "name": "🐶搜狗",
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/mangguo.js",
             "key": "芒果",
             "name": "🍋芒果",
@@ -523,7 +523,7 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/荐片.js",
             "filterable": 0,
             "key": "磁力",
@@ -591,14 +591,14 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/南瓜.js",
             "key": "南瓜",
             "name": "🎃南瓜",
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/ddys.js",
             "key": "低端",
             "name": "🔅低端",
@@ -606,21 +606,21 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/子子影视.js",
             "key": "子子",
             "name": "👼子子",
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/两个bt.js",
             "key": "两个bt",
             "name": "💰两个",
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/JustLive.js",
             "key": "JustLive",
             "name": "☸️JustLive",
@@ -681,13 +681,24 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "ext": "./js/新片场.js",
             "filterable": 0,
             "key": "新片场",
             "name": "💮新片场",
             "quickSearch": 1,
             "searchable": 0,
+            "type": 3
+        },
+         {
+            "api": "csp_XBPQ",
+            "ext": "./xyq/小鹿影视.json",
+            "filterable": 1,
+            "jar": "./xyq.jar",
+            "key": "csp_小鹿",
+            "name": "🦌小鹿",
+            "quickSearch": 1,
+            "searchable": 1,
             "type": 3
         },
         {
@@ -782,7 +793,7 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/meow.js",
             "key": "drpy-meow",
@@ -799,7 +810,7 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/cilixiong.js",
             "key": "磁力熊",
@@ -809,7 +820,7 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/meijumi.js",
             "key": "drpy_js_美剧迷",
@@ -819,7 +830,7 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/yyets.js",
             "key": "drpy_js_yyets",
@@ -829,7 +840,7 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/kkpans.js",
             "key": "drpy_js_kkpans",
@@ -839,7 +850,7 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/xzys.js",
             "key": "drpy_js_校长影视",
@@ -849,7 +860,7 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/aipanso.js",
             "key": "drpy_js_愛盤搜",
@@ -859,7 +870,7 @@
             "type": 3
         },
         {
-            "api": "./lib/drpy2.min.js",
+            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/funletu.js",
             "key": "drpy_js_趣盤搜",
@@ -877,7 +888,7 @@
             "searchable": 1,
             "type": 3
         },
-        {
+         {
             "api": "csp_Star",
             "filterable": 1,
             "key": "csp_star",
@@ -958,7 +969,7 @@
             "type": 3
         },
         {
-            "api": "csp_LocalFile",
+            "api": "csp_Local",
             "filterable": 0,
             "key": "csp_bendi",
             "name": "📂本地",
