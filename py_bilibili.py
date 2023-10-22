@@ -1,1402 +1,2853 @@
-D7='Referer'
-D6='liveapi2'
-D5='playUrl'
-D4='mimeType'
-D3='codecid'
-D2='192000'
-D1='media_ft'
-D0='media_bangumi'
-C_='stream'
-Cz='playurl_info'
-Cy='\u3000UID：'
-Cx='是否关注$ '
-Cw='vod_list'
-Cv='\u3000👥 '
-Cu='➖取关$2_notplay_follow'
-Ct='➕关注$1_notplay_follow'
-Cs='bilidanmu'
-Cr='setting'
-Cq='Reply_jump'
-Cp='https://b23.tv/'
-Co='message'
-Cn='totalrank'
-Cm='room_id'
-Cl='hot'
-Ck='favorite'
-Cj='attention'
-Ci='\u3000💬'
-Ch='videos'
-Cg='  个人主页'
-Cf='quicksearch'
-Ce='oldest'
-Cd='user_cover'
-Cc='roomid'
-Cb='text_small'
-Ca='watched_show'
-CZ='live_status'
-CY='offset'
-CX='查看直播细化标签'
-CW='/index.php/update.json'
-CV='fav_list'
-CU='https://api.bilibili.com/x/web-interface/nav'
-CT='bangumi_pay_parse'
-CS='bangumi_vip_parse'
-CR='bangumi_horizontal_cover'
-CQ='hide_bangumi_vip_badge'
-CP='hide_bangumi_preview'
-CO='raw_cookie_vip'
-CN='raw_cookie_line'
-CL='header'
-CK='vodTMPQn'
-CJ='wts'
-CI='csrf'
-CH='dur'
-CG='playurl'
-CF='ver'
-CE='checkUpdate'
-CD='interaction'
-CC='vod_director'
-CB='vod_area'
-CA='vod_year'
-C9='title_type'
-C8='000'
-C7='bili_user'
-C6='sort'
-C5='season_status'
-C4='all'
-C3='special'
-C2='悄悄关注'
-C1='最近关注'
-C0='bangumi'
-B_='coin'
-Bz='like_num'
-By='part'
-Bx='  💬'
-Bw='play'
-Bv='vod_pc'
-Bu='module_author'
-Bt='https://www.bilibili.com'
-Bs='isVIP'
-Br='isLogin'
-Bq='https://'
-Bp='每周必看'
-Bo='排行榜'
-Bn='showLiveFilterTag'
-Bm='vodDefaultCodec'
-Bl='favMode'
-Bk='maxHomeVideoContent'
-Bj='currentVersion'
-Bi=round
-Bd='audio'
-Bc='format'
-Bb='codec'
-Ba='status'
-BZ='vod_actor'
-BY='redirect_url'
-BX='edgeid'
-BW='$ '
-BV='BV'
-BU='最近访问'
-BT='danmaku'
-BS='稍后再看'
-BR='vod_count'
-BQ='episodes'
-BP='stat'
-BO='  ▶'
-BN='content'
-BM='archive'
-BL='UP主'
-BK='modules'
-BJ='items'
-BI='分区'
-BH='type_name'
-BG='搜索'
-BF='历史'
-BE='关注'
-BD='rankingLis'
-BC='tuijianLis'
-BB='heartbeatInterval'
-BA=float
-B9=open
-B8='contentType'
-B7='s_title'
-B6='graph_version'
-B5='fromep'
-B4='ssid'
-B3='seasons'
-B2='特别关注'
-B1='正在直播'
-B0='like'
-A_='new_ep'
-Az='index_show'
-Ay='view'
-Ax='pic'
-Aw='keyword'
-Av='channel_list'
-Au='userid'
-At='utf-8'
-As='频道'
-Ar='cateManual'
-Aq='show_vod_hot_reply'
-Ap='vodDefaultAudio'
-Ao='vodDefaultQn'
-An='@@@'
-Am='season_title'
-Al='parse'
-Ak='Reply'
-Aj='fans'
-Ai='following'
-Ah='pubdate'
-Ag='  🆙'
-Af='mlid'
-Ae='收藏'
-Ad='影视'
-Ac='vod_content'
-Ab='\u3000'
-Aa='desc'
-AZ='up'
-AY='season_id'
-AX='owner'
-AW='live'
-AV='4'
-AU=None
-AT='cateLive'
-AS='vip'
-AR='推荐'
-AQ='3'
-AP='newVersion'
-AO='vod_play_url'
-AN='vod_play_from'
-AM='result'
-AL=' '
-AK='"'
-AJ='&quot;'
-AI='动态'
-AH='直播'
-AG=True
-AE='_tmp'
-AD='﹩'
-AC='﹟'
-AB='video'
-AA='/'
-A9='User-Agent'
-A8='uname'
-A7='face'
-A6='UP'
-A5='cateManualLiveExtra'
-A4='cookies_dic'
-A3='热门'
-A2=dict
-A1='tid'
-A0='2'
-z='ep'
-y='cateManualLive'
-w='$'
-v='av'
-u='limit'
-t='pagecount'
-s=list
-r='type'
-q='ss'
-p='total'
-o='url'
-n='cid'
-m='id'
-l='</em>'
-k='<em class="keyword">'
-i='cover'
-h='page'
-g='master'
-f=map
-e='$$$'
-d='duration'
-c='users'
-b='order'
-a='aid'
-Z='filter'
-Y='page_size'
-X='vod_remarks'
-W='mid'
-V=len
-U='vod_pic'
-T='1'
-S='key'
-R='title'
-Q='vod_id'
-P='fake'
-O='vod_name'
-N='#'
-M='code'
-L='0'
-G='value'
-K='_'
-J='name'
-H='list'
-F=int
-E='data'
-D='n'
-C='v'
-B=''
-A=str
-import sys,os,json as I
+# coding=utf-8
+# !/usr/bin/python
+import sys, os, json
 from base.spider import Spider
-from requests import session as Be,utils as Bf,get as Bg
-from requests.adapters import HTTPAdapter as D8,Retry
-from concurrent.futures import ThreadPoolExecutor as D9,as_completed as Bh
-import threading as j,hashlib,time as x,random
+from requests import session, utils, get as requests_get
+from requests.adapters import HTTPAdapter, Retry
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
+import hashlib
+import time
+import random
 from functools import reduce
-from urllib.parse import quote,urlencode as CM
+from urllib.parse import quote, urlencode
+
 sys.path.append('..')
-AF,DA=os.path.split(os.path.abspath(__file__))
-sys.path.append(AF)
+dirname, filename = os.path.split(os.path.abspath(__file__))
+sys.path.append(dirname)
+
 class Spider(Spider):
-	defaultConfig={Bj:'20230808_1',CN:B,CO:B,Bk:AQ,Bl:L,Y:10,BB:'15',Ao:'80',Bm:'7',Ap:'30280',Aq:AG,CP:AG,CQ:AG,CR:AG,CS:AG,CT:AG,Bn:L,Ar:[AR,Ad,AH,AI,As,Ae,BE,BF,BG],BC:[A3,Bo,Bp,'入站必刷','番剧时间表','国创时间表'],BD:['动画','音乐','舞蹈','游戏','鬼畜','知识','科技','运动','生活','美食','动物','汽车','时尚','娱乐',Ad,'原创','新人']}
-	focus_on_up_list=[{"n":"LexBurner", "v":"777536"},{"n":"黑色脑回路", "v":"121895315"},{"n":"JOKER鹏少", "v":"92678046"}]
-	focus_on_search_key=['经典无损音乐合集','帕梅拉','太极拳','健身','舞蹈','音乐','歌曲','MV4K','演唱会4K','白噪音4K','知名UP主','说案','解说','演讲','探索发现超清','纪录片超清','平面设计教学','软件教程','实用教程','旅游','风景4K','食谱','美食超清','搞笑','球星','动物世界超清','相声小品','戏曲','儿童','小姐姐4K','荒野求生超清']
-	def getName(A):return'哔哩哔哩'
-	def load_config(A):
-		try:
-			with B9(f"{AF}/config.json",encoding=At)as D:A.userConfig=I.load(D)
-			E={g:'cookie_dic',AS:'cookie_vip_dic',P:'cookie_fake_dic'}
-			for(F,C)in E.items():
-				C=A.userConfig.get(C)
-				if C:
-					if not A.userConfig.get(c):A.userConfig[c]={}
-					A.userConfig[c][F]={A4:C}
-			B=A.userConfig.get(c,{})
-			if B.get(g)and B[g].get(A4):A.session_master.cookies=Bf.cookiejar_from_dict(B[g][A4]);A.userid=B[g][Au]
-			if B.get(P)and B[P].get(A4):A.session_fake.cookies=Bf.cookiejar_from_dict(B[P][A4])
-		except:A.userConfig={}
-		A.userConfig={**A.defaultConfig,**A.userConfig}
-	dump_config_lock=j.Lock()
-	def dump_config(A):
-		F=[c,Av,AT,y,A5];C={}
-		for(B,D)in A.userConfig.items():
-			E=A.defaultConfig.get(B)
-			if E!=AU and D!=E or B in F:C[B]=D
-		A.dump_config_lock.acquire()
-		with B9(f"{AF}/config.json",'w',encoding=At)as G:H=I.dumps(C,indent=1,ensure_ascii=False);G.write(H)
-		A.dump_config_lock.release()
-	pool=D9(max_workers=8);task_pool=[]
-	def homeContent(A,filter):
-		A.pool.submit(A.add_live_filter);A.pool.submit(A.add_channel_filter);A.pool.submit(A.add_search_key);A.pool.submit(A.add_focus_on_up_filter);A.pool.submit(A.get_tuijian_filter);A.pool.submit(A.add_fav_filter);A.pool.submit(A.homeVideoContent);F=[AI,Ae,BE,BF];B=A.userConfig[Ar]
-		if not A.userid and not A6 in B or not AI in B and not A6 in B:B+=[A6]
-		D=[]
-		for C in B:
-			if C in F and not A.userid:continue
-			D.append({BH:C,'type_id':C})
-		A.add_focus_on_up_filter_event.wait()
-		if A6 in B:A.config[Z].update({A6:A.config[Z].pop(AI)})
-		E={'class':D};A.add_live_filter_event.wait();A.add_channel_filter_event.wait();A.add_fav_filter_event.wait();A.add_search_key_event.wait()
-		if filter:E['filters']=A.config[Z]
-		A.pool.submit(A.dump_config);A.pool.submit(A.test_mirror_site);return E
-	userid=csrf=B;session_master=Be();session_vip=Be();session_fake=Be();con=j.Condition();getCookie_event=j.Event();retries=Retry(total=5,backoff_factor=.1);adapter=D8(max_retries=retries);session_master.mount(Bq,adapter);session_vip.mount(Bq,adapter);session_fake.mount(Bq,adapter)
-	def getCookie_dosth(B,co):
-		A=co.strip().split('=',1)
-		if not'%'in A[1]:A[1]=quote(A[1])
-		return A
-	def getCookie(A,_type=g):
-		D=_type;G=CN
-		if D==AS:G=CO
-		G=A.userConfig.get(G);K=A.userConfig.get(c,{});C=K.get(D,{})
-		if not G and not C:
-			if D==g:A.getCookie_event.set()
-			with A.con:A.con.notifyAll()
-			return
-		J=C.get(A4,{})
-		if G:J=A2(f(A.getCookie_dosth,G.split(';')))
-		L=Bf.cookiejar_from_dict(J);N=CU;O=A.fetch(N,headers=A.header,cookies=L);H=I.loads(O.text);C[Br]=0
-		if H[M]==0:
-			C[Br]=1;C[Au]=H[E][W];C[A7]=H[E][A7];C[A8]=H[E][A8];C[A4]=J;C[Bs]=F(H[E]['vipStatus'])
-			if D==g:A.session_master.cookies=L;A.userid=C[Au];A.csrf=J['bili_jct']
-			if C[Bs]:A.session_vip.cookies=L
-		else:A.userid=B
-		K[D]=C
-		with A.con:
-			if V(C)>1:A.userConfig.update({c:K})
-			if D==g:A.getCookie_event.set()
-	getFakeCookie_event=j.Event()
-	def getFakeCookie(A,fromSearch=AU):
-		if A.session_fake.cookies:A.getFakeCookie_event.set()
-		C={};C[A9]=A.header[A9];B=A.fetch(Bt,headers=C);A.session_fake.cookies=B.cookies;A.getFakeCookie_event.set()
-		with A.con:D=A.userConfig.get(c,{});D[P]={A4:A2(B.cookies)};A.userConfig.update({c:D})
-		if not fromSearch:
-			A.getCookie_event.wait()
-			if not A.session_master.cookies:A.session_master.cookies=B.cookies
-	def get_fav_list_dict(E,fav):A={D:fav[R].replace(k,B).replace(l,B).replace(AJ,AK).strip(),C:fav[m]};return A
-	add_fav_filter_event=j.Event()
-	def add_fav_filter(B):
-		N=B.userConfig.get(c,{})
-		if N.get(g)and N[g].get(Au):F=B.userConfig[c][g][Au]
-		else:B.getCookie_event.wait();F=B.userid
-		K=[]
-		if F:
-			P='https://api.bilibili.com/x/v3/fav/folder/created/list-all?up_mid=%s&jsonp=jsonp'%A(F);Q=B._get_sth(P);L=I.loads(Q.text)
-			if L[M]==0 and L.get(E):R=L[E].get(H);K=s(f(B.get_fav_list_dict,R))
-		U=[{D:'追番',C:T},{D:'追剧',C:A0}];O=B.config[Z].get(Ae)
-		if O:O.insert(0,{S:Af,J:BI,G:U+K})
-		B.add_fav_filter_event.set();B.userConfig[CV]=K
-	def get_channel_list_dict(F,channel):A=channel;E={D:A[J].replace(k,B).replace(l,B).replace(AJ,AK).strip(),C:A[m]};return E
-	def get_channel_list(A):
-		C='https://api.bilibili.com/x/web-interface/web/channel/category/channel/list?id=100&offset=0&page_size=15';D=A._get_sth(C,P);B=I.loads(D.text);G=[]
-		if B[M]==0:F=B[E].get('channels');A.userConfig[Av]=s(f(A.get_channel_list_dict,F))
-		return A.userConfig[Av]
-	add_channel_filter_event=j.Event()
-	def add_channel_filter(A):
-		C=A.userConfig.get(Av,B);E=A.pool.submit(A.get_channel_list)
-		if not C:C=E.result()
-		D=A.config[Z].get(As,[])
-		if D:D.insert(0,{S:n,J:BI,G:C})
-		A.config[Z][As]=D;A.add_channel_filter_event.set()
-	add_focus_on_up_filter_event=j.Event()
-	def add_focus_on_up_filter(B):
-		N='上个视频的UP主';O=[{D:N,C:N}];F=[]
-		if not B.session_master.cookies:B.getCookie_event.wait()
-		if B.session_master.cookies:
-			P='https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/all?timezone_offset=-480&type=video&page=1';Q=B._get_sth(P);H=I.loads(Q.text)
-			if H[M]==0 and H.get(E):R=H[E].get(BJ,[]);F=s(f(lambda x:{D:x[BK][Bu][J],C:A(x[BK][Bu][W])},R))
-		if V(B.focus_on_up_list)>0:
-			T=s(f(lambda x:x[C],B.focus_on_up_list))
-			for L in F:
-				if L[C]in T:F.remove(L)
-			F.extend(B.focus_on_up_list)
-		U=[{D:'登录与设置',C:'登录'}];F=O+F+U;K=B.config[Z].get(AI,[])
-		if K:K.insert(0,{S:W,J:BL,G:F})
-		B.config[Z][AI]=K;B.add_focus_on_up_filter_event.set()
-	def get_live_parent_area_list(N,parent_area):B=parent_area;E=B[J];id=A(B[m]);F=B[H];I=s(f(lambda area:{D:area[J],C:A(area['parent_id'])+K+A(area[m])},F));L={S:A1,J:E,G:I};M={m:id+'_0',G:L};return E,M
-	def get_live_list(A):
-		C='https://api.live.bilibili.com/xlive/web-interface/v1/index/getWebAreaList?source_id=2';D=A._get_sth(C,P);B=I.loads(D.text);G={}
-		if B[M]==0:F=B[E][E];A.userConfig[AT]=A2(A.pool.map(A.get_live_parent_area_list,F))
-		return A.userConfig[AT]
-	def set_default_cateManualLive(A):
-		B=[{D:AR,C:AR}]
-		for E in A.userConfig[AT]:F={D:E,C:A.userConfig[AT][E][m]};B.append(F)
-		A.defaultConfig[y]=B;return B
-	add_live_filter_event=j.Event()
-	def add_live_filter(A):
-		C=A.userConfig.get(AT,{});E=A.pool.submit(A.get_live_list)
-		if not C:C=E.result()
-		H=A.pool.submit(A.set_default_cateManualLive);A.config[Z][AH]=[];B=A.userConfig.get(y,[])
-		if not B:B=H.result()
-		if B:I={S:A1,J:BI,G:B};A.config[Z][AH].append(I)
-		if F(A.userConfig[Bn]):
-			for D in C.values():
-				if V(D[G][G])==1:continue
-				A.config[Z][AH].append(D[G])
-		A.add_live_filter_event.set()
-	add_search_key_event=j.Event()
-	def add_search_key(A):
-		B=A.focus_on_search_key;L='https://api.bilibili.com/x/web-interface/search/square?limit=10&platform=web';N=A._get_sth(L,P);F=I.loads(N.text);Q={}
-		if F[M]==0:O=F[E]['trending'].get(H,[]);B+=s(f(lambda x:x[Aw],O))
-		K={S:Aw,J:'搜索词',G:[]};K[G]=s(f(lambda i:{D:i,C:i},B));A.config[Z][BG].insert(0,K);A.add_search_key_event.set()
-	def get_tuijian_filter(E):
-		K={'番剧时间表':'10001','国创时间表':'10004',Bo:L,'动画':T,'音乐':AQ,'舞蹈':'129','游戏':AV,'鬼畜':'119','知识':'36','科技':'188','运动':'234','生活':'160','美食':'211','动物':'217','汽车':'223','时尚':'155','娱乐':'5',Ad:'181','原创':'origin','新人':'rookie'};M=[{D:BC,C:BI},{D:BD,C:Bo}];F=[]
-		for H in M:
-			I={S:A1,J:H[C],G:[]};N=E.userConfig.get(H[D],[])
-			for A in N:
-				B=K.get(A)
-				if not B:B=A
-				O={D:A,C:B};I[G].append(O)
-			F.append(I)
-		E.config[Z][AR]=F
-	def __init__(A):A.load_config();A.pool.submit(A.getCookie);A.pool.submit(A.getFakeCookie);A.pool.submit(A.getCookie,AS)
-	def init(A,extend=B):print('============{0}============'.format(extend))
-	def isVideoFormat(A,url):0
-	def manualVideoCheck(A):0
-	def format_img(B,img):
-		A=img;A+='@672w_378h_1c.webp'
-		if not A.startswith('http'):A='https:'+A
-		return A
-	def pagination(A,array,pg):B=A.userConfig[Y]*F(pg);C=B-A.userConfig[Y];return array[C:B]
-	def zh(D,num):
-		C=num
-		if F(C)>=100000000:B=Bi(BA(C)/BA(100000000),1);B=A(B)+'亿'
-		elif F(C)>=10000:B=Bi(BA(C)/BA(10000),1);B=A(B)+'万'
-		else:B=A(C)
-		return B
-	def second_to_time(D,a):
-		a=F(a)
-		if a<3600:C=x.strftime('%M:%S',x.gmtime(a))
-		else:C=x.strftime('%H:%M:%S',x.gmtime(a))
-		if A(C).startswith(L):C=A(C).replace(L,B,1)
-		return C
-	def str2sec(E,x):
-		x=A(x)
-		try:D,B,C=x.strip().split(':');return F(D)*3600+F(B)*60+F(C)
-		except:B,C=x.strip().split(':');return F(B)*60+F(C)
-	def filter_duration(B,vodlist,key):
-		D=vodlist;C=key
-		if C==L:return D
-		else:E=[D for D in D if B.time_diff1[C][0]<=B.str2sec(A(D[X]))<B.time_diff1[C][1]];return E
-	def find_bangumi_id(C,url):
-		B=A(url).strip().split(AA)[-1]
-		if not B:B=A(url).strip().split(AA)[-2]
-		B=B.split('?')[0];return B
-	def test_mirror_site(A):
-		B=['http://jm92swf.s1002.xrea.com','http://above-mentioned-ice.000webhostapp.com'];C=9;D=B[0]
-		for E in B:
-			try:G=Bg(E+CW,timeout=2)
-			except:continue
-			F=G.elapsed.total_seconds()
-			if F<C:C=F;D=E
-		A.mirror_site=D;A.pool.submit(A._checkUpdate,L)
-	def get_Login_qrcode(D,pg):
-		R='setting_login_';N='https://www.bilibili.com/favicon.ico';A={}
-		if F(pg)!=1:return A
-		G=[{Q:'setting_tab&filter',O:'标签与筛选',U:N},{Q:'setting_liveExtra',O:CX,U:N}];K='https://passport.bilibili.com/x/passport-login/web/qrcode/generate';S=D._get_sth(K,P);J=I.loads(S.text)
-		if J[M]==0:
-			id=J[E]['qrcode_key'];K=J[E][o];T={g:'主账号',AS:'副账号'};V={0:'未登录',1:'已登录'};W={0:B,1:'👑'};Y=D.userConfig.get(c,{})
-			for(Z,a)in T.items():
-				C=Y.get(Z)
-				if C:G.append({Q:R+id,O:C[A8],U:D.format_img(C[A7]),X:W[C[Bs]]+a+AL+V[C[Br]]})
-			L={'qrcode':'https://passport.bilibili.com/h5-app/passport/login/scan?qrcode_key='+id+'&navhide=1'}
-			if not AF.startswith('/data/'):L['qr_chs']='208x117'
-			G.append({Q:R+id,O:'有效期3分钟，确认后点这里',U:D.mirror_site+'/?'+CM(L)})
-		A[H]=G;A[h]=1;A[t]=1;A[u]=1;A[p]=1;return A
-	time_diff1={T:[0,300],A0:[300,900],AQ:[900,1800],AV:[1800,3600],'5':[3600,0x4ee2d6d415b85acef80ffffffff]};time_diff=L;dynamic_offset=B
-	def get_dynamic(C,pg,mid,order):
-		if mid==L:
-			D={}
-			if F(pg)==1:C.dynamic_offset=B
-			S='https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/all?timezone_offset=-480&type=video&offset=%s&page=%s'%(C.dynamic_offset,pg);T=C._get_sth(S);K=I.loads(T.text)
-			if K[M]==0:
-				C.dynamic_offset=K[E].get(CY);P=[];V=K[E][BJ]
-				for N in V:
-					if not N['visible']:continue
-					W=N[BK][Bu][J];G=N[BK]['module_dynamic']['major'][BM];Y=A(G[a]).strip();Z=G[R].strip().replace(k,B).replace(l,B);b=G[i].strip();c=A(C.second_to_time(C.str2sec(G['duration_text']))).strip()+Ag+A(W).strip();P.append({Q:v+Y,O:Z,U:C.format_img(b),X:c})
-				D[H]=P;D[h]=pg;D[t]=9999;D[u]=99;D[p]=999999
-			return D
-		else:return C.get_up_videos(mid=mid,pg=pg,order=order)
-	def get_found_vod(D,vod):
-		C=vod;E=C.get(a,B)
-		if not E:E=C.get(m,B)
-		F=C.get('goto',B)
-		if not F or F and F==v:E=v+A(E).strip()
-		elif F=='ad':return[]
-		M=C[R].strip();N=C[Ax].strip();P=C.get('is_followed')
-		if F==AW:
-			K=C['room_info'];H=B;S=K.get(CZ,B)
-			if S:H='直播中  '
-			else:return[]
-			H+='👁'+K[Ca][Cb]+Ag+C[AX][J].strip()
-		else:
-			I=C.get('rcmd_reason',B)
-			if I and type(I)==A2 and I.get(BN):
-				G='  🔥'+I[BN].strip()
-				if'人气飙升'in G:G='  🔥人气飙升'
-			elif P:G='  已关注'
-			else:G=Ag+C[AX][J].strip()
-			H=A(D.second_to_time(C[d])).strip()+BO+D.zh(C[BP][Ay])+G
-		L=[{Q:E,O:M,U:D.format_img(N),X:H}]
-		for T in D.pool.map(D.get_found_vod,C.get('others',[])):L.extend(T)
-		return L
-	_popSeriesInit=0
-	def get_found(B,tid,rid,pg):
-		J=pg;G=tid;K={}
-		if G==AR:T=B.encrypt_wbi(fresh_type=4,feed_version='V3',brush=1,fresh_idx=J,fresh_idx_1h=J,ps=B.userConfig[Y]);C=f"https://api.bilibili.com/x/web-interface/wbi/index/top/feed/rcmd?{T}"
-		else:
-			C='https://api.bilibili.com/x/web-interface/ranking/v2?rid={0}&type={1}'.format(rid,G)
-			if G==A3:C='https://api.bilibili.com/x/web-interface/popular?pn={0}&ps={1}'.format(J,B.userConfig[Y])
-			elif G=='入站必刷':C='https://api.bilibili.com/x/web-interface/popular/precious'
-			elif G==Bp:
-				if not B._popSeriesInit or F(J)==1:C='https://api.bilibili.com/x/web-interface/popular/series/list';Q=B._get_sth(C,P);L=I.loads(Q.text);N=B._popSeriesInit=L[E][H][0]['number'];B._popSeriesNum=[F(N),1]
-				else:N=B._popSeriesNum[0]
-				C='https://api.bilibili.com/x/web-interface/popular/series/one?number='+A(N)
-		Q=B._get_sth(C);L=I.loads(Q.text)
-		if L[M]==0:
-			S=[];D=L[E].get('item')
-			if not D:D=L[E][H]
-			if V(D)>B.userConfig[Y]:
-				if G==Bp:
-					O=F(B._popSeriesNum[1]);R=V(D)/B.userConfig[Y]-O
-					if R>0:R+=1
-					if not F(R):B._popSeriesNum=[F(N)-1,1]
-					else:B._popSeriesNum[1]=O+1
-				else:O=J
-				D=B.pagination(D,O)
-			for U in B.pool.map(B.get_found_vod,D):S.extend(U)
-			K[H]=S;K[h]=J;K[t]=9999;K[u]=99;K[p]=999999
-		return K
-	def get_bangumi(D,tid,pg,order,season_status):
-		a='first_ep';Z='first_ep_info';W=order;G=tid;J={}
-		if W=='追番剧':K='https://api.bilibili.com/x/space/bangumi/follow/list?type={0}&vmid={1}&pn={2}&ps={3}'.format(G,D.userid,pg,D.userConfig[Y]);b=D._get_sth(K)
-		else:
-			K='https://api.bilibili.com/pgc/season/index/result?type=1&season_type={0}&page={1}&order={2}&season_status={3}&pagesize={4}'.format(G,pg,W,season_status,D.userConfig[Y])
-			if W==A3:
-				if G==T:K='https://api.bilibili.com/pgc/web/rank/list?season_type={0}&day=3'.format(G)
-				else:K='https://api.bilibili.com/pgc/season/rank/web/list?season_type={0}&day=3'.format(G)
-			b=D._get_sth(K,P)
-		S=I.loads(b.text)
-		if S[M]==0:
-			if E in S:L=S[E][H]
-			else:L=S[AM][H]
-			if V(L)>D.userConfig[Y]:L=D.pagination(L,pg)
-			c=[]
-			for C in L:
-				e=A(C[AY]).strip();f=C[R];N=C.get('ss_horizontal_cover')
-				if not N or G==T and not D.userConfig[CR]:
-					if C.get(Z)and i in C[Z]:N=C[Z][i]
-					elif C.get(a)and i in C[a]:N=C[a][i]
-					else:N=C[i].strip()
-				F=C.get(Az,B)
-				if not F and C.get(A_)and C[A_].get(Az):F=C[A_][Az]
-				F=F.replace('更新至','🆕');d=C.get(BP)
-				if d:F='▶'+D.zh(d.get(Ay))+'  '+F
-				c.append({Q:q+e,O:f,U:D.format_img(N),X:F})
-			J[H]=c;J[h]=pg;J[t]=9999;J[u]=90;J[p]=999999
-		return J
-	def get_timeline(E,tid,pg):
-		a='pub_index';Z='ep_cover';D={};b='https://api.bilibili.com/pgc/web/timeline/v2?season_type={0}&day_before=2&day_after=4'.format(tid);c=E._get_sth(b,P);d=c.text;F=I.loads(d)
-		if F[M]==0:
-			T=[];G=F[AM]['latest']
-			for C in G:J=A(C[AY]).strip();K=C[R].strip();N=C[Z].strip();S='🆕'+C[a]+'  ❤ '+C['follows'].replace('系列',B).replace('追番',B);T.append({Q:q+J,O:K,U:E.format_img(N),X:S})
-			W=[];Y=F[AM]['timeline']
-			for e in range(V(Y)):
-				G=Y[e][BQ]
-				for C in G:
-					if A(C['published'])==L:J=A(C[AY]).strip();K=A(C[R]).strip();N=A(C[Z]).strip();f=A(x.strftime('%m-%d %H:%M',x.localtime(C['pub_ts'])));S=f+'   '+C[a];W.append({Q:q+J,O:K,U:E.format_img(N),X:S})
-			D[H]=W+T;D[h]=1;D[t]=1;D[u]=90;D[p]=999999
-		return D
-	def get_live(G,pg,parent_area_id,area_id):
-		V='recommend_room_list';K=parent_area_id;D={}
-		if K==AR:J='https://api.live.bilibili.com/xlive/web-interface/v1/webMain/getList?platform=web&page=%s'%pg;N=G._get_sth(J)
-		else:
-			J='https://api.live.bilibili.com/xlive/web-interface/v1/second/getList?platform=web&parent_area_id=%s&area_id=%s&sort_type=online&page=%s'%(K,area_id,pg)
-			if K==A3:J='https://api.live.bilibili.com/room/v1/room/get_user_recommend?page=%s&page_size=%s'%(pg,G.userConfig[Y])
-			N=G._get_sth(J,P)
-		S=I.loads(N.text)
-		if S[M]==0:
-			T=[];C=S[E]
-			if V in C:C=C[V]
-			elif H in C:C=C[H]
-			for F in C:
-				W=A(F[Cc]).strip();Z=F[R].replace(k,B).replace(l,B).replace(AJ,AK);L=F.get(Cd)
-				if not L:L=F.get(i)
-				a='👁'+F[Ca][Cb].strip()+Ag+F[A8].strip();T.append({Q:W,O:Z,U:G.format_img(L),X:a})
-			D[H]=T;D[h]=pg;D[t]=9999;D[u]=99;D[p]=999999
-		return D
-	get_up_videos_result={}
-	def get_up_videos(C,mid,pg,order):
-		S=order;L=pg;D=mid;G={}
-		if not D.isdigit():
-			if F(L)==1:
-				C.get_up_videos_mid=D=C.detailContent_args.get(W,B)
-				if not D in C.get_up_videos_result:C.get_up_videos_result.clear();C.get_up_videos_result[D]=[]
-			else:D=C.get_up_videos_mid
-		if F(L)==1:C.get_up_info_event.clear();C.pool.submit(C.get_up_info,D)
-		T=V=B
-		if S==Ce:V=S;S=Ah
-		elif S==Cf:
-			T='投稿: ';K=C.get_up_videos_result.get(D,[])
-			if K:G[H]=K;return G
-		Z=L
-		if V:C.get_up_info_event.wait();Z=C.up_info[D][Bv]-F(L)+1
-		e=C.encrypt_wbi(mid=D,pn=Z,ps=C.userConfig[Y],order=S);f=f"https://api.bilibili.com/x/space/wbi/arc/search?{e}";g=C._get_sth(f,P);i=g.text;b=I.loads(i);K=[]
-		if b[M]==0:
-			j=b[E][H]['vlist']
-			for N in j:
-				m=A(N[a]).strip();n=N[R].strip().replace(k,B).replace(l,B);o=N[Ax].strip();c=C.second_to_time(C.str2sec(A(N['length']).strip()))+BO+C.zh(N[Bw])
-				if not T:c+=Bx+C.zh(N['video_review'])
-				K.append({Q:v+m,O:T+n,U:C.format_img(o),X:c})
-			if V:K.reverse()
-			if F(L)==1:
-				C.get_up_info_event.wait();d=C.up_info[D][J]+Cg
-				if T:d='UP: '+C.up_info[D][J]
-				q={Q:AZ+A(D),O:d,U:C.format_img(C.up_info[D][A7]),X:C.up_info[D][Ai]+'  👥'+C.up_info[D][Aj]+'  🎬'+A(C.up_info[D][BR])};K.insert(0,q)
-			if T:C.get_up_videos_result[D]=K
-			G[H]=K;G[h]=L;G[t]=99;G[u]=99;G[p]=999999
-		return G
-	history_view_at=0
-	def get_history(D,type,pg):
-		W='progress';G={}
-		if F(pg)==1:D.history_view_at=0
-		Z='https://api.bilibili.com/x/web-interface/history/cursor?ps={0}&view_at={1}&type={2}'.format(D.userConfig[Y],D.history_view_at,type)
-		if type==BS:Z='https://api.bilibili.com/x/v2/history/toview'
-		e=D._get_sth(Z);T=I.loads(e.text)
-		if T[M]==0:
-			b=[];V=T[E].get(H,[])
-			if type==BS:V=D.pagination(V,pg)
-			else:D.history_view_at=T[E]['cursor']['view_at']
-			for C in V:
-				J=C.get('history',B)
-				if J:K=J['business'];N=A(J['oid']).strip();c=C[i].strip();S=A(J[By]).strip()
-				else:K=BM;N=A(C[a]).strip();c=C[Ax].strip();S=A(C[h][By]).strip()
-				if K=='article':continue
-				elif K=='pgc':N=z+A(J['epid']);d=C[p];S=C.get('show_title')
-				elif K==BM:N=v+N;d=C[Ch]
-				f=C[R].replace(k,B).replace(l,B).replace(AJ,AK)
-				if K==AW:g=C.get('badge',B);P=g+Ag+C['author_name'].strip()
-				else:
-					if A(C[W])=='-1':P='已看完'
-					elif A(C[W])==L:P='刚开始看'
-					else:j=A(D.second_to_time(C[W])).strip();P='看到  '+j
-					if not d in[0,1]and S:P+=' ('+A(S)+')'
-				b.append({Q:N,O:f,U:D.format_img(c),X:P})
-			G[H]=b;G[h]=pg;G[t]=9999;G[u]=90;G[p]=999999
-		return G
-	def get_fav_detail(F,pg,mlid,order):
-		K='cnt_info';D={};L='https://api.bilibili.com/x/v3/fav/resource/list?media_id=%s&order=%s&pn=%s&ps=10&platform=web&type=0'%(mlid,order,pg);N=F._get_sth(L);P=N.text;G=I.loads(P)
-		if G[M]==0:
-			J=[];S=G[E].get('medias',[])
-			for C in S:
-				if C.get(r)in[2]and C.get(R)!='已失效视频':T=A(C[m]).strip();V=C[R].replace(k,B).replace(l,B).replace(AJ,AK);W=C[i].strip();Y=A(F.second_to_time(C[d])).strip()+BO+F.zh(C[K][Bw])+Ci+F.zh(C[K][BT]);J.append({Q:v+T+'_mlid'+A(mlid),O:V,U:F.format_img(W),X:Y})
-			D[H]=J;D[h]=pg;D[t]=9999;D[u]=99;D[p]=999999
-		return D
-	get_up_info_event=j.Event();up_info={}
-	def get_up_info(D,mid,**P):
-		O='Official';K=mid
-		if K in D.up_info:D.get_up_info_event.set()
-		G=P.get(E)
-		if not G:
-			Q='https://api.bilibili.com/x/web-interface/card?mid={0}'.format(K);S=D._get_sth(Q);L=I.loads(S.text)
-			if L[M]==0:G=L[E]
-			else:D.get_up_info_event.set();return
-		H=G['card'];C={};C[Ai]='未关注'
-		if G[Ai]:C[Ai]='已关注'
-		C[J]=H[J].replace(k,B).replace(l,B);C[A7]=H[A7];C[Aj]=D.zh(H[Aj]);C[Bz]=D.zh(G[Bz]);C[BR]=A(G['archive_count']).strip();C[Aa]=H[O][Aa]+Ab+H[O][R];N=divmod(F(C[BR]),D.userConfig[Y]);C[Bv]=N[0]
-		if N[1]!=0:C[Bv]+=1
-		D.up_info[K]=C;D.get_up_info_event.set()
-	def get_vod_relation(H,id):
-		if id.isdigit():F='aid='+A(id)
-		elif'='in id:F=id
-		else:F='bvid='+id
-		J='https://api.bilibili.com/x/web-interface/archive/relation?'+F;K=H._get_sth(J);B=I.loads(K.text);C=[]
-		if B[M]==0:
-			B=B[E]
-			if B[Cj]:C.append('已关注')
-			else:C.append('未关注')
-			D=[]
-			if B[Ck]:D.append('⭐')
-			if B[B0]:D.append('👍')
-			G=B.get(B_)
-			if G:D.append('💰'*G)
-			if V(D)==3:C.append('👍💰⭐')
-			else:C.extend(D)
-			if B['dislike']:C.append('👎')
-			if B['season_fav']:C.append('已订阅合集')
-		return C
-	def get_channel(C,pg,cid,order):
-		R=order;N='uri';F={}
-		if A(pg)==T:C.channel_offset=B
-		if R==Cl:S='https://api.bilibili.com/x/web-interface/web/channel/featured/list?channel_id={0}&filter_type=0&offset={1}&page_size={2}'.format(cid,C.channel_offset,C.userConfig[Y])
-		else:S='https://api.bilibili.com/x/web-interface/web/channel/multiple/list?channel_id={0}&sort_type={1}&offset={2}&page_size={3}'.format(cid,R,C.channel_offset,C.userConfig[Y])
-		e=C._get_sth(S,P);L=I.loads(e.text)
-		if L.get(M)==0:
-			C.channel_offset=L[E].get(CY);V=[];G=L[E][H]
-			if pg==T and BJ in G[0]:f=G[0][BJ];del G[0];G=f+G
-			for D in G:
-				if N in D and C0 in D[N]:W=C.find_bangumi_id(D[N])
-				else:W=v+A(D[m]).strip()
-				g=D[J].replace(k,B).replace(l,B).replace(AJ,AK);j=D[i].strip();K='▶'+A(D['view_count']);Z=D.get(d,B)
-				if Z:K=A(C.second_to_time(C.str2sec(Z))).strip()+'  '+K
-				a=D.get(BT,B);b=D.get('like_count',B);c=D.get('follow_count',B)
-				if a:K+=Bx+C.zh(a)
-				elif b:K+='  👍'+A(b)
-				elif c:K+='  ❤'+A(c)
-				V.append({Q:W,O:g,U:C.format_img(j),X:K})
-			F[H]=V;F[h]=pg;F[t]=9999;F[u]=99;F[p]=999999
-		return F
-	def get_follow(G,pg,sort):
-		K=pg;D=sort;L={}
-		if D=='最常访问':N='https://api.bilibili.com/x/relation/followings?vmid={0}&pn={1}&ps=10&order=desc&order_type=attention'.format(G.userid,K)
-		elif D==C1:N='https://api.bilibili.com/x/relation/followings?vmid={0}&pn={1}&ps=10&order=desc&order_type='.format(G.userid,K)
-		elif D==B1:N='https://api.live.bilibili.com/xlive/web-ucenter/v1/xfetter/GetWebList?page={0}&page_size=10'.format(K)
-		elif D==BU:N='https://api.bilibili.com/x/v2/history?pn={0}&ps=15'.format(K)
-		elif D==B2:N='https://api.bilibili.com/x/relation/tag?mid={0}&tagid=-10&pn={1}&ps=10'.format(G.userid,K)
-		elif D==C2:N='https://api.bilibili.com/x/relation/whispers?pn={0}&ps=10'.format(K)
-		else:N='https://api.bilibili.com/x/relation/followers?vmid={0}&pn={1}&ps=10&order=desc&order_type=attention'.format(G.userid,K)
-		b=G._get_sth(N);S=I.loads(b.text)
-		if S[M]!=0:return L
-		if D==B2 or D==BU:T=S[E]
-		elif D==B1:T=S[E]['rooms']
-		else:T=S[E][H]
-		if F(K)==1:G.recently_up_list=[]
-		a=[]
-		for C in T:
-			V=B
-			if D==BU:
-				P=AZ+A(C[AX][W])
-				if P in G.recently_up_list:continue
-				G.recently_up_list.append(P);Y=A(C[AX][J]).strip();Z=A(C[AX][A7]).strip()
-			elif D==B1:P=A(C[Cm]);Y=C[R].replace(k,B).replace(l,B).replace(AJ,AK);Z=C['cover_from_user'].strip();V=C[A8].strip()
-			else:P=AZ+A(C[W]);Y=A(C[A8]).strip();Z=A(C[A7]).strip()
-			if C3 in C and C[C3]==1:V=B2
-			a.append({Q:P,O:Y,U:G.format_img(Z),X:V})
-		L[H]=a;L[h]=K;L[t]=9999;L[u]=99;L[p]=999999;return L
-	homeVideoContent_result={}
-	def homeVideoContent(A):
-		if not A.homeVideoContent_result:B=A.get_found(rid=L,tid=C4,pg=1)[H][0:F(A.userConfig[Bk])];A.homeVideoContent_result[H]=B
-		return A.homeVideoContent_result
-	def categoryContent(H,tid,pg,filter,extend):
-		J=pg;E=tid;D=extend;H.stop_heartbeat_event.set()
-		if E==AR:
-			if A1 in D:E=D[A1]
-			if E.isdigit():
-				E=F(E)
-				if E>10000:E-=10000;return H.get_timeline(tid=E,pg=J)
-				R=E;E=C4;return H.get_found(tid=E,rid=R,pg=J)
-			R=L;return H.get_found(tid=E,rid=R,pg=J)
-		elif E==Ad:
-			E=T;I=A3;U='-1'
-			if A1 in D:E=D[A1]
-			if b in D:I=D[b]
-			if C5 in D:
-				if I==A3:I=A0
-				U=D[C5]
-			return H.get_bangumi(E,J,I,U)
-		elif E==AI:
-			M=L;I=Ah
-			if W in D:M=D[W]
-			if b in D:I=D[b]
-			if M==L and not H.userid or M=='登录':return H.get_Login_qrcode(J)
-			return H.get_dynamic(pg=J,mid=M,order=I)
-		elif E==As:
-			I='hot';P=random.choice(H.userConfig[Av]);P=P[C]
-			if b in D:I=D[b]
-			if n in D:P=D[n]
-			return H.get_channel(pg=J,cid=P,order=I)
-		elif E==AH:
-			E=A3;X=L
-			if A1 in D:E=D[A1]
-			if K in E:a=E.split(K);E=a[0];X=a[1]
-			return H.get_live(pg=J,parent_area_id=E,area_id=X)
-		elif E==A6:
-			M=H.detailContent_args.get(W,B)
-			if W in D:M=D[W]
-			if not M or M=='登录':return H.get_Login_qrcode(J)
-			c=H.config[Z].get(A6)
-			if not M and c:
-				for N in c:
-					if N[S]==W:
-						if V(N[G])>1:M=N[G][1][C]
-						break
-			I=Ah
-			if b in D:I=D[b]
-			return H.get_up_videos(mid=M,pg=J,order=I)
-		elif E==BE:
-			e='最常访问'
-			if C6 in D:e=D[C6]
-			return H.get_follow(J,e)
-		elif E==Ae:
-			O=A(H.userConfig[Bl])
-			if Af in D:O=D[Af]
-			f=H.config[Z].get(Ae)
-			if O in[T,A0]:return H.get_bangumi(tid=O,pg=J,order='追番剧',season_status=B)
-			elif O==L and f:
-				for N in f:
-					if N[S]==Af:
-						if V(N[G])>1:O=N[G][2][C]
-						break
-			I='mtime'
-			if b in D:I=D[b]
-			return H.get_fav_detail(pg=J,mlid=O,order=I)
-		elif E==BF:
-			type=C4
-			if r in D:type=D[r]
-			if type==BL:return H.get_follow(pg=J,sort=BU)
-			return H.get_history(type=type,pg=J)
-		else:
-			g=L
-			if d in D:g=D[d]
-			type=AB
-			if r in D:type=D[r]
-			I=Cn
-			if b in D:I=D[b]
-			Q=A(H.search_key);h=H.config[Z].get(BG)
-			if not Q and h:
-				for N in h:
-					if N[S]==Aw:
-						if V(N[G])>0:Q=N[G][0][C]
-						break
-			if Aw in D:Q=D[Aw]
-			return H.get_search_content(key=Q,pg=J,duration_diff=g,order=I,type=type,ps=H.userConfig[Y])
-	def get_search_content(D,key,pg,duration_diff,order,type,ps):
-		K=pg;S=AU
-		if not K.isdigit():S=K;K=1
-		b=D.encrypt_wbi(keyword=key,page=K,duration=duration_diff,order=order,search_type=type,page_size=ps);c=f"https://api.bilibili.com/x/web-interface/wbi/search/type?{b}";e=D._get_sth(c,P);f=e.text;V=I.loads(f);F={}
-		if V.get(M)==0 and AM in V[E]:
-			Y=[];L=V[E].get(AM)
-			if L and type==AW:L=L.get('live_room')
-			if not L:return F
-			for C in L:
-				J=B
-				if type==C7:G=AZ+A(C[W]).strip();T=C['upic'].strip();N='👥'+D.zh(C[Aj])+'  🎬'+D.zh(C[Ch]);J=C[A8]
-				elif type==AW:G=A(C[Cc]).strip();T=C[i].strip();N='👁'+D.zh(C['online'])+Ag+C[A8]
-				elif'media'in type:
-					G=A(C[AY]).strip()
-					if D.detailContent_args:
-						g=D.detailContent_args.get(B3)
-						if g:
-							Z=[]
-							for j in D.detailContent_args[B3]:Z.append(j[Q])
-							if G+q in Z:continue
-					G=q+G;T=C[i].strip();N=A(C[Az]).strip().replace('更新至','🆕')
-				else:
-					G=v+A(C[a]).strip();T=C[Ax].strip();N=A(D.second_to_time(D.str2sec(C[d]))).strip()+BO+D.zh(C[Bw])
-					if S==AU:N+=Bx+D.zh(C[BT])
-				if not J:J=C[R].replace(k,B).replace(l,B).replace(AJ,AK).replace('&amp;','&')
-				if S:J=S+J
-				Y.append({Q:G,O:J,U:D.format_img(T),X:N})
-			F[H]=Y;F[h]=K;F[t]=9999;F[u]=99;F[p]=999999
-		return F
-	def cleanSpace(A,str):return str.replace('\n',B).replace('\t',B).replace('\r',B).replace(AL,B)
-	def get_normal_episodes(C,episode):
-		G=episode;L=H=B;M=G.get(a,B)
-		if not M:M=C.detailContent_args[a]
-		U=G.get(n,B);J=G.get(R,B)
-		if not J:J=G.get(By,B)
-		E=G.get(d,B)
-		if not E:
-			V=G.get(h,B)
-			if V:E=V[d]
-		D=I=W=Q=B;L=C.detailContent_args.get(B4,B)
-		if L:
-			L='_ss'+L;H=G.get(m,B)
-			if H:H='_ep'+A(H)
-			if E and A(E).endswith(C8):E=F(E/1000)
-			if J.isdigit():J='第'+J+C.detailContent_args[C9]
-			D=G.get('badge',B)
-			if not C.session_vip.cookies and D=='会员'and C.userConfig[CS]or D=='付费'and C.userConfig[CT]:Q='_parse'
-			if C.session_vip.cookies and C.userConfig[CQ]:D=D.replace('会员',B)
-			if C.userConfig[CP]and D=='预告':D=D.replace('预告',B);W=1
-			if D:D='【'+D+'】'
-			I=G.get('long_title',B)
-			if not D and I:I=AL+I
-		S=J+D+I;S=S.replace(N,AC).replace(w,AD)
-		if E:E='_dur'+A(E)
-		O='{0}${1}_{2}{3}{4}{5}'.format(S,M,U,L,H,E);P=C.detailContent_args.get(B5,B)
-		if K+A(P)==H:C.detailContent_args[B5]=O
-		X=C.detailContent_args.get(Ak)
-		if K+A(P)==H or not P and X==AU:
-			C.detailContent_args[Ak]=B
-			if C.userConfig[Aq]:C.get_vod_hot_reply_event.clear();C.pool.submit(C.get_vod_hot_reply,M)
-		if L:
-			if W:return O,B
-			if Q:
-				C.detailContent_args[Al]=1
-				if I:I='【解析】'+I
-				J+=I;T='{0}${1}_{2}{3}{4}{5}{6}'.format(J,M,U,L,H,E,Q)
-				if K+A(P)==H:C.detailContent_args[B5]+=N+T
-			else:T=O
-			return O,T
-		else:return O
-	def get_ugc_season(B,section,sections_len):
-		C=section
-		if sections_len>1:A=B.detailContent_args[Am]+AL+C[R]
-		else:A=B.detailContent_args[Am]
-		A=A.replace(N,AC).replace(w,AD);D=C.get(BQ);E=N.join(f(B.get_normal_episodes,D));F=A,E;return F
-	get_vod_hot_reply_event=j.Event()
-	def get_vod_hot_reply(G,oid):
-		b='member';c='http://api.bilibili.com/x/v2/reply/main?type=1&ps=30&oid='+A(oid);d=G._get_sth(c,P);L=I.loads(d.text)
-		if L[M]==0:
-			H=L[E].get('replies');Y=L[E].get('top_replies')
-			if H and Y:H=Y+H
-			if H:
-				e=L[E]['upper'][W];T=[];U=[]
-				for D in H:
-					f=D['rpid'];J=D[b]['sex']
-					if J and J=='女':J='👧'
-					else:J='👦'
-					V=J+D[b][A8]+'：';g=D[W]
-					if g==e:V='🆙'+V
-					h='👍'+G.zh(D[B0]);Z=D[BN][Co]
-					if'/note-app/'in Z:continue
-					F=h+AL+V+Z;F=F.replace(N,AC).replace(w,AD);F+=w+A(oid)+K+A(f)+'_notplay_reply';T.append(F);i=D[BN].get('jump_url',{})
-					for(C,X)in i.items():
-						if not X.get('app_url_schema')and not X.get('pc_url'):
-							if C.startswith('https://www.bilibili.com/'):
-								C=A(C).split('?')[0].split(AA)
-								while C[-1]==B:C.pop(-1)
-								C=C[-1]
-							if C.startswith(Cp)or C.startswith(BV)or C.startswith(z)or C.startswith(q):
-								S=A(X[R]).replace(N,AC).replace(w,AD);a={Q:A(C),O:'评论：'+S}
-								if not a in U:U.append(a)
-								S='快搜：'+A(C)+AL+S;F=S+BW;T.append(F)
-				G.detailContent_args[Ak]=N.join(T);G.detailContent_args[Cq]=U
-		G.get_vod_hot_reply_event.set()
-	detailContent_args={}
-	def detailContent(G,array):
-		c=array;G.stop_heartbeat_event.set();L=c[0]
-		if L.startswith(BX):return G.interaction_detailContent(L)
-		G.detailContent_args={}
-		if L.startswith(Cp):
-			try:
-				A8=Bg(url=L,headers=G.header,allow_redirects=False);f=A8.headers['Location'].split('?')[0].split(AA)
-				while f[-1]==B:f.pop(-1)
-				L=f[-1]
-				if not L.startswith(BV,0,2):return{}
-			except:return{}
-		id=t=j=B;G.get_vod_hot_reply_event.set()
-		if L.startswith(Cr):
-			L=L.split(K)
-			if L[1]=='tab&filter':return G.setting_tab_filter_detailContent()
-			elif L[1]=='liveExtra':return G.setting_liveExtra_detailContent()
-			elif L[1]=='login':A9=L[2];return G.setting_login_detailContent(A9)
-		elif L.startswith(v)or L.startswith(BV):
-			for T in L.split(K):
-				if T.startswith(v):id=T.replace(v,B,1);j='aid='+A(id)
-				elif T.startswith(BV):id=T;j='bvid='+id
-				elif T.startswith(Af):t=T.replace(Af,B,1)
-			if G.userConfig[Aq]:G.detailContent_args[Ak]=B;G.get_vod_hot_reply_event.clear();G.pool.submit(G.get_vod_hot_reply,id)
-		elif AZ in L:return G.up_detailContent(c)
-		elif q in L or z in L:return G.ysContent(c)
-		elif L.isdigit():return G.live_detailContent(c)
-		AB=G.pool.submit(G.get_vod_relation,j);f='https://api.bilibili.com/x/web-interface/view/detail?'+j;AE=G._get_sth(f,P);m=I.loads(AE.text)
-		if m[M]!=0:return{}
-		S=m[E]['View'];A0=S.get(BY,B)
-		if C0 in A0:
-			AF=G.find_bangumi_id(A0);u=[]
-			for T in c:u.append(T)
-			u[0]=AF;return G.ysContent(u)
-		G.detailContent_args[W]=A1=A(S[AX][W]);G.detailContent_args[a]=L=S.get(a);G.pool.submit(G.get_up_info,mid=A1,data=m[E].get('Card'));n=S.get('ugc_season')
-		if n:
-			G.detailContent_args[Am]=n[R];A2=n['sections'];AG=V(A2);A3=[]
-			for AH in A2:o=G.pool.submit(G.get_ugc_season,AH,AG);A3.append(o)
-		A4=m[E].get('Related');A5=S['pages'];AI=S[R].replace(k,B).replace(l,B);AJ=S[Ax];AK=S[AX][J];AL=S[Aa].strip();AM=S['tname'];AP=x.strftime('%Y%m%d',x.localtime(S[Ah]));g=S[BP];Z=[];Z.append('▶'+G.zh(g[Ay]));Z.append('💬'+G.zh(g[BT]));Z.append('👍'+G.zh(g[B0]));h=S.get('honor_reply')
-		if h:Z.insert(0,'🏅'+h['honor'][0][Aa])
-		if not h or h and h['honor'][0][r]==4:Z.append('💰'+G.zh(g[B_]));Z.append('⭐'+G.zh(g[Ck]))
-		AQ=A(S[d]).strip();An=S[d];A6=S['rights'].get('is_stein_gate',0);i={Q:v+A(L),O:AI,U:AJ,BH:AM,CA:AP,CB:Cs,X:AQ,BZ:Ab.join(Z),Ac:AL};y=[]
-		if G.userid:
-			AR=Ct;AS=Cu;AT='👍点赞$1_notplay_like';AU='👍🏻取消点赞$2_notplay_like';AV='👍💰投币$1_notplay_coin';AW='👍💰💰投2币$2_notplay_coin';AY='👍💰⭐三连$notplay_triple';p=[AR,AY,AT,AV,AW,AS,AU]
-			if t:Ad=f"☆取消收藏${t}_del_notplay_fav";p.append(Ad)
-			for s in G.userConfig.get(CV,[]):Ae=s[D].replace(N,AC).replace(w,AD);Ag=s[C];s='⭐{}${}_add_notplay_fav'.format(Ae,Ag);p.append(s)
-			Ai=F(G.userConfig[Ao])
-			if Ai>116:p.append('⚠️限高1080$116_notplay_vodTMPQn')
-			y=[N.join(p)]
-		Y=[];b=[]
-		if A5:
-			Y=['B站']
-			if A6:Y=['互动视频【快搜继续】']
-			b=[N.join(G.pool.map(G.get_normal_episodes,A5))]
-		if y:Y.append('做点什么');b.extend(y)
-		if A4:Y.append('相关推荐');b.append(N.join(G.pool.map(G.get_normal_episodes,A4)))
-		if G.userConfig[Aq]:
-			G.get_vod_hot_reply_event.wait();A7=G.detailContent_args.get(Ak,B)
-			if A7:Y.append('热门评论');b.extend([A7])
-		if n:
-			for o in Bh(A3):Y.append(o.result()[0]);b.append(o.result()[1])
-		i[AN]=e.join(Y);i[AO]=e.join(b);i[CC]='🆙 '+AK+Cv+G.up_info[A1][Aj]+Ab+Ab.join(AB.result())
-		if A6:G.detailContent_args['AllPt']=Y.copy();G.detailContent_args['AllPu']=b.copy();G.detailContent_args[Cw]=i.copy()
-		Al={H:[i]};return Al
-	def interaction_detailContent(C,array=B):
-		F=array;F=F.split(K);V=G=0
-		for D in F:
-			if D.startswith(BX):G=D.replace(BX,B)
-			elif D.startswith(n):V=D.replace(n,B)
-		W=C.detailContent_args.get(a);c=C.detailContent_args.get(B6);J='https://api.bilibili.com/x/stein/edgeinfo_v2?aid={0}&graph_version={1}&edge_id={2}'.format(W,c,G);d=C._get_sth(J,P);f=I.loads(d.text);L=f.get(E);X={}
-		if L:
-			g=L['edges'].get('questions',[]);M=[]
-			for Y in g:
-				S=A(Y.get(R,B))
-				if S:S+=AL
-				for T in Y.get('choices',[]):h=A(T[m]);i=A(T[n]);j=A(T.get('option',B));M.append({Q:BX+h+K+n+i,O:'互动：'+S+j})
-			C.detailContent_args[CD]=M.copy()
-			if G:
-				Z=C.detailContent_args['AllPt'].copy()
-				if not M:Z[0]='互动视频'
-				b=C.detailContent_args['AllPu'].copy();k=A(L[R]).replace(N,AC).replace(w,AD);J='{0}${1}_{2}'.format(k,W,V);b[0]=J;U=C.detailContent_args[Cw].copy();U[AN]=e.join(Z);U[AO]=e.join(b);X[H]=[U]
-		return X
-	def up_detailContent(D,array):D.detailContent_args[W]=E=array[0].replace(AZ,B);D.get_up_info_event.clear();D.pool.submit(D.get_up_info,E);I=Cx;K='关注$1_notplay_follow';L='取消关注$2_notplay_follow';M='悄悄关注$3_notplay_follow';P='特别关注$-10_notplay_special_follow';R='取消特别关注$0_notplay_special_follow';F=[I,K,M,P,L,R];F=N.join(F);D.get_up_info_event.wait();C=D.up_info[E];G={Q:AZ+A(E),O:C[J]+Cg,U:C[A7],X:B,'vod_tags':'mv',BZ:'👥 '+C[Aj]+'\u3000🎬 '+C[BR]+'\u3000👍 '+C[Bz],CC:'🆙 '+C[J]+Ab+C[Ai]+Cy+A(E),Ac:C[Aa],AN:'关注TA$$$视频投稿在动态标签——筛选——上个UP，选择后查看'};G[AO]=F;S={H:[G]};return S
-	def setting_login_detailContent(E,key):
-		b='检查失败';M=key;G='f';D='d';C='c';c=E.cookie_dic_tmp.get(M,B);J=B
-		if not c:J=E.get_cookies(M)
-		if J:J=f"【{J}】通过手机客户端扫码确认登录后点击相应按钮设置账号"
-		else:J='【已扫码并确认登录】请点击相应按钮设置当前获取的账号为：'
-		R={O:'登录与设置',Ac:'通过手机客户端扫码并确认登录后，点击相应按钮设置cookie，设置后不需要管嗅探结果，直接返回二维码页面刷新，查看是否显示已登录，已登录即可重新打开APP以加载全部标签'};X=['登录$$$退出登录'];P=[];d=J+BW;f='设置为主账号，动态收藏关注等内容源于此$'+A(M)+'_master_login_setting';g='设置为备用的VIP账号，仅用于播放会员番剧$'+A(M)+'_vip_login_setting';P.append(N.join([d,f,g]));h='点击相应按钮退出账号>>>$ ';i='退出主账号$master_logout_setting';j='退出备用的VIP账号$vip_logout_setting';P.append(N.join([h,i,j]));Y=[{G:'主页站点推荐栏',C:Bk,D:{AQ:'3图',AV:'4图','6':'6图','8':'8图','10':'10图'}},{G:'视频画质',C:Ao,D:E.vod_qn_id},{G:'视频编码',C:Bm,D:E.vod_codec_id},{G:'音频码率',C:Ap,D:E.vod_audio_id},{G:'收藏默认显示',C:Bl,D:{L:'默认收藏夹',T:'追番',A0:'追剧'}},{G:'上传播放进度',C:BB,D:{L:'关','15':'开'}},{G:'直播筛选细化',C:Bn,D:{L:'关',T:'开'}}];S={G:'检查更新',C:CE};U=E.userConfig.get(AP,b);V=Z=0
-		if U!=b:U='远端：'+A(E.userConfig[AP][CF]);Z=1;V=E.userConfig[AP].get(Ba)
-		S[D]={A(Z):U}
-		if V:S[D][AL]=V
-		Y.insert(0,S)
-		for I in Y:
-			X.append(I[G])
-			if I[C]==CE:Q=E.userConfig[Bj]
-			else:Q=I[D][A(F(E.userConfig[I[C]]))]
-			if Ap==I[C]:Q=A(Q).replace(C8,'k')
-			a=['当前：'+Q+BW]
-			for(id,W)in I[D].items():
-				if Ap==I[C]:W=A(W).replace(C8,'k')
-				a.append(W+w+A(id)+K+I[C]+'_setting')
-			P.append(N.join(a))
-		R[AN]=e.join(X);R[AO]=e.join(P);k={H:[R]};return k
-	def setting_tab_filter_detailContent(I):
-		L={O:'标签与筛选',Ac:'依次点击各标签，同一标签第一次点击为添加，第二次删除，可以返回到二维码页后重进本页查看预览，最后点击保存，未选择的将追加到末尾，如果未保存就重启app，将丢失未保存的配置'};M=[];P=[];U=[{D:Ar,C:'标签'},{D:BC,C:'推荐[分区]'},{D:BD,C:'推荐[排行榜]'},{D:y,C:AH}]
-		for Q in U:
-			E=Q[D];M.append(Q[C]);F=I.userConfig.get(A(E)+AE,[]);R=B
-			if F:R='【未保存】'
-			else:F=I.userConfig.get(E,[])
-			if not F:F=I.defaultConfig.get(E)
-			if F and type(F[0])==A2:F=s(f(lambda x:x[D],F))
-			S=['当前: '+','.join(F)+BW,f"{R}点击这里保存$_{E}_save_setting",f"点击这里恢复默认并保存$_{E}_clear_setting"];J=I.defaultConfig[E].copy()
-			if E==Ar and not A6 in J:J.append(A6)
-			elif E==y:V=I.userConfig.get(A5,[]);J.extend(V.copy())
-			for G in J:
-				T=A(G)
-				if type(G)==A2:T=G[D]+An+G[C].replace(K,An);G=G[D]
-				S.append(f"{G}${T}_{E}_setting")
-			P.append(N.join(S))
-		L[AN]=e.join(M);L[AO]=e.join(P);W={H:[L]};return W
-	def setting_liveExtra_detailContent(I):
-		Q='_liveFilter_setting';F={O:CX,Ac:'点击想要添加的标签，同一标签第一次点击为添加，第二次删除，完成后在[标签与筛选]页继续操作，以添加到直播筛选分区列中'};J=['已添加'];R=I.userConfig.get(A5,[]);E=['点击相应标签(只)可以删除$ #清空$clear_liveFilter_setting']
-		for B in R:S=B[C];B=B[D];E.append(B+w+'del_'+B+K+S+Q)
-		E=[N.join(E)];T=I.userConfig.get(AT,{})
-		for(U,W)in T.items():
-			L=W[G][G]
-			if V(L)==1:continue
-			J.append(U);M=[]
-			for P in L:B=A(P[D]).replace(K,'-').replace(N,AC).replace(w,AD);id=A(P[C]).replace(K,An).replace(N,AC).replace(w,AD);M.append(B+'$add_'+B+K+id+Q)
-			E.append(N.join(M))
-		F[AN]=e.join(J);F[AO]=e.join(E);X={H:[F]};return X
-	def get_all_season(C,season):
-		B=season;D=A(B[AY]);E=B[Am]
-		if D==C.detailContent_args[B4]:C.detailContent_args[B7]=E
-		F=B[i];G=B[A_][Az];H={Q:D+q,O:'系列：'+E,U:C.format_img(F),X:G};return H
-	def get_bangumi_section(B,section):
-		A=section;C=A[R].replace(N,AC).replace(w,AD);D=A[r]
-		if D in[1,2]and V(A['episode_ids'])==0:E=A[BQ];F=N.join(f(lambda x:B.get_normal_episodes(x)[0],E));return C,F
-	def ysContent(C,array):
-		p='rating';E=array[0]
-		if z in E:C.detailContent_args[B5]=E;E='ep_id='+E.replace(z,B)
-		elif q in E:E='season_id='+E.replace(q,B)
-		t='https://api.bilibili.com/pgc/view/web/season?{0}'.format(E);u=C._get_sth(t,P);v=I.loads(u.text);D=v[AM];C.detailContent_args[B4]=A(D[AY]);w=D[R];C.detailContent_args[B7]=D[Am];C.detailContent_args[C9]='集'
-		if D[r]in[1,4]:C.detailContent_args[C9]='话'
-		M=D.get(B3)
-		if V(M)==1:C.detailContent_args[B7]=M[0][Am];M=0
-		else:C.detailContent_args[B3]=s(C.pool.map(C.get_all_season,M))
-		f=D.get(BQ);g=[]
-		for J in D.get('section',[]):
-			if J:b=C.pool.submit(C.get_bangumi_section,J);g.append(b)
-		x=D[i];y=D['share_sub_title'];A0=D['publish']['pub_time'][0:4];A1=D['evaluate'];A2=D[A_][Aa];S=D[BP];c='▶'+C.zh(S['views'])+Ci+C.zh(S['danmakus'])+'\u3000👍'+C.zh(S['likes'])+'\u3000💰'+C.zh(S['coins'])+'\u3000❤'+C.zh(S['favorites'])
-		if p in D:c=A(D[p]['score'])+'分\u3000'+c
-		d={Q:q+C.detailContent_args[B4],O:w,U:x,BH:y,CA:A0,CB:Cs,X:A2,BZ:c,Ac:A1};a=[];G=[]
-		if C.userid:
-			a=['做点什么'];G='是否追番剧$ #❤追番剧$add_notplay_zhui#💔取消追番剧$del_notplay_zhui';A3=F(C.userConfig[Ao])
-			if A3>116:G+='#⚠️限高1080$116_notplay_vodTMPQn'
-			G=[G]
-		if M:a.append('更多系列');G.append('更多系列在快速搜索中查看$ #')
-		h=[];T=[];j=[];W=[];k=[];L=[]
-		if f:
-			for(l,m)in C.pool.map(C.get_normal_episodes,f):
-				if m:T.append(l);L.append(m)
-				else:W.append(l)
-			if T:h=[C.detailContent_args[B7]];T=[N.join(T)]
-			if W:j=['预告'];W=[N.join(W)]
-			if not C.detailContent_args.get(Al):L=[]
-			if L:k=[A(C.detailContent_args[B7])+'【解析】'];L=[N.join(L)]
-		Y=k+h+j;Z=L+T+W
-		for b in Bh(g):
-			J=b.result()
-			if J:Y.append(J[0]);Z.append(J[1])
-		n=C.detailContent_args.get(B5,B)
-		if K in n:Y=['B站']+Y;Z=[n]+Z
-		if C.userConfig[Aq]:
-			C.get_vod_hot_reply_event.wait();o=C.detailContent_args.get(Ak,B)
-			if o:a.append('热门评论');G.append(o)
-		Y.insert(1,e.join(a));Z.insert(1,e.join(G));d[AN]=e.join(Y);d[AO]=e.join(Z);A4={H:[d]};return A4
-	def get_live_api2_playurl(O,room_id):
-		Q=room_id;D='qn';R=[];S=[];H='https://api.live.bilibili.com/xlive/web-room/v2/index/getRoomPlayInfo?room_id={0}&no_playurl=0&mask=1&qn=0&platform=web&protocol=0,1&format=0,1,2&codec=0,1&dolby=5&panorama=1'.format(Q);Z=O._get_sth(H,P);U=I.loads(Z.text)
-		if U[M]==0:
-			J=U[E].get(Cz,B)
-			if J:
-				a=J[CG][C_];C={Bb:{'avc':L,'hevc':T},Bc:{'flv':L,'ts':T,'fmp4':A0}};C[D]=A2(O.pool.map(lambda x:(x[D],x[Aa]),J[CG]['g_qn_desc']));V=[]
-				for b in a:V.extend(b[Bc])
-				F={}
-				for W in V:
-					format=A(W.get('format_name'))
-					for X in W[Bb]:
-						Y=A(X.get('codec_name'));c=X.get('accept_qn')
-						for G in c:
-							H=format+K+Y+'$liveapi2_'+A(G)+K+C[Bc][format]+K+C[Bb][Y]+K+A(Q)
-							if not F.get(C[D][G]):F[C[D][G]]=[]
-							F[C[D][G]].append(H)
-				for(d,e)in F.items():R.append(d);S.append(N.join(e))
-		f={'From':R,o:S};return f
-	def live_detailContent(C,array):
-		F=array[0];X=C.pool.submit(C.get_live_api2_playurl,F);c='https://api.live.bilibili.com/room/v1/Room/get_info?room_id='+A(F);d=C._get_sth(c,P);Y=I.loads(d.text);Z={}
-		if Y.get(M)==0:
-			D=Y[E];C.detailContent_args[W]=S=A(D['uid']);C.get_up_info_event.clear();C.pool.submit(C.get_up_info,S);f=D[R].replace(k,B).replace(l,B);g=D.get(Cd);h=D.get('description');i=D.get('parent_area_name')+'--'+D.get('area_name');G=D.get(CZ,B)
-			if G:G='开播时间：'+D.get('live_time').replace('-','.')
-			else:G='未开播'
-			K={Q:F,O:f,U:g,BH:i,CA:B,CB:'bililivedanmu',BZ:'房间号：'+F+Cy+S+Ab+G,Ac:h};T=B;a=B
-			if C.userid:T='关注Ta';j=Cx;m=Ct;n=Cu;p=[j,m,n];a=N.join(p)
-			L=X.result().get('From',[]);V=X.result().get(o,[])
-			if L:q='API_1';r='flv线路原画$platform=web&quality=4_'+F+'#flv线路高清$platform=web&quality=3_'+F+'#h5线路原画$platform=h5&quality=4_'+F+'#h5线路高清$platform=h5&quality=3_'+F;L.append(q);V.append(r)
-			if T:L.insert(1,T);V.insert(1,a)
-			K[AN]=e.join(L);K[AO]=e.join(V);C.get_up_info_event.wait();b=C.up_info[S];K[CC]='🆙 '+b[J]+Cv+C.zh(D.get(Cj))+Ab+b[Ai];Z[H]=[K]
-		return Z
-	search_key=B
-	def searchContent(A,key,quick):
-		F=quick
-		if not A.session_fake.cookies:A.pool.submit(A.getFakeCookie,AG)
-		for C in A.task_pool:C.cancel()
-		A.task_pool=[];A.search_key=key;E=A.detailContent_args.get(W,B)
-		if F and E:G=A.pool.submit(A.get_up_videos,E,1,Cf)
-		I={AB:B,D0:'番剧: ',D1:'影视: ',C7:'用户: ',AW:'直播: '}
-		for(type,J)in I.items():C=A.pool.submit(A.get_search_content,key=key,pg=J,duration_diff=0,order=B,type=type,ps=A.userConfig[Y]);A.task_pool.append(C)
-		D={H:[]}
-		for C in Bh(A.task_pool):K=C.result().get(H,[]);D[H].extend(K);A.task_pool.remove(C)
-		if F:
-			if E:D[H]=A.detailContent_args.get(CD,[])+G.result().get(H,[])+A.detailContent_args.get(Cq,[])+D[H]
-			else:D[H]=A.detailContent_args.get(B3,[])+D[H]
-		return D
-	stop_heartbeat_event=j.Event()
-	def start_heartbeat(C,aid,cid,ids):
-		N=aid;L=cid;M=O=S=B
-		for G in ids:
-			if q in G:O=G.replace(q,B)
-			elif z in G:S=G.replace(z,B)
-			elif CH in G:M=F(G.replace(CH,B))
-		H='https://api.bilibili.com/x/player/v2?aid={0}&cid={1}'.format(N,L);Q=C._get_sth(H);X=I.loads(Q.text);D=X.get(E,{});T=D.get(CD,{})
-		if T.get(B6):
-			U=T.get(B6);Y=C.detailContent_args.get(B6)
-			if Y!=U:C.detailContent_args[B6]=U;C.pool.submit(C.interaction_detailContent)
-		R=F(C.userConfig[BB])
-		if not C.userid or not R:return
-		if not M:H='https://api.bilibili.com/x/web-interface/view?aid={0}&cid={1}'.format(N,L);Q=C._get_sth(H,P);Z=I.loads(Q.text);M=Z[E][d]
-		J=0
-		if F(D.get('last_play_cid',0))==F(L):
-			V=F(D.get('last_play_time'))
-			if V>0:J=F(V/1000)
-		W=F((M-J)/R)+1;H='https://api.bilibili.com/x/click-interface/web/heartbeat';D={a:A(N),n:A(L),CI:A(C.csrf)}
-		if O:D['sid']=A(O);D['epid']=A(S);D[r]=AV
-		K=0;C.stop_heartbeat_event.clear()
-		while AG:
-			if K==R or C.stop_heartbeat_event.is_set():J+=K;K=0
-			if not K:
-				W-=1
-				if not W:J=-1;C.stop_heartbeat_event.set()
-				D['played_time']=A(J);C.pool.submit(C._post_sth,url=H,data=D)
-				if C.stop_heartbeat_event.is_set():break
-			x.sleep(1);K+=1
-	wbi_key={}
-	def get_wbiKey(A,wts):D='wbi_img';C=A.fetch(CU,headers=A.header);F=C.json()[E][D]['img_url'];G=C.json()[E][D]['sub_url'];H=[46,47,18,2,53,8,23,32,15,50,10,31,58,3,45,35,27,43,5,49,33,9,42,19,29,28,14,39,12,38,41,13,37,48,7,16,24,55,40,61,26,17,0,1,60,51,30,4,22,25,54,21,56,59,6,63,57,62,11,36,20,34,44,52];I=F.split(AA)[-1].split('.')[0]+G.split(AA)[-1].split('.')[0];J=reduce(lambda s,i:s+I[i],H,B);A.wbi_key={S:J[:32],CJ:wts}
-	def encrypt_wbi(D,**C):
-		E=Bi(x.time())
-		if not D.wbi_key or abs(D.wbi_key[CJ])<30:D.get_wbiKey(E)
-		C[CJ]=E;C=A2(sorted(C.items()));C={C:B.join(filter(lambda chr:chr not in"!'()*",A(D)))for(C,D)in C.items()};F=CM(C);return F+'&w_rid='+hashlib.md5((F+D.wbi_key[S]).encode(encoding=At)).hexdigest()
-	def _get_sth(A,url,_type=g):
-		D=_type;B=url
-		if D==AS and A.session_vip.cookies:C=A.session_vip.get(B,headers=A.header)
-		elif D==P:
-			if not A.session_fake.cookies:A.getFakeCookie_event.wait()
-			C=A.session_fake.get(B,headers=A.header)
-		else:C=A.session_master.get(B,headers=A.header)
-		return C
-	def _post_sth(A,url,data):return A.session_master.post(url,headers=A.header,data=data)
-	def post_live_history(B,room_id):C={Cm:A(room_id),'platform':'pc',CI:A(B.csrf)};D='https://api.live.bilibili.com/xlive/web-room/v1/index/roomEntryAction';B._post_sth(url=D,data=C)
-	def do_notplay(F,ids):
-		C=ids;G=F.detailContent_args.get(a);H=F.detailContent_args.get(W);I=F.detailContent_args.get(B4);D={CI:A(F.csrf)};E=B
-		if CK in C:F.detailContent_args[CK]=A(C[0]);return
-		elif'follow'in C:
-			if C3 in C:D.update({'fids':A(H),'tagids':A(C[0])});E='https://api.bilibili.com/x/relation/tags/addUsers'
-			else:D.update({'fid':A(H),'act':A(C[0])});E='https://api.bilibili.com/x/relation/modify'
-		elif'zhui'in C:D.update({AY:A(I)});E='https://api.bilibili.com/pgc/web/follow/'+A(C[0])
-		elif B0 in C:D.update({a:A(G),B0:A(C[0])});E='https://api.bilibili.com/x/web-interface/archive/like'
-		elif B_ in C:D.update({a:A(G),'multiply':A(C[0]),'select_like':T});E='https://api.bilibili.com/x/web-interface/coin/add'
-		elif'fav'in C:D.update({'rid':A(G),r:A0});D[C[1]+'_media_ids']=A(C[0]);E='https://api.bilibili.com/x/v3/fav/resource/deal'
-		elif'triple'in C:D.update({a:A(G)});E='https://api.bilibili.com/x/web-interface/archive/like/triple'
-		elif'reply'in C:D.update({'oid':A(C[0]),'rpid':A(C[1]),r:T,'action':T});E='http://api.bilibili.com/x/v2/reply/action'
-		F._post_sth(url=E,data=D)
-	def get_cid(D,video):
-		C=video;F='https://api.bilibili.com/x/web-interface/view?aid=%s'%A(C[a]);G=D._get_sth(F);H=I.loads(G.text);B=H[E];C[n]=B[n];C[d]=B[d]
-		if BY in B and C0 in B[BY]:C[z]=D.find_bangumi_id(B[BY])
-	cookie_dic_tmp={}
-	def get_cookies(A,key):
-		D='https://passport.bilibili.com/x/passport-login/web/qrcode/poll?qrcode_key='+key;F=A._get_sth(D,P);B=I.loads(F.text)
-		if B[M]==0:
-			C=B[E][Co]
-			if not C:A.cookie_dic_tmp[key]=A2(A.session_fake.cookies);A.pool.submit(A.getFakeCookie)
-			return C
-		return'网络错误'
-	def set_cookie(A,key,_type):
-		D=_type;C=key;F=A.cookie_dic_tmp.get(C,B)
-		if not F:
-			G=A.get_cookies(C)
-			if G:return
-		E=A.userConfig.get(c,{});E[D]={A4:A.cookie_dic_tmp.get(C,{})};A.userConfig.update({c:E});A.getCookie(D);A.dump_config()
-	def unset_cookie(A,_type):
-		C=_type
-		if C==AS:A.session_vip.cookies.clear()
-		else:A.session_master.cookies=A.session_fake.cookies;A.userid=A.csrf=B
-		if C in A.userConfig.get(c,{}):A.userConfig[c].pop(C);A.dump_config()
-	def set_normal_default(B,id,type):B.userConfig[type]=A(id);B.dump_config()
-	def set_normal_cateManual(B,name,_List,action):
-		H=action;F=name;E=_List;G=B.userConfig.get(A(E)+AE)
-		if not G:G=B.userConfig[A(E)+AE]=[]
-		if H=='save':
-			for I in B.defaultConfig[E]:
-				if not I in G.copy():B.userConfig[A(E)+AE].append(I)
-			B.userConfig[E]=B.userConfig[A(E)+AE].copy();B.userConfig.pop(E+AE);B.dump_config()
-		elif H=='clear':B.userConfig[E]=B.defaultConfig[E].copy();B.userConfig.pop(A(E)+AE);B.dump_config()
-		else:
-			if E==y:
-				F=F.split(An)
-				if V(F)==3:F[1]+=K+A(F[2])
-				F={D:F[0],C:A(F[1])}
-			if F in G:B.userConfig[A(E)+AE].remove(F)
-			else:B.userConfig[A(E)+AE].append(F)
-	def add_cateManualLiveExtra(A,action,name,id):
-		F='cateManualLive_tmp';G=A.userConfig.get(A5,[])
-		if not G:G=A.userConfig[A5]=[]
-		if action=='clear':
-			for E in G:
-				E[C]=E[C].replace(An,K)
-				if E in A.userConfig.get(y,[]):A.userConfig[y].remove(E)
-				if E in A.userConfig.get(F,[]):A.userConfig[F].remove(E)
-			A.userConfig.pop(A5)
-		elif id in s(f(lambda x:x[C],A.userConfig.get(A5,[]))):
-			B={D:name,C:id};A.userConfig[A5].remove(B);B[C]=id.replace(An,K)
-			if B in A.userConfig.get(y,[]):A.userConfig[y].remove(B)
-			if B in A.userConfig.get(F,[]):A.userConfig[F].remove(B)
-		else:B={D:name,C:id};A.userConfig[A5].append(B)
-		A.dump_config()
-	def _checkUpdate(A,action):
-		E={A9:A.header[A9]}
-		if F(action):
-			D=A.userConfig.get(AP)
-			if D and D[CF]!=A.userConfig[Bj]:
-				A.userConfig[AP][Ba]='正在更新';B=D[o];C=Bg(url=B,headers=E,timeout=(3,5))
-				if C.status_code==200:
-					H=B.split(AA)
-					with B9(f"{AF}/{H[-1]}",'w',encoding=At)as J:J.write(C.text)
-					A.userConfig[AP][Ba]='更新完成'
-				else:A.userConfig[AP][Ba]='更新失败'
-		else:
-			B=A.mirror_site+CW;C=A.fetch(B,headers=E);G=I.loads(C.text);K=G.get(CF)
-			if K:A.userConfig[AP]=G
-	vod_qn_id={'127':'8K','126':'杜比视界','125':'HDR','120':'4K','116':'1080P60帧','112':'1080P+','80':'1080P','64':'720P'};vod_codec_id={'7':'avc','12':'hevc','13':'av1'};vod_audio_id={'30280':D2,'30232':'132000','30216':'64000'}
-	def get_dash_media(I,video):
-		H='SegmentBase';B=video;C=A(B.get(m));D=B.get(D3);J=B.get('codecs');L=B.get('bandwidth');M=B.get('startWithSap');E=B.get(D4);N=B.get('baseUrl').replace('&','&amp;');O=B[H].get('indexRange');P=B[H].get('Initialization');F=E.split(AA)[0]
-		if F==AB:Q=B.get('frameRate');R=B.get('sar');S=B.get('width');T=B.get('height');G=f"height='{T}' width='{S}' frameRate='{Q}' sar='{R}'"
-		elif F==Bd:U=I.vod_audio_id.get(C,D2);G=f"numChannels='2' sampleRate='{U}'"
-		if D:C+=K+A(D)
-		V=f'''
-      <Representation id="{C}" bandwidth="{L}" codecs="{J}" mimeType="{E}" {G} startWithSAP="{M}">
-        <BaseURL>{N}</BaseURL>
-        <SegmentBase indexRange="{O}">
-          <Initialization range="{P}"/>
+    #默认设置
+    defaultConfig = {
+        'currentVersion': "20231003_1",
+        #【建议通过扫码确认】设置Cookie，在双引号内填写
+        'raw_cookie_line': "",
+        #如果主cookie没有vip，可以设置第二cookie，仅用于播放会员番剧，所有的操作、记录还是在主cookie，不会同步到第二cookie
+        'raw_cookie_vip': "",
+        #主页默认显示3图
+        'maxHomeVideoContent': '3',
+        #收藏标签默认显示追番1，追剧2，默认收藏夹0
+        'favMode': '0',
+        #部分视频列表分页，限制每次加载数量
+        'page_size': 10,
+        #上传播放进度间隔时间，单位秒，b站默认间隔15，0则不上传播放历史
+        'heartbeatInterval': '15',
+        #视频默认画质ID
+        'vodDefaultQn': '80',
+        #视频默认解码ID
+        'vodDefaultCodec': '7',
+        #音频默认码率ID
+        'vodDefaultAudio': '30280',
+        #获取视频热门评论
+        'show_vod_hot_reply': True,
+        #从正片中拆分出番剧的预告
+        'hide_bangumi_preview': True,
+        #登陆会员账号后，影视播放页不显示会员专享的标签，更简洁
+        'hide_bangumi_vip_badge': True,
+        #番剧（热门）列表使用横图
+        'bangumi_horizontal_cover': True,
+        #非会员播放会员专享视频时，添加一个页面可以使用解析源，解析源自行解决
+        'bangumi_vip_parse': True,
+        #付费视频添加一个页面可以使用解析，解析源自行解决
+        'bangumi_pay_parse': True,
+        #是否显示直播标签筛选中分区的细化标签, 0为不显示，1为显示
+        'showLiveFilterTag': '0',
+        #主页标签排序, 未登录或cookie失效时自动隐藏动态、收藏、关注、历史
+        'cateManual': [
+            "推荐",
+            "影视",
+            "直播",
+            "动态",
+            "频道",
+            "收藏",
+            "关注",
+            "历史",
+            "搜索",
+        ],
+        #自定义推荐标签的筛选
+        'tuijianLis': [
+            "热门",
+            "排行榜",
+            "每周必看",
+            "入站必刷",
+            "番剧时间表",
+            "国创时间表"
+        ],
+        'rankingLis': [
+            "动画",
+            "音乐",
+            "舞蹈",
+            "游戏",
+            "鬼畜",
+            "知识",
+            "科技",
+            "运动",
+            "生活",
+            "美食",
+            "动物",
+            "汽车",
+            "时尚",
+            "娱乐",
+            "影视",
+            "原创",
+            "新人",
+        ],
+    }
+
+    #在动态标签的筛选中固定显示他，n为用户名或任意都可以，v必须为准确的UID
+    focus_on_up_list = [
+        #{"n":"徐云流浪中国", "v":"697166795"},
+    ]
+    
+    #在搜索标签的筛选中固定显示搜索词
+    focus_on_search_key = []
+
+    def getName(self):
+        return "哔哩哔哩"
+
+    def load_config(self):
+        try:
+            with open(f"{dirname}/config.json",encoding="utf-8") as f:
+                self.userConfig = json.load(f)
+            old_config = {
+                'master': 'cookie_dic',
+                'vip': 'cookie_vip_dic',
+                'fake': 'cookie_fake_dic',
+            }
+            for _type, old in old_config.items():
+                old = self.userConfig.get(old)
+                if old:
+                    if not self.userConfig.get('users'):
+                        self.userConfig['users'] = {}
+                    self.userConfig['users'][_type] = {'cookies_dic': old}
+            users = self.userConfig.get('users', {})
+            if users.get('master') and users['master'].get('cookies_dic'):
+                self.session_master.cookies = utils.cookiejar_from_dict(users['master']['cookies_dic'])
+                self.userid = users['master']['userid']
+            if users.get('fake') and users['fake'].get('cookies_dic'):
+                self.session_fake.cookies = utils.cookiejar_from_dict(users['fake']['cookies_dic'])
+        except:
+            self.userConfig = {}
+        self.userConfig = {**self.defaultConfig, **self.userConfig}
+
+    dump_config_lock = threading.Lock()
+    
+    def dump_config(self):
+        needSaveConfig = ['users', 'channel_list', 'cateLive', 'cateManualLive', 'cateManualLiveExtra']
+        userConfig_new = {}
+        for key, value in self.userConfig.items():
+            dafalutValue = self.defaultConfig.get(key)
+            if dafalutValue != None and value != dafalutValue or key in needSaveConfig:
+                userConfig_new[key] = value
+        self.dump_config_lock.acquire()
+        with open(f"{dirname}/config.json", 'w', encoding="utf-8") as f:
+            data = json.dumps(userConfig_new, indent=1, ensure_ascii=False)
+            f.write(data)
+        self.dump_config_lock.release()
+
+    pool = ThreadPoolExecutor(max_workers=8)
+    task_pool = []
+    # 主页
+    def homeContent(self, filter):
+        self.pool.submit(self.add_live_filter)
+        self.pool.submit(self.add_channel_filter)
+        self.pool.submit(self.add_search_key)
+        self.pool.submit(self.add_focus_on_up_filter)
+        self.pool.submit(self.get_tuijian_filter)
+        self.pool.submit(self.add_fav_filter)
+        #self.pool.submit(self.homeVideoContent)
+        needLogin = ['动态', '收藏', '关注', '历史']
+        cateManual = self.userConfig['cateManual']
+        if not self.userid and not 'UP' in cateManual or not '动态' in cateManual and not 'UP' in cateManual:
+            cateManual += ['UP']
+        classes = []
+        for k in cateManual:
+            if k in needLogin and not self.userid:
+                continue
+            classes.append({
+                'type_name': k,
+                'type_id': k
+            })
+        self.add_focus_on_up_filter_event.wait()
+        if 'UP' in cateManual:
+            self.config["filter"].update({'UP': self.config["filter"].pop('动态')})
+        result = {'class': classes}
+        self.add_live_filter_event.wait()
+        self.add_channel_filter_event.wait()
+        self.add_fav_filter_event.wait()
+        self.add_search_key_event.wait()
+        if filter:
+            result['filters'] = self.config['filter']
+        self.pool.submit(self.dump_config)
+        self.pool.submit(self.test_mirror_site)
+        return result
+
+    # 用户cookies
+    userid = csrf = ''
+    session_master = session()
+    session_vip = session()
+    session_fake = session()
+    con = threading.Condition()
+    getCookie_event = threading.Event()
+    retries = Retry(total=5,
+                #status_forcelist=[ 500, 502, 503, 504 ],
+                backoff_factor=0.1)
+    adapter = HTTPAdapter(max_retries=retries)
+    session_master.mount('https://', adapter)
+    session_vip.mount('https://', adapter)
+    session_fake.mount('https://', adapter)
+
+    def getCookie_dosth(self, co):
+        c = co.strip().split('=', 1)
+        if not '%' in c[1]:
+            c[1] = quote(c[1])
+        return c
+
+    def getCookie(self, _type='master'):
+        raw_cookie = 'raw_cookie_line'
+        if _type == 'vip':
+            raw_cookie = 'raw_cookie_vip'
+        raw_cookie = self.userConfig.get(raw_cookie)
+        users = self.userConfig.get('users', {})
+        user = users.get(_type, {})
+        if not raw_cookie and not user:
+            if _type == 'master':
+                self.getCookie_event.set()
+            with self.con:
+                self.con.notifyAll()
+            return
+        cookies_dic = user.get('cookies_dic', {})
+        if raw_cookie:
+            cookies_dic = dict(map(self.getCookie_dosth, raw_cookie.split(';')))
+        cookies = utils.cookiejar_from_dict(cookies_dic)
+        url = 'https://api.bilibili.com/x/web-interface/nav'
+        content = self.fetch(url, headers=self.header, cookies=cookies)
+        res = json.loads(content.text)
+        user['isLogin'] = 0
+        if res["code"] == 0:
+            user['isLogin'] = 1
+            user['userid'] = res["data"]['mid']
+            user['face'] = res['data']['face']
+            user['uname'] = res['data']['uname']
+            user['cookies_dic'] = cookies_dic
+            user['isVIP'] = int(res['data']['vipStatus'])
+            if _type == 'master':
+                self.session_master.cookies = cookies
+                self.userid = user['userid']
+                self.csrf = cookies_dic['bili_jct']
+            if user['isVIP']:
+                self.session_vip.cookies = cookies
+        else:
+            self.userid = ''
+        users[_type] = user
+        with self.con:
+            if len(user) > 1:
+                self.userConfig.update({'users': users})
+            if _type == 'master':
+                self.getCookie_event.set()
+
+    getFakeCookie_event = threading.Event()
+
+    def getFakeCookie(self, fromSearch=None):
+        if self.session_fake.cookies:
+            self.getFakeCookie_event.set()
+        header = {}
+        header['User-Agent'] = self.header['User-Agent']
+        rsp = self.fetch('https://www.bilibili.com', headers=header)
+        self.session_fake.cookies = rsp.cookies
+        self.getFakeCookie_event.set()
+        with self.con:
+            users = self.userConfig.get('users', {})
+            users['fake'] = {'cookies_dic': dict(rsp.cookies)}
+            self.userConfig.update({'users': users})
+        if not fromSearch:
+            self.getCookie_event.wait()
+            if not self.session_master.cookies:
+                self.session_master.cookies = rsp.cookies
+        
+    def get_fav_list_dict(self, fav):
+        fav_dict = {
+            'n': fav['title'].replace("<em class=\"keyword\">", "").replace("</em>", "").replace("&quot;",'"').strip(),
+            'v': fav['id']}
+        return fav_dict
+
+    add_fav_filter_event = threading.Event()
+
+    def add_fav_filter(self):
+        users = self.userConfig.get('users', {})
+        if users.get('master') and users['master'].get('userid'):
+            userid = self.userConfig['users']['master']['userid']
+        else:
+            self.getCookie_event.wait()
+            userid = self.userid
+        fav_list = []
+        if userid:
+            url = 'https://api.bilibili.com/x/v3/fav/folder/created/list-all?up_mid=%s&jsonp=jsonp' % str(userid)
+            rsp = self._get_sth(url)
+            jo = json.loads(rsp.text)
+            if jo['code'] == 0 and jo.get('data'):
+                fav = jo['data'].get('list')
+                fav_list = list(map(self.get_fav_list_dict, fav))
+        fav_top = [{"n": "追番", "v": "1"},{"n": "追剧", "v": "2"}]
+        fav_config = self.config["filter"].get('收藏')
+        if fav_config:
+            fav_config.insert(0, {
+                "key": "mlid",
+                "name": "分区",
+                "value": fav_top + fav_list,
+            })
+        self.add_fav_filter_event.set()
+        self.userConfig["fav_list"] = fav_list
+
+    def get_channel_list_dict(self, channel):
+        channel_dict = {
+            'n': channel['name'].replace("<em class=\"keyword\">", "").replace("</em>", "").replace("&quot;",'"').strip(),
+            'v': channel['id']}
+        return channel_dict
+
+    def get_channel_list(self):
+        url = 'https://api.bilibili.com/x/web-interface/web/channel/category/channel/list?id=100&offset=0&page_size=15'
+        rsp = self._get_sth(url, 'fake')
+        jo = json.loads(rsp.text)
+        channel_list = []
+        if jo['code'] == 0:
+            channel = jo['data'].get('channels')
+            self.userConfig['channel_list'] = list(map(self.get_channel_list_dict, channel))
+        return self.userConfig['channel_list']
+
+    add_channel_filter_event = threading.Event()
+
+    def add_channel_filter(self):
+        channel_list = self.userConfig.get('channel_list', '')
+        channel_list_task = self.pool.submit(self.get_channel_list)
+        if not channel_list:
+            channel_list = channel_list_task.result()
+        channel_config = self.config["filter"].get('频道', [])
+        if channel_config:
+            channel_config.insert(0, {
+                "key": "cid",
+                "name": "分区",
+                "value": channel_list,
+            })
+        self.config["filter"]['频道'] = channel_config
+        self.add_channel_filter_event.set()
+
+    add_focus_on_up_filter_event = threading.Event()
+
+    def add_focus_on_up_filter(self):
+        first_list = [{"n": "上个视频的UP主", "v": "上个视频的UP主"}]
+        up_list = []
+        if not self.session_master.cookies:
+            self.getCookie_event.wait()
+        if self.session_master.cookies:
+            url = 'https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/all?timezone_offset=-480&type=video&page=1'
+            rsp = self._get_sth(url)
+            jo = json.loads(rsp.text)
+            if jo['code'] == 0 and jo.get('data'):
+                up = jo['data'].get('items', [])
+                up_list = list(map(lambda x: {'n': x['modules']["module_author"]['name'], 'v': str(x['modules']["module_author"]['mid'])}, up))
+        if len(self.focus_on_up_list) > 0:
+            focus_on_up_list_mid = list(map(lambda x: x['v'], self.focus_on_up_list))
+            for item in up_list:
+                if item['v'] in focus_on_up_list_mid:
+                    up_list.remove(item)
+            up_list.extend(self.focus_on_up_list)
+        last_list = [{"n": "登录与设置", "v": "登录"}]
+        up_list = first_list + up_list + last_list
+        dynamic_config = self.config["filter"].get('动态', [])
+        if dynamic_config:
+            dynamic_config.insert(0, {
+                "key": "mid",
+                "name": "UP主",
+                "value": up_list,
+            })
+        self.config["filter"]['动态'] = dynamic_config
+        self.add_focus_on_up_filter_event.set()
+
+    def get_live_parent_area_list(self, parent_area):
+        name = parent_area['name']
+        id = str(parent_area['id'])
+        area = parent_area['list']
+        area_dict = list(map(lambda area: {'n': area['name'], 'v': str(area['parent_id']) + '_' + str(area['id'])}, area))
+        live_area = {'key': 'tid', 'name': name, 'value': area_dict}
+        cateLive_name = {'id': id + '_0', 'value': live_area}
+        return (name, cateLive_name)
+
+    def get_live_list(self):
+        url = 'https://api.live.bilibili.com/xlive/web-interface/v1/index/getWebAreaList?source_id=2'
+        rsp = self._get_sth(url, 'fake')
+        jo = json.loads(rsp.text)
+        cateLive = {}
+        if jo['code'] == 0:
+            parent = jo['data']['data']
+            self.userConfig['cateLive'] = dict(self.pool.map(self.get_live_parent_area_list, parent))
+        return self.userConfig['cateLive']
+
+    def set_default_cateManualLive(self):
+        cateManualLive = [{'n': '推荐', 'v': '推荐'},]
+        for name in self.userConfig['cateLive']:
+            area_dict = {'n': name, 'v': self.userConfig['cateLive'][name]['id']}
+            cateManualLive.append(area_dict)
+        self.defaultConfig['cateManualLive'] = cateManualLive
+        return cateManualLive
+
+    add_live_filter_event = threading.Event()
+
+    def add_live_filter(self):
+        cateLive = self.userConfig.get('cateLive', {})
+        cateLive_task = self.pool.submit(self.get_live_list)
+        if not cateLive:
+            cateLive = cateLive_task.result()
+        default_cateManualLive_task = self.pool.submit(self.set_default_cateManualLive)
+        self.config["filter"]['直播'] = []
+        #分区栏
+        cateManualLive = self.userConfig.get('cateManualLive', [])
+        if not cateManualLive:
+            cateManualLive = default_cateManualLive_task.result()
+        if cateManualLive:
+            live_area = {'key': 'tid', 'name': '分区', 'value': cateManualLive}
+            self.config["filter"]['直播'].append(live_area)
+        #显示分区细分
+        if int(self.userConfig['showLiveFilterTag']):
+            for name in cateLive.values():
+                if len(name['value']['value']) == 1:
+                    continue
+                self.config["filter"]['直播'].append(name['value'])
+        self.add_live_filter_event.set()
+
+    add_search_key_event = threading.Event()
+
+    def add_search_key(self):
+        focus_on_search_key = self.focus_on_search_key
+        url = 'https://api.bilibili.com/x/web-interface/search/square?limit=10&platform=web'
+        rsp = self._get_sth(url, 'fake')
+        jo = json.loads(rsp.text)
+        cateLive = {}
+        if jo['code'] == 0:
+            trending = jo['data']['trending'].get('list', [])
+            focus_on_search_key += list(map(lambda x:x['keyword'], trending))
+        keyword = {"key": "keyword", "name": "搜索词","value": []}
+        keyword["value"] = list(map(lambda i: {'n': i, 'v': i}, focus_on_search_key))
+        self.config["filter"]['搜索'].insert(0, keyword)
+        self.add_search_key_event.set()
+
+    def get_tuijian_filter(self):
+        tuijian_filter = {"番剧时间表": "10001", "国创时间表": "10004", "排行榜": "0", "动画": "1", "音乐": "3", "舞蹈": "129", "游戏": "4", "鬼畜": "119", "知识": "36", "科技": "188", "运动": "234", "生活": "160", "美食": "211", "动物": "217", "汽车": "223", "时尚": "155", "娱乐": "5", "影视": "181", "原创": "origin", "新人": "rookie"}
+        _dic = [{'n': 'tuijianLis', 'v': '分区'}, {'n': 'rankingLis', 'v': '排行榜'}]
+        filter_lis = []
+        for d in _dic:
+            _filter = {"key": "tid" ,'name': d['v'],"value": []}
+            t_lis = self.userConfig.get(d['n'], [])
+            for t in t_lis:
+                tf = tuijian_filter.get(t)
+                if not tf:
+                    tf = t
+                tf_dict = {'n': t, 'v': tf}
+                _filter["value"].append(tf_dict)
+            filter_lis.append(_filter)
+        self.config["filter"]['推荐'] = filter_lis
+
+    def __init__(self):
+        self.load_config()
+        self.pool.submit(self.getCookie)
+        self.pool.submit(self.getFakeCookie)
+        self.pool.submit(self.getCookie, 'vip')
+
+    def init(self, extend=""):
+        print("============{0}============".format(extend))
+        pass
+
+    def isVideoFormat(self, url):
+        pass
+
+    def manualVideoCheck(self):
+        pass
+
+    # 降低内存占用
+    def format_img(self, img):
+        img += "@672w_378h_1c.webp"
+        if not img.startswith('http'):
+            img = 'https:' + img
+        return img
+
+    def pagination(self, array, pg):
+        max_number = self.userConfig['page_size'] * int(pg)
+        min_number = max_number - self.userConfig['page_size']
+        return array[min_number:max_number]
+
+    # 将超过10000的数字换成成以万和亿为单位
+    def zh(self, num):
+        if int(num) >= 100000000:
+            p = round(float(num) / float(100000000), 1)
+            p = str(p) + '亿'
+        else:
+            if int(num) >= 10000:
+                p = round(float(num) / float(10000), 1)
+                p = str(p) + '万'
+            else:
+                p = str(num)
+        return p
+
+    # 将秒数转化为 时分秒的格式
+    def second_to_time(self, a):
+        a = int(a)
+        if a < 3600:
+            result = time.strftime("%M:%S", time.gmtime(a))
+        else:
+            result = time.strftime("%H:%M:%S", time.gmtime(a))
+        if str(result).startswith('0'):
+            result = str(result).replace('0', '', 1)
+        return result
+
+    # 字符串时分秒以及分秒形式转换成秒
+    def str2sec(self, x):
+        x = str(x)
+        try:
+            h, m, s = x.strip().split(':')  # .split()函数将其通过':'分隔开，.strip()函数用来除去空格
+            return int(h) * 3600 + int(m) * 60 + int(s)  # int()函数转换成整数运算
+        except:
+            m, s = x.strip().split(':')  # .split()函数将其通过':'分隔开，.strip()函数用来除去空格
+            return int(m) * 60 + int(s)  # int()函数转换成整数运算
+
+    # 按时间过滤
+    def filter_duration(self, vodlist, key):
+        if key == '0':
+            return vodlist
+        else:
+            vod_list_new = [i for i in vodlist if
+                            self.time_diff1[key][0] <= self.str2sec(str(i["vod_remarks"])) < self.time_diff1[key][1]]
+            return vod_list_new
+
+    # 提取番剧id
+    def find_bangumi_id(self, url):
+        aid = str(url).strip().split(r"/")[-1]
+        if not aid:
+            aid = str(url).strip().split(r"/")[-2]
+        aid = aid.split(r"?")[0]
+        return aid
+
+    def test_mirror_site(self):
+        mirror_site = [
+            'http://jm92swf.s1002.xrea.com',
+            'http://above-mentioned-ice.000webhostapp.com'
+        ]
+        time = 9
+        result = mirror_site[0]
+        for s in mirror_site:
+            try:
+                r = requests_get(s + '/index.php/update.json', timeout=2)
+            except:
+                continue
+            t = r.elapsed.total_seconds()
+            if t < time:
+                time = t
+                result = s
+        self.mirror_site = result
+        self.pool.submit(self._checkUpdate, '0')
+
+    # 登录二维码
+    def get_Login_qrcode(self, pg):
+        result = {}
+        if int(pg) != 1:
+            return result
+        video = [{
+            "vod_id": 'setting_tab&filter',
+            "vod_name": '标签与筛选',
+            "vod_pic": 'https://www.bilibili.com/favicon.ico'
+        },{
+            "vod_id": 'setting_liveExtra',
+            "vod_name": '查看直播细化标签',
+            "vod_pic": 'https://www.bilibili.com/favicon.ico'
+        }]
+        url = 'https://passport.bilibili.com/x/passport-login/web/qrcode/generate'
+        rsp = self._get_sth(url, 'fake')
+        jo = json.loads(rsp.text)
+        if jo['code'] == 0:
+            id = jo['data']['qrcode_key']
+            url = jo['data']['url']
+            account = {'master': '主账号', 'vip': '副账号'}
+            isLogin = {0: '未登录', 1: '已登录'}
+            isVIP = {0: '', 1: '👑'}
+            users = self.userConfig.get('users', {})
+            for _type, typeName in account.items():
+                user = users.get(_type)
+                if user:
+                    video.append({
+                        "vod_id": 'setting_login_' + id,
+                        "vod_name": user['uname'],
+                        "vod_pic": self.format_img(user['face']),
+                        "vod_remarks": isVIP[user['isVIP']] + typeName + ' ' + isLogin[user['isLogin']]
+                    })
+            #pic_url = {'qrcode': url}
+            pic_url = {'qrcode': 'https://passport.bilibili.com/h5-app/passport/login/scan?qrcode_key=' + id + '&navhide=1'}
+            #if not dirname.startswith('/data/'):
+            #    pic_url['qr_chs'] = '208x117'
+            pic_url['qr_chs'] = '208x117'
+            video.append({
+                "vod_id": 'setting_login_' + id,
+                "vod_name": '有效期3分钟，确认后点这里',
+                'vod_pic': self.mirror_site + '/?' + urlencode(pic_url),
+            })
+        result['list'] = video
+        result['page'] = 1
+        result['pagecount'] = 1
+        result['limit'] = 1
+        result['total'] = 1
+        return result
+
+    time_diff1 = {'1': [0, 300],
+                  '2': [300, 900], '3': [900, 1800], '4': [1800, 3600],
+                  '5': [3600, 99999999999999999999999999999999]
+                  }
+    time_diff = '0'
+
+    dynamic_offset = ''
+
+    def get_dynamic(self, pg, mid, order):
+        if mid == '0':
+            result = {}
+            if int(pg) == 1:
+                self.dynamic_offset = ''
+            url = 'https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/all?timezone_offset=-480&type=video&offset=%s&page=%s' % (self.dynamic_offset, pg)
+            rsp = self._get_sth(url)
+            jo = json.loads(rsp.text)
+            if jo['code'] == 0:
+                self.dynamic_offset = jo['data'].get('offset')
+                videos = []
+                vodList = jo['data']['items']
+                for vod in vodList:
+                    if not vod['visible']:
+                        continue
+                    up = vod['modules']["module_author"]['name']
+                    ivod = vod['modules']['module_dynamic']['major']['archive']
+                    aid = str(ivod['aid']).strip()
+                    title = ivod['title'].strip().replace("<em class=\"keyword\">", "").replace("</em>", "")
+                    img = ivod['cover'].strip()
+                    # remark = str(ivod['duration_text']).strip()
+                    remark = str(self.second_to_time(self.str2sec(ivod['duration_text']))).strip() + '  🆙' + str(
+                        up).strip()  # 显示分钟数+up主名字
+                    videos.append({
+                        "vod_id": 'av' + aid,
+                        "vod_name": title,
+                        "vod_pic": self.format_img(img),
+                        "vod_remarks": remark
+                    })
+                result['list'] = videos
+                result['page'] = pg
+                result['pagecount'] = 9999
+                result['limit'] = 99
+                result['total'] = 999999
+            return result
+        else:
+            return self.get_up_videos(mid=mid, pg=pg, order=order)
+
+    def get_found_vod(self, vod):
+        aid = vod.get('aid', '')
+        if not aid:
+            aid = vod.get('id', '')
+        goto = vod.get('goto', '')
+        if not goto or goto and goto == 'av':
+            aid = 'av' + str(aid).strip()
+        elif goto == 'ad':
+            return []
+        title = vod['title'].strip()
+        img = vod['pic'].strip()
+        is_followed = vod.get('is_followed')
+        if goto == 'live':
+            room_info = vod['room_info']
+            remark = ''
+            live_status = room_info.get('live_status', '')
+            if live_status:
+                remark = '直播中  '
+            else:
+                return []
+            remark += '👁' + room_info['watched_show']['text_small'] + '  🆙' + vod['owner']['name'].strip()
+        else:
+            rcmd_reason = vod.get('rcmd_reason', '')
+            if rcmd_reason and type(rcmd_reason) == dict and rcmd_reason.get('content'):
+                reason= '  🔥' + rcmd_reason['content'].strip()
+                if '人气飙升' in reason:
+                    reason= '  🔥人气飙升'
+            elif is_followed:
+                reason = '  已关注'
+            else:
+                #reason = "  💬" + self.zh(vod['stat']['danmaku'])
+                reason = '  🆙' + vod['owner']['name'].strip()
+            remark = str(self.second_to_time(vod['duration'])).strip() + "  ▶" + self.zh(vod['stat']['view']) + reason
+        video = [{
+            "vod_id": aid,
+            "vod_name": title,
+            "vod_pic": self.format_img(img),
+            "vod_remarks": remark
+        }]
+        for v in self.pool.map(self.get_found_vod, vod.get('others', [])):
+            video.extend(v)
+        return video
+
+    _popSeriesInit = 0
+    
+    def get_found(self, tid, rid, pg):
+        result = {}
+        if tid == '推荐':
+            query = self.encrypt_wbi(fresh_type=4, feed_version='V3', brush=1, fresh_idx=pg, fresh_idx_1h=pg, ps=self.userConfig['page_size'])
+            url = f'https://api.bilibili.com/x/web-interface/wbi/index/top/feed/rcmd?{query}'
+        else:
+            url = 'https://api.bilibili.com/x/web-interface/ranking/v2?rid={0}&type={1}'.format(rid, tid)
+            if tid == '热门':
+                url = 'https://api.bilibili.com/x/web-interface/popular?pn={0}&ps={1}'.format(pg, self.userConfig['page_size'])
+            elif tid == "入站必刷":
+                url = 'https://api.bilibili.com/x/web-interface/popular/precious'
+            elif tid == "每周必看":
+                if not self._popSeriesInit or int(pg) == 1:
+                    url = 'https://api.bilibili.com/x/web-interface/popular/series/list'
+                    rsp = self._get_sth(url, 'fake')
+                    jo = json.loads(rsp.text)
+                    number = self._popSeriesInit = jo['data']['list'][0]['number']
+                    self._popSeriesNum = [int(number), 1]
+                else:
+                    number = self._popSeriesNum[0]
+                url = 'https://api.bilibili.com/x/web-interface/popular/series/one?number=' + str(number)
+        rsp = self._get_sth(url)
+        jo = json.loads(rsp.text)
+        if jo['code'] == 0:
+            videos = []
+            vodList = jo['data'].get('item')
+            if not vodList:
+                vodList = jo['data']['list']
+            if len(vodList) > self.userConfig['page_size']:
+                if tid == "每周必看":
+                    _tmp_pg = int(self._popSeriesNum[1])
+                    value = len(vodList) / self.userConfig['page_size'] - _tmp_pg
+                    if value > 0:
+                        value += 1
+                    if not int(value):
+                        self._popSeriesNum = [int(number) - 1, 1]
+                    else:
+                        self._popSeriesNum[1] = _tmp_pg + 1
+                else:
+                    _tmp_pg = pg
+                vodList = self.pagination(vodList, _tmp_pg)
+            for v in self.pool.map(self.get_found_vod, vodList):
+                videos.extend(v)
+            result['list'] = videos
+            result['page'] = pg
+            result['pagecount'] = 9999
+            result['limit'] = 99
+            result['total'] = 999999
+        return result
+
+    def get_bangumi(self, tid, pg, order, season_status):
+        result = {}
+        if order == '追番剧':
+            url = 'https://api.bilibili.com/x/space/bangumi/follow/list?type={0}&vmid={1}&pn={2}&ps={3}'.format(tid, self.userid, pg, self.userConfig['page_size'])
+            rsp = self._get_sth(url)
+        else:
+            url = 'https://api.bilibili.com/pgc/season/index/result?type=1&season_type={0}&page={1}&order={2}&season_status={3}&pagesize={4}'.format(tid, pg, order, season_status, self.userConfig['page_size'])
+            if order == '热门':
+                if tid == '1':
+                    url = 'https://api.bilibili.com/pgc/web/rank/list?season_type={0}&day=3'.format(tid)
+                else:
+                    url = 'https://api.bilibili.com/pgc/season/rank/web/list?season_type={0}&day=3'.format(tid)
+            rsp = self._get_sth(url, 'fake')
+        jo = json.loads(rsp.text)
+        if jo['code'] == 0:
+            if 'data' in jo:
+                vodList = jo['data']['list']
+            else:
+                vodList = jo['result']['list']
+            if len(vodList) > self.userConfig['page_size']:
+                vodList = self.pagination(vodList, pg)
+            videos = []
+            for vod in vodList:
+                aid = str(vod['season_id']).strip()
+                title = vod['title']
+                img = vod.get('ss_horizontal_cover')
+                if not img or tid == '1' and not self.userConfig['bangumi_horizontal_cover']:
+                    if vod.get('first_ep_info') and 'cover' in vod['first_ep_info']:
+                        img = vod['first_ep_info']['cover']
+                    elif vod.get('first_ep') and 'cover' in vod['first_ep']:
+                        img = vod['first_ep']['cover']
+                    else:
+                        img = vod['cover'].strip()
+                remark = vod.get('index_show', '')
+                if not remark and vod.get('new_ep') and vod['new_ep'].get('index_show'):
+                    remark = vod['new_ep']['index_show']
+                remark = remark.replace('更新至', '🆕')
+                stat = vod.get('stat')
+                if stat:
+                    remark = '▶' + self.zh(stat.get('view')) + '  ' + remark
+                videos.append({
+                    "vod_id": 'ss' + aid,
+                    "vod_name": title,
+                    "vod_pic": self.format_img(img),
+                    "vod_remarks": remark
+                })
+            result['list'] = videos
+            result['page'] = pg
+            result['pagecount'] = 9999
+            result['limit'] = 90
+            result['total'] = 999999
+        return result
+
+    def get_timeline(self, tid, pg):
+        result = {}
+        url = 'https://api.bilibili.com/pgc/web/timeline/v2?season_type={0}&day_before=2&day_after=4'.format(tid)
+        rsp = self._get_sth(url, 'fake')
+        content = rsp.text
+        jo = json.loads(content)
+        if jo['code'] == 0:
+            videos1 = []
+            vodList = jo['result']['latest']
+            for vod in vodList:
+                aid = str(vod['season_id']).strip()
+                title = vod['title'].strip()
+                img = vod['ep_cover'].strip()
+                remark = '🆕' + vod['pub_index'] + '  ❤ ' + vod['follows'].replace('系列', '').replace('追番', '')
+                videos1.append({
+                    "vod_id": 'ss' + aid,
+                    "vod_name": title,
+                    "vod_pic": self.format_img(img),
+                    "vod_remarks": remark
+                })
+            videos2 = []
+            vodList2 = jo['result']['timeline']
+            for i in range(len(vodList2)):
+                vodList = vodList2[i]['episodes']
+                for vod in vodList:
+                    if str(vod['published']) == "0":
+                        aid = str(vod['season_id']).strip()
+                        title = str(vod['title']).strip()
+                        img = str(vod['ep_cover']).strip()
+                        date = str(time.strftime("%m-%d %H:%M", time.localtime(vod['pub_ts'])))
+                        remark = date + "   " + vod['pub_index']
+                        videos2.append({
+                            "vod_id": 'ss' + aid,
+                            "vod_name": title,
+                            "vod_pic": self.format_img(img),
+                            "vod_remarks": remark
+                        })
+            result['list'] = videos2 + videos1
+            result['page'] = 1
+            result['pagecount'] = 1
+            result['limit'] = 90
+            result['total'] = 999999
+        return result
+
+    def get_live(self, pg, parent_area_id, area_id):
+        result = {}
+        if parent_area_id == '推荐':
+            url = 'https://api.live.bilibili.com/xlive/web-interface/v1/webMain/getList?platform=web&page=%s' % pg
+            rsp = self._get_sth(url)
+        else:
+            url = 'https://api.live.bilibili.com/xlive/web-interface/v1/second/getList?platform=web&parent_area_id=%s&area_id=%s&sort_type=online&page=%s' % (parent_area_id, area_id, pg)
+            if parent_area_id == '热门':
+                url = 'https://api.live.bilibili.com/room/v1/room/get_user_recommend?page=%s&page_size=%s' % (pg, self.userConfig['page_size'])
+            rsp = self._get_sth(url, 'fake')
+        jo = json.loads(rsp.text)
+        if jo['code'] == 0:
+            videos = []
+            vodList = jo['data']
+            if 'recommend_room_list' in vodList:
+                vodList = vodList['recommend_room_list']
+            elif 'list' in vodList:
+                vodList = vodList['list']
+            for vod in vodList:
+                aid = str(vod['roomid']).strip()
+                title = vod['title'].replace("<em class=\"keyword\">", "").replace("</em>", "").replace("&quot;", '"')
+                img = vod.get('user_cover')
+                if not img:
+                    img = vod.get('cover')
+                remark = '👁' + vod['watched_show']['text_small'].strip() + "  🆙" + vod['uname'].strip()
+                videos.append({
+                    "vod_id": aid,
+                    "vod_name": title,
+                    "vod_pic": self.format_img(img),
+                    "vod_remarks": remark
+                })
+            result['list'] = videos
+            result['page'] = pg
+            result['pagecount'] = 9999
+            result['limit'] = 99
+            result['total'] = 999999
+        return result
+
+    get_up_videos_result = {}
+    
+    def get_up_videos(self, mid, pg, order):
+        result = {}
+        if not mid.isdigit():
+            if int(pg) == 1:
+                self.get_up_videos_mid = mid = self.detailContent_args.get('mid', '')
+                if not mid in self.get_up_videos_result:
+                    self.get_up_videos_result.clear()
+                    self.get_up_videos_result[mid] = []
+            else:
+                mid = self.get_up_videos_mid
+        if int(pg) == 1:
+            self.get_up_info_event.clear()
+            self.pool.submit(self.get_up_info, mid)
+        Space = order2 = ''
+        if order == 'oldest':
+            order2 = order
+            order = 'pubdate'
+        elif order == 'quicksearch':
+            Space = '投稿: '
+            videos = self.get_up_videos_result.get(mid, [])
+            if videos:
+                result['list'] = videos
+                return result
+        tmp_pg = pg
+        if order2:
+            self.get_up_info_event.wait()
+            tmp_pg = self.up_info[mid]['vod_pc'] - int(pg) + 1
+        query = self.encrypt_wbi(mid=mid, pn=tmp_pg, ps=self.userConfig['page_size'], order=order)
+        url = f'https://api.bilibili.com/x/space/wbi/arc/search?{query}'
+        rsp = self._get_sth(url, 'fake')
+        content = rsp.text
+        jo = json.loads(content)
+        videos = []
+        if jo['code'] == 0:
+            vodList = jo['data']['list']['vlist']
+            for vod in vodList:
+                aid = str(vod['aid']).strip()
+                title = vod['title'].strip().replace("<em class=\"keyword\">", "").replace("</em>", "")
+                img = vod['pic'].strip()
+                remark = self.second_to_time(self.str2sec(str(vod['length']).strip())) + "  ▶" + self.zh(vod['play'])
+                if not Space:
+                    remark +=  "  💬" + self.zh(vod['video_review'])
+                videos.append({
+                    "vod_id": 'av' + aid,
+                    "vod_name": Space + title,
+                    "vod_pic": self.format_img(img),
+                    "vod_remarks": remark
+                })
+            if order2:
+                videos.reverse()
+            if int(pg) == 1:
+                self.get_up_info_event.wait()
+                vodname = self.up_info[mid]['name'] + "  个人主页"
+                if Space:
+                    vodname = 'UP: ' + self.up_info[mid]['name']
+                gotoUPHome={
+                    "vod_id": 'up' + str(mid),
+                    "vod_name": vodname,
+                    "vod_pic": self.format_img(self.up_info[mid]['face']),
+                    "vod_remarks": self.up_info[mid]['following'] + '  👥' + self.up_info[mid]['fans'] + '  🎬' + str(self.up_info[mid]['vod_count'])
+                }
+                videos.insert(0, gotoUPHome)
+            if Space:
+                self.get_up_videos_result[mid] = videos
+            result['list'] = videos
+            result['page'] = pg
+            result['pagecount'] = 99
+            result['limit'] = 99
+            result['total'] = 999999
+        return result
+
+    history_view_at = 0
+    
+    def get_history(self, type, pg):
+        result = {}
+        if int(pg) == 1:
+            self.history_view_at = 0
+        url = 'https://api.bilibili.com/x/web-interface/history/cursor?ps={0}&view_at={1}&type={2}'.format(self.userConfig['page_size'], self.history_view_at, type)
+        if type == '稍后再看':
+            url = 'https://api.bilibili.com/x/v2/history/toview'
+        rsp = self._get_sth(url)
+        jo = json.loads(rsp.text)
+        if jo['code'] == 0:
+            videos = []
+            vodList = jo['data'].get('list', [])
+            if type == '稍后再看':
+                vodList = self.pagination(vodList, pg)
+            else:
+                self.history_view_at = jo['data']['cursor']['view_at']
+            for vod in vodList:
+                history = vod.get('history', '')
+                if history:
+                    business = history['business']
+                    aid = str(history['oid']).strip()
+                    img = vod['cover'].strip()
+                    part = str(history['part']).strip()
+                else:
+                    business = 'archive'
+                    aid = str(vod["aid"]).strip()
+                    img = vod['pic'].strip()
+                    part = str(vod['page']['part']).strip()
+                if business == 'article':
+                    continue
+                elif business == 'pgc':
+                    aid = 'ep' + str(history['epid'])
+                    _total = vod['total']
+                    part = vod.get('show_title')
+                elif business == 'archive':
+                    aid = 'av' + aid
+                    _total = vod['videos']
+                title = vod['title'].replace("<em class=\"keyword\">", "").replace("</em>", "").replace("&quot;", '"')
+                if business == 'live':
+                    live_status = vod.get('badge', '')
+                    remark = live_status + '  🆙' + vod['author_name'].strip()
+                else:
+                    if str(vod['progress']) == '-1':
+                        remark = '已看完'
+                    elif str(vod['progress']) == '0':
+                        remark = '刚开始看'
+                    else:
+                        process = str(self.second_to_time(vod['progress'])).strip()
+                        remark = '看到  ' + process
+                    if not _total in [0, 1] and part:
+                        remark += ' (' + str(part) + ')'
+                videos.append({
+                    "vod_id": aid,
+                    "vod_name": title,
+                    "vod_pic": self.format_img(img),
+                    "vod_remarks": remark
+                })
+            result['list'] = videos
+            result['page'] = pg
+            result['pagecount'] = 9999
+            result['limit'] = 90
+            result['total'] = 999999
+        return result
+
+    def get_fav_detail(self, pg, mlid, order):
+        result = {}
+        url = 'https://api.bilibili.com/x/v3/fav/resource/list?media_id=%s&order=%s&pn=%s&ps=10&platform=web&type=0' % (mlid, order, pg)
+        rsp = self._get_sth(url)
+        content = rsp.text
+        jo = json.loads(content)
+        if jo['code'] == 0:
+            videos = []
+            vodList = jo['data'].get('medias', [])
+            for vod in vodList:
+                # 只展示类型为 视频的条目
+                # 过滤去掉收藏中的 已失效视频;如果不喜欢可以去掉这个 if条件
+                if vod.get('type') in [2] and vod.get('title') != '已失效视频':
+                    aid = str(vod['id']).strip()
+                    title = vod['title'].replace("<em class=\"keyword\">", "").replace("</em>", "").replace("&quot;",
+                                                                                                            '"')
+                    img = vod['cover'].strip()
+                    remark = str(self.second_to_time(vod['duration'])).strip() + "  ▶" + self.zh(vod['cnt_info']['play']) + "　💬" + self.zh(vod['cnt_info']['danmaku'])
+                    videos.append({
+                        "vod_id": 'av' + aid + '_mlid' + str(mlid),
+                        "vod_name": title,
+                        "vod_pic": self.format_img(img),
+                        "vod_remarks": remark
+                    })
+            # videos=self.filter_duration(videos, duration_diff)
+            result['list'] = videos
+            result['page'] = pg
+            result['pagecount'] = 9999
+            result['limit'] = 99
+            result['total'] = 999999
+        return result
+
+    get_up_info_event = threading.Event()
+    up_info = {}
+    
+    def get_up_info(self, mid, **kwargs):
+        if mid in self.up_info:
+            self.get_up_info_event.set()
+        data = kwargs.get('data')
+        if not data:
+            url = "https://api.bilibili.com/x/web-interface/card?mid={0}".format(mid)
+            rsp = self._get_sth(url)
+            jRoot = json.loads(rsp.text)
+            if jRoot['code'] == 0:
+                data = jRoot['data']
+            else:
+                self.get_up_info_event.set()
+                return
+        jo = data['card']
+        info = {}
+        info['following'] = '未关注'
+        if data['following']:
+            info['following'] = '已关注'
+        info['name'] = jo['name'].replace("<em class=\"keyword\">", "").replace("</em>", "")
+        info['face'] = jo['face']
+        info['fans'] = self.zh(jo['fans'])
+        info['like_num'] = self.zh(data['like_num'])
+        info['vod_count'] = str(data['archive_count']).strip()
+        info['desc'] = jo['Official']['desc'] + "　" + jo['Official']['title']
+        pc = divmod(int(info['vod_count']), self.userConfig['page_size'])
+        info['vod_pc'] =pc[0]
+        if pc[1] != 0:
+            info['vod_pc'] += 1
+        self.up_info[mid] = info
+        self.get_up_info_event.set()
+    
+    def get_vod_relation(self, id):
+        if id.isdigit():
+            urlarg = 'aid=' + str(id)
+        elif '=' in id:
+            urlarg = id
+        else:
+            urlarg = 'bvid=' + id
+        url = 'https://api.bilibili.com/x/web-interface/archive/relation?' + urlarg
+        rsp = self._get_sth(url)
+        jo = json.loads(rsp.text)
+        relation = []
+        if jo['code'] == 0:
+            jo = jo['data']
+            if jo['attention']:
+                relation.append('已关注')
+            else:
+                relation.append('未关注')
+            triple = []
+            if jo['favorite']:
+                triple.append('⭐')
+            if jo['like']:
+                triple.append('👍')
+            coin = jo.get('coin')
+            if coin:
+                triple.append('💰'*coin)
+            if len(triple) == 3:
+                relation.append('👍💰⭐')
+            else:
+                relation.extend(triple)
+            if jo['dislike']:
+                relation.append('👎')
+            if jo['season_fav']:
+                relation.append('已订阅合集')
+        return relation
+
+    def get_channel(self, pg, cid, order):
+        result = {}
+        if str(pg) == '1':
+            self.channel_offset = ''
+        if order == "featured":
+            url = 'https://api.bilibili.com/x/web-interface/web/channel/featured/list?channel_id={0}&filter_type=0&offset={1}&page_size={2}'.format(cid, self.channel_offset, self.userConfig['page_size'])
+        else:
+            url = 'https://api.bilibili.com/x/web-interface/web/channel/multiple/list?channel_id={0}&sort_type={1}&offset={2}&page_size={3}'.format(cid, order, self.channel_offset, self.userConfig['page_size'])
+        rsp = self._get_sth(url, 'fake')
+        jo = json.loads(rsp.text)
+        if jo.get('code') == 0:
+            self.channel_offset = jo['data'].get('offset')
+            videos = []
+            vodList = jo['data']['list']
+            if pg == '1' and 'items' in vodList[0]:
+                vodList_rank = vodList[0]['items']
+                del (vodList[0])
+                vodList = vodList_rank + vodList
+            for vod in vodList:
+                if 'uri' in vod and 'bangumi' in vod['uri']:
+                    aid = self.find_bangumi_id(vod['uri'])
+                else:
+                    aid = 'av' + str(vod['id']).strip()
+                title = vod['name'].replace("<em class=\"keyword\">", "").replace("</em>", "").replace("&quot;", '"')
+                img = vod['cover'].strip()
+                remark = "▶" + str(vod['view_count'])
+                duration = vod.get('duration', '')
+                if duration:
+                    remark = str(self.second_to_time(self.str2sec(duration))).strip() + '  ' + remark
+                danmaku = vod.get('danmaku', '')
+                like_count = vod.get('like_count', '')
+                follow_count = vod.get('follow_count', '')
+                if danmaku:
+                    remark += "  💬" + self.zh(danmaku)
+                elif like_count:
+                    remark += "  👍" + str(like_count)
+                elif follow_count:
+                    remark += "  ❤" + str(follow_count)
+                videos.append({
+                    "vod_id": aid,
+                    "vod_name": title,
+                    "vod_pic": self.format_img(img),
+                    "vod_remarks": remark
+                })
+            result['list'] = videos
+            result['page'] = pg
+            result['pagecount'] = 9999
+            result['limit'] = 99
+            result['total'] = 999999
+        return result
+
+    def get_follow(self, pg, sort):
+        result = {}
+        if sort == "最常访问":
+            url = 'https://api.bilibili.com/x/relation/followings?vmid={0}&pn={1}&ps=10&order=desc&order_type=attention' .format(self.userid, pg)
+        elif sort == "最近关注":
+            url = 'https://api.bilibili.com/x/relation/followings?vmid={0}&pn={1}&ps=10&order=desc&order_type='.format(self.userid, pg)
+        elif sort == "正在直播":
+            url = 'https://api.live.bilibili.com/xlive/web-ucenter/v1/xfetter/GetWebList?page={0}&page_size=10'.format(pg)
+        elif sort == "最近访问":
+            url = 'https://api.bilibili.com/x/v2/history?pn={0}&ps=15'.format(pg)
+        elif sort == "特别关注":
+            url = 'https://api.bilibili.com/x/relation/tag?mid={0}&tagid=-10&pn={1}&ps=10'.format(self.userid, pg)
+        elif sort == "悄悄关注":
+            url = 'https://api.bilibili.com/x/relation/whispers?pn={0}&ps=10'.format(pg)
+        else:
+            url = 'https://api.bilibili.com/x/relation/followers?vmid={0}&pn={1}&ps=10&order=desc&order_type=attention'.format(self.userid, pg)
+        rsp = self._get_sth(url)
+        jo = json.loads(rsp.text)
+        if jo['code'] != 0:
+            return result
+        if sort == "特别关注" or sort == "最近访问":
+            vodList = jo['data']
+        elif sort == "正在直播":
+            vodList = jo['data']['rooms']
+        else:
+            vodList = jo['data']['list']
+        if int(pg) == 1:
+            self.recently_up_list = []
+        follow = []
+        for f in vodList:
+            remark = ''
+            if sort == "最近访问":
+                mid = 'up' + str(f['owner']['mid'])
+                if mid in self.recently_up_list:
+                    continue
+                self.recently_up_list.append(mid)
+                title = str(f['owner']['name']).strip()
+                img = str(f['owner']['face']).strip()
+            elif sort == "正在直播":
+                mid = str(f['room_id'])
+                title = f['title'].replace("<em class=\"keyword\">", "").replace("</em>", "").replace("&quot;", '"')
+                img = f['cover_from_user'].strip()
+                remark = f['uname'].strip()
+            else:
+                mid = 'up' + str(f['mid'])
+                title = str(f['uname']).strip()
+                img = str(f['face']).strip()
+            if 'special' in f and f['special'] == 1:
+                remark = '特别关注'
+            follow.append({
+                "vod_id": mid,
+                "vod_name": title,
+                "vod_pic": self.format_img(img),
+                "vod_remarks": remark
+            })
+        result['list'] = follow
+        result['page'] = pg
+        result['pagecount'] = 9999
+        result['limit'] = 99
+        result['total'] = 999999
+        return result
+
+    homeVideoContent_result = {}
+    def homeVideoContent(self):
+        if not self.homeVideoContent_result:
+            videos = self.get_found(rid='0', tid='all', pg=1)['list'][0:int(self.userConfig['maxHomeVideoContent'])]
+            self.homeVideoContent_result['list'] = videos
+        return self.homeVideoContent_result
+
+    def categoryContent(self, tid, pg, filter, extend):
+        self.stop_heartbeat_event.set()
+        if tid == "推荐":
+            if 'tid' in extend:
+                tid = extend['tid']
+            if tid.isdigit():
+                tid = int(tid)
+                if tid > 10000:
+                    tid -= 10000
+                    return self.get_timeline(tid=tid, pg=pg)
+                rid = tid
+                tid = 'all'
+                return self.get_found(tid=tid, rid=rid, pg=pg)
+            rid = '0'
+            return self.get_found(tid=tid, rid=rid, pg=pg)
+        elif tid == "影视":
+            tid = '1'
+            order = '热门'
+            season_status = '-1'
+            if 'tid' in extend:
+                tid = extend['tid']
+            if 'order' in extend:
+                order = extend['order']
+            if 'season_status' in extend:
+                if order == '热门':
+                    order = '2'
+                season_status = extend['season_status']
+            return self.get_bangumi(tid, pg, order, season_status)
+        elif tid == "动态":
+            mid = '0'
+            order = 'pubdate'
+            if 'mid' in extend:
+                mid = extend['mid']
+            if 'order' in extend:
+                order = extend['order']
+            if mid == '0' and not self.userid or mid == '登录':
+                return self.get_Login_qrcode(pg)
+            return self.get_dynamic(pg=pg, mid=mid, order=order)
+        elif tid == '频道':
+            order = 'hot'
+            cid = random.choice(self.userConfig['channel_list'])
+            cid = cid['v']
+            if 'order' in extend:
+                order = extend['order']
+            if 'cid' in extend:
+                cid = extend['cid']
+            return self.get_channel(pg=pg, cid=cid, order=order)
+        elif tid == '直播':
+            tid = "热门"
+            area_id = '0'
+            if 'tid' in extend:
+                tid = extend['tid']
+            if '_' in tid:
+                tids = tid.split('_')
+                tid = tids[0]
+                area_id = tids[1]
+            return self.get_live(pg=pg, parent_area_id=tid, area_id=area_id)
+        elif tid == "UP":
+            mid = self.detailContent_args.get('mid', '')
+            if 'mid' in extend:
+                mid = extend['mid']
+            if not mid or mid == '登录':
+                return self.get_Login_qrcode(pg)
+            up_config = self.config["filter"].get('UP')
+            if not mid and up_config:
+                for i in up_config:
+                    if i['key'] == 'mid':
+                        if len(i['value']) > 1:
+                            mid = i['value'][1]['v']
+                        break
+            order = 'pubdate'
+            if 'order' in extend:
+                order = extend['order']
+            return self.get_up_videos(mid=mid, pg=pg, order=order)
+        elif tid == "关注":
+            sort = "最常访问"
+            if 'sort' in extend:
+                sort = extend['sort']
+            return self.get_follow(pg, sort)
+        elif tid == "收藏":
+            mlid = str(self.userConfig['favMode'])
+            if 'mlid' in extend:
+                mlid = extend['mlid']
+            fav_config = self.config["filter"].get('收藏')
+            if mlid in ['1', '2']:
+                return self.get_bangumi(tid=mlid, pg=pg, order='追番剧', season_status='')
+            elif mlid == '0' and fav_config:
+                for i in fav_config:
+                    if i['key'] == 'mlid':
+                        if len(i['value']) > 1:
+                            mlid = i['value'][2]['v']
+                        break
+            order = 'mtime'
+            if 'order' in extend:
+                order = extend['order']
+            return self.get_fav_detail(pg=pg, mlid=mlid, order=order)
+        elif tid == '历史':
+            type = 'all'
+            if 'type' in extend:
+                type = extend['type']
+            if type == 'UP主':
+                return self.get_follow(pg=pg, sort='最近访问')
+            return self.get_history(type=type, pg=pg)
+        else:
+            duration_diff = '0'
+            if 'duration' in extend:
+                duration_diff = extend['duration']
+            type = 'video'
+            if 'type' in extend:
+                type = extend['type']
+            order = 'totalrank'
+            if 'order' in extend:
+                order = extend['order']
+            keyword = str(self.search_key)
+            search_config = self.config["filter"].get('搜索')
+            if not keyword and search_config:
+                for i in search_config:
+                    if i['key'] == 'keyword':
+                        if len(i['value']) > 0:
+                            keyword = i['value'][0]['v']
+                        break
+            if 'keyword' in extend:
+                keyword = extend['keyword']
+            return self.get_search_content(key=keyword, pg=pg, duration_diff=duration_diff, order=order, type=type, ps=self.userConfig['page_size'])
+
+    def get_search_content(self, key, pg, duration_diff, order, type, ps):
+        value = None
+        if not pg.isdigit():
+            value = pg
+            pg = 1
+        query = self.encrypt_wbi(keyword=key, page=pg, duration=duration_diff, order=order, search_type=type, page_size=ps)
+        url = f'https://api.bilibili.com/x/web-interface/wbi/search/type?{query}'
+        rsp = self._get_sth(url, 'fake')
+        content = rsp.text
+        jo = json.loads(content)
+        result = {}
+        if jo.get('code') == 0 and 'result' in jo['data']:
+            videos = []
+            vodList = jo['data'].get('result')
+            if vodList and type == 'live':
+                vodList = vodList.get('live_room')
+            if not vodList:
+                return result
+            for vod in vodList:
+                title = ''
+                if type == 'bili_user':
+                    aid = 'up' + str(vod['mid']).strip()
+                    img = vod['upic'].strip()
+                    remark = '👥' + self.zh(vod['fans']) + "  🎬" + self.zh(vod['videos'])
+                    title = vod['uname']
+                elif type == 'live':
+                    aid = str(vod['roomid']).strip()
+                    img = vod['cover'].strip()
+                    remark = '👁' + self.zh(vod['online'])  + '  🆙' + vod['uname']
+                elif 'media' in type:
+                    aid = str(vod['season_id']).strip()
+                    if self.detailContent_args:
+                        seasons = self.detailContent_args.get('seasons')
+                        if seasons:
+                            bangumi_seasons_id = []
+                            for ss in self.detailContent_args['seasons']:
+                                bangumi_seasons_id.append(ss['vod_id'])
+                            if aid + 'ss' in bangumi_seasons_id:
+                                continue
+                    aid = 'ss' + aid
+                    img = vod['cover'].strip()
+                    remark = str(vod['index_show']).strip().replace('更新至', '🆕')
+                else:
+                    aid = 'av' + str(vod['aid']).strip()
+                    img = vod['pic'].strip()
+                    remark = str(self.second_to_time(self.str2sec(vod['duration']))).strip() + "  ▶" + self.zh(vod['play'])
+                    if value == None:
+                        remark += "  💬" + self.zh(vod['danmaku'])
+                if not title:
+                    title = vod['title'].replace("<em class=\"keyword\">", "").replace("</em>", "").replace("&quot;",'"').replace('&amp;', '&')
+                if value:
+                    title = value + title
+                videos.append({
+                    "vod_id": aid,
+                    "vod_name": title,
+                    "vod_pic": self.format_img(img),
+                    "vod_remarks": remark
+                })
+            result['list'] = videos
+            result['page'] = pg
+            result['pagecount'] = 9999
+            result['limit'] = 99
+            result['total'] = 999999
+        return result
+
+    def cleanSpace(self, str):
+        return str.replace('\n', '').replace('\t', '').replace('\r', '').replace(' ', '')
+
+    def get_normal_episodes(self, episode):
+        ssid = epid = ''
+        aid = episode.get('aid', '')
+        if not aid:
+            aid = self.detailContent_args['aid']
+        cid = episode.get('cid', '')
+        ep_title = episode.get('title', '')
+        if not ep_title:
+            ep_title = episode.get('part', '')
+        duration = episode.get('duration', '')
+        if not duration:
+            page = episode.get('page', '')
+            if page:
+                duration = page['duration']
+        badge = long_title = preview = parse = ''
+        ssid = self.detailContent_args.get('ssid', '')
+        if ssid:
+            ssid = '_ss' + ssid
+            epid = episode.get('id', '')
+            if epid:
+                epid = '_ep' + str(epid)
+            if duration and str(duration).endswith('000'):
+                duration = int(duration / 1000)
+            if ep_title.isdigit():
+                ep_title = '第' + ep_title + self.detailContent_args['title_type']
+            badge = episode.get('badge', '')
+            if not self.session_vip.cookies and badge == '会员' and self.userConfig['bangumi_vip_parse'] or badge == '付费' and self.userConfig['bangumi_pay_parse']:
+                parse = '_parse'
+            if self.session_vip.cookies and self.userConfig['hide_bangumi_vip_badge']:
+                badge = badge.replace('会员', '')
+            if self.userConfig['hide_bangumi_preview'] and badge == '预告':
+                badge = badge.replace('预告', '')
+                preview = 1
+            if badge:
+                badge = '【' + badge + '】'
+            long_title = episode.get('long_title', '')
+            if not badge and long_title:
+                long_title = ' ' + long_title
+        title = ep_title + badge + long_title
+        title = title.replace("#", "﹟").replace("$", "﹩")
+        if duration:
+            duration = '_dur' + str(duration)
+        url = '{0}${1}_{2}{3}{4}{5}'.format(title, aid, cid, ssid, epid, duration)
+        fromep = self.detailContent_args.get('fromep', '')
+        if '_' + str(fromep) == epid:
+            self.detailContent_args['fromep'] = url
+        replyList = self.detailContent_args.get('Reply')
+        if '_' + str(fromep) == epid or not fromep and replyList == None:
+            self.detailContent_args['Reply'] = ''
+            if self.userConfig['show_vod_hot_reply']:
+                self.get_vod_hot_reply_event.clear()
+                self.pool.submit(self.get_vod_hot_reply, aid)
+        if ssid:
+            if preview:
+                return url, ''
+            if parse:
+                self.detailContent_args['parse'] = 1
+                if long_title:
+                    long_title = '【解析】' + long_title
+                ep_title += long_title
+                parseurl = '{0}${1}_{2}{3}{4}{5}{6}'.format(ep_title, aid, cid, ssid, epid, duration, parse)
+                if '_' + str(fromep) == epid:
+                    self.detailContent_args['fromep'] += '#' + parseurl
+            else:
+                parseurl = url
+            return url, parseurl
+        else:
+            return url
+
+    def get_ugc_season(self, section, sections_len):
+        if sections_len > 1:
+            sec_title = self.detailContent_args['season_title'] + ' ' + section['title']
+        else:
+            sec_title = self.detailContent_args['season_title']
+        sec_title = sec_title.replace("#", "﹟").replace("$", "﹩")
+        episodes = section.get('episodes')
+        playUrl = '#'.join(map(self.get_normal_episodes, episodes))
+        result = (sec_title, playUrl)
+        return result
+
+    get_vod_hot_reply_event = threading.Event()
+
+    def get_vod_hot_reply(self, oid):
+        url = 'http://api.bilibili.com/x/v2/reply/main?type=1&ps=30&oid=' + str(oid)
+        rsp = self._get_sth(url, 'fake')
+        jRoot = json.loads(rsp.text)
+        if jRoot['code'] == 0:
+            replies = jRoot['data'].get('replies')
+            top_replies = jRoot['data'].get('top_replies')
+            if replies and top_replies:
+                replies = top_replies + replies
+            if replies:
+                up_mid = jRoot['data']['upper']['mid']
+                ReplyList = []
+                Reply_jump = []
+                for r in replies:
+                    rpid = r['rpid']
+                    sex = r['member']['sex']
+                    if sex and sex == '女':
+                        sex = '👧'
+                    else:
+                        sex = '👦'
+                    name = sex + r['member']['uname'] + '：'
+                    mid = r['mid']
+                    if mid == up_mid:
+                        name = '🆙' + name
+                    like = '👍' + self.zh(r['like'])
+                    message = r['content']['message']
+                    if '/note-app/' in message:
+                        continue
+                    content = like + ' ' + name + message
+                    content = content.replace("#", "﹟").replace("$", "﹩")
+                    content += '$' + str(oid) + '_' + str(rpid) + '_notplay_reply'
+                    ReplyList.append(content)
+                    jump_url = r['content'].get('jump_url',{})
+                    for key, value in jump_url.items():
+                        if not value.get('app_url_schema') and not value.get('pc_url'):
+                            if key.startswith('https://www.bilibili.com/'):
+                                key = str(key).split('?')[0].split('/')
+                                while key[-1] == '':
+                                    key.pop(-1)
+                                key = key[-1]
+                            if key.startswith('https://b23.tv/') or key.startswith('BV') or key.startswith('ep') or key.startswith('ss'):
+                                title = str(value['title']).replace("#", "﹟").replace("$", "﹩")
+                                vod = {'vod_id': str(key), 'vod_name': '评论：' + title}
+                                if not vod in Reply_jump:
+                                    Reply_jump.append(vod)
+                                title = '快搜：' + str(key) +' ' + title
+                                content = title + '$ '
+                                ReplyList.append(content)
+                self.detailContent_args['Reply'] = '#'.join(ReplyList)
+                self.detailContent_args['Reply_jump'] = Reply_jump
+        self.get_vod_hot_reply_event.set()
+
+    detailContent_args = {}
+    
+    def detailContent(self, array):
+        self.stop_heartbeat_event.set()
+        aid = array[0]
+        if aid.startswith('edgeid'):
+            return self.interaction_detailContent(aid)
+        self.detailContent_args = {}
+        if aid.startswith('https://b23.tv/'):
+            try:
+                r = requests_get(url=aid, headers=self.header, allow_redirects=False)
+                url = r.headers['Location'].split('?')[0].split('/')
+                while url[-1] == '':
+                    url.pop(-1)
+                aid = url[-1]
+                if not aid.startswith('BV', 0, 2):
+                    return {}
+            except:
+                return {}
+        id = mlid = urlargs = ''
+        self.get_vod_hot_reply_event.set()
+        if aid.startswith('setting'):
+            aid = aid.split('_')
+            if aid[1] == 'tab&filter':
+                return self.setting_tab_filter_detailContent()
+            elif aid[1] == 'liveExtra':
+                return self.setting_liveExtra_detailContent()
+            elif aid[1] == 'login':
+                key = aid[2]
+                return self.setting_login_detailContent(key)
+        elif aid.startswith('av') or aid.startswith('BV'):
+            for i in aid.split('_'):
+                if i.startswith('av'):
+                    id = i.replace('av', '', 1)
+                    urlargs = 'aid=' + str(id)
+                elif i.startswith('BV'):
+                    id = i
+                    urlargs = 'bvid=' + id
+                elif i.startswith('mlid'):
+                    mlid = i.replace('mlid', '', 1)
+            #获取热门评论
+            if self.userConfig['show_vod_hot_reply']:
+                self.detailContent_args['Reply'] = ''
+                self.get_vod_hot_reply_event.clear()
+                self.pool.submit(self.get_vod_hot_reply, id)
+        elif 'up' in aid:
+            return self.up_detailContent(array)
+        elif 'ss' in aid or 'ep' in aid:
+            return self.ysContent(array)
+        elif aid.isdigit():
+            return self.live_detailContent(array)
+        relation = self.pool.submit(self.get_vod_relation, urlargs)
+        url = 'https://api.bilibili.com/x/web-interface/view/detail?' + urlargs
+        rsp = self._get_sth(url, 'fake')
+        jRoot = json.loads(rsp.text)
+        if jRoot['code'] != 0:
+            return {}
+        jo = jRoot['data']['View']
+        redirect_url = jo.get('redirect_url', '')
+        if 'bangumi' in redirect_url:
+            ep_id = self.find_bangumi_id(redirect_url)
+            new_array = []
+            for i in array:
+                new_array.append(i)
+            new_array[0] = ep_id
+            return self.ysContent(new_array)
+        self.detailContent_args['mid'] = up_mid = str(jo['owner']['mid'])
+        self.detailContent_args['aid'] = aid = jo.get('aid')
+        self.pool.submit(self.get_up_info, mid=up_mid, data=jRoot['data'].get('Card'))
+        #相关合集
+        ugc_season = jo.get('ugc_season')
+        if ugc_season:
+            self.detailContent_args['season_title'] = ugc_season['title']
+            sections = ugc_season['sections']
+            sections_len = len(sections)
+            ugc_season_task = []
+            for section in sections:
+                t = self.pool.submit(self.get_ugc_season, section, sections_len)
+                ugc_season_task.append(t)
+        #相关推荐
+        jo_Related = jRoot['data'].get('Related')
+        #正片
+        pages = jo['pages']
+        title = jo['title'].replace("<em class=\"keyword\">", "").replace("</em>", "")
+        pic = jo['pic']
+        up_name = jo['owner']['name']
+        desc = jo['desc'].strip()
+        typeName = jo['tname']
+        date = time.strftime("%Y%m%d", time.localtime(jo['pubdate']))  # 投稿时间本地年月日表示
+        stat = jo['stat']
+        # 演员项展示视频状态，包括以下内容：
+        status = []
+        status.append('▶' + self.zh(stat['view']))
+        status.append('💬' + self.zh(stat['danmaku']))
+        status.append('👍' + self.zh(stat['like']))
+        honor = jo.get('honor_reply')
+        if honor:
+            status.insert(0, '🏅' + honor['honor'][0]['desc'])
+        if not honor or honor and honor['honor'][0]['type'] == 4:
+            status.append('💰' + self.zh(stat['coin']))
+            status.append('⭐' + self.zh(stat['favorite']))
+        remark = str(jo['duration']).strip()
+        duration = jo['duration']
+        _is_stein_gate = jo['rights'].get('is_stein_gate', 0)
+        vod = {
+            "vod_id": 'av' + str(aid),
+            "vod_name": title, 
+            "vod_pic": pic,
+            "type_name": typeName,
+            "vod_year": date,
+            "vod_area": "bilidanmu",
+            "vod_remarks": remark,  # 不会显示
+         #   'vod_tag': 'folder',  # 不会显示
+            "vod_actor": "　".join(status),
+            "vod_content": desc
+        }
+        secondP = []
+        if self.userid:
+            #做点什么
+            follow = '➕关注$1_notplay_follow'
+            unfollow = '➖取关$2_notplay_follow'
+            like = '👍点赞$1_notplay_like'
+            unlike = '👍🏻取消点赞$2_notplay_like'
+            coin1 = '👍💰投币$1_notplay_coin'
+            coin2 = '👍💰💰投2币$2_notplay_coin'
+            triple = '👍💰⭐三连$notplay_triple'
+            secondPList = [follow, triple, like, coin1, coin2, unfollow, unlike]
+            if mlid:
+                favdel = f"☆取消收藏${mlid}_del_notplay_fav"
+                secondPList.append(favdel)
+            for fav in self.userConfig.get("fav_list", []):
+                folder = fav['n'].replace("#", "﹟").replace("$", "﹩")
+                ids = fav['v']
+                fav = '⭐{}${}_add_notplay_fav'.format(folder, ids)
+                secondPList.append(fav)
+            defaultQn = int(self.userConfig['vodDefaultQn'])
+            if defaultQn > 116:
+                secondPList.append('⚠️限高1080$116_notplay_vodTMPQn')
+            secondP = ['#'.join(secondPList)]
+        AllPt = []
+        AllPu = []
+        if pages:
+            AllPt = ['B站']
+            if _is_stein_gate:
+                AllPt = ['互动视频【快搜继续】']
+            AllPu = ['#'.join(self.pool.map(self.get_normal_episodes, pages))]
+        if secondP:
+            AllPt.append('做点什么')
+            AllPu.extend(secondP)
+        if jo_Related:
+            AllPt.append('相关推荐')
+            AllPu.append('#'.join(self.pool.map(self.get_normal_episodes, jo_Related)))
+        if self.userConfig['show_vod_hot_reply']:
+            self.get_vod_hot_reply_event.wait()
+            replyList = self.detailContent_args.get('Reply', '')
+            if replyList:
+                AllPt.append('热门评论')
+                AllPu.extend([replyList])
+        if ugc_season:
+            for t in as_completed(ugc_season_task):
+                AllPt.append(t.result()[0])
+                AllPu.append(t.result()[1])
+        vod['vod_play_from'] = "$$$".join(AllPt)
+        vod['vod_play_url'] = "$$$".join(AllPu)
+        #视频关系
+        vod['vod_director'] = '🆙 ' + up_name + '　👥 ' + self.up_info[up_mid]['fans'] + '　' + '　'.join(relation.result())
+        #互动视频套用
+        if _is_stein_gate:
+            self.detailContent_args['AllPt'] = AllPt.copy()
+            self.detailContent_args['AllPu'] = AllPu.copy()
+            self.detailContent_args['vod_list'] = vod.copy()
+        result = {
+            'list': [
+                vod
+            ]
+        }
+        return result
+
+    def interaction_detailContent(self, array=''):
+        array = array.split('_')
+        cid = edgeid = 0
+        for i in array:
+            if i.startswith('edgeid'):
+                edgeid = i.replace('edgeid', '')
+            elif i.startswith('cid'):
+                cid = i.replace('cid', '')
+        aid = self.detailContent_args.get('aid')
+        graph_version = self.detailContent_args.get('graph_version')
+        url = 'https://api.bilibili.com/x/stein/edgeinfo_v2?aid={0}&graph_version={1}&edge_id={2}'.format(aid, graph_version, edgeid)
+        rsp = self._get_sth(url, 'fake')
+        jo = json.loads(rsp.text)
+        data = jo.get('data')
+        result = {}
+        if data:
+            questions = data['edges'].get('questions', [])
+            choice_lis = []
+            for question in questions:
+                q_title = str(question.get('title', ''))
+                if q_title:
+                    q_title += ' '
+                for choice in question.get('choices', []):
+                    c_edgeid = str(choice['id'])
+                    c_cid = str(choice['cid'])
+                    option = str(choice.get('option', ''))
+                    choice_lis.append({
+                    "vod_id": 'edgeid' + c_edgeid + '_' + 'cid' + c_cid,
+                    "vod_name": '互动：' + q_title + option,
+                    })
+            self.detailContent_args['interaction'] = choice_lis.copy()
+            if edgeid:
+                AllPt = self.detailContent_args['AllPt'].copy()
+                if not choice_lis:
+                    AllPt[0] = '互动视频'
+                AllPu = self.detailContent_args['AllPu'].copy()
+                title = str(data['title']).replace("#", "﹟").replace("$", "﹩")
+                url = '{0}${1}_{2}'.format(title, aid, cid)
+                AllPu[0] = url
+                vod = self.detailContent_args['vod_list'].copy()
+                vod['vod_play_from'] = "$$$".join(AllPt)
+                vod['vod_play_url'] = "$$$".join(AllPu)
+                result['list'] = [vod]
+        return result
+
+    def up_detailContent(self, array):
+        self.detailContent_args['mid'] = mid = array[0].replace('up', '')
+        self.get_up_info_event.clear()
+        self.pool.submit(self.get_up_info, mid)
+        first = '是否关注$ '
+        follow = '关注$1_notplay_follow'
+        unfollow = '取消关注$2_notplay_follow'
+        qqfollow = '悄悄关注$3_notplay_follow'
+        spfollow = '特别关注$-10_notplay_special_follow'
+        unspfollow = '取消特别关注$0_notplay_special_follow'
+        doWhat = [first, follow, qqfollow, spfollow, unfollow, unspfollow]
+        doWhat = '#'.join(doWhat)
+        self.get_up_info_event.wait()
+        up_info = self.up_info[mid]
+        vod = {
+            "vod_id": 'up' + str(mid),
+            "vod_name": up_info['name'] + "  个人主页",
+            "vod_pic": up_info['face'],
+            "vod_remarks": "",  # 不会显示
+            "vod_tags": 'mv',  # 不会显示
+            "vod_actor": "👥 " + up_info['fans'] + "　🎬 " + up_info['vod_count'] + "　👍 " + up_info['like_num'],
+            "vod_director": '🆙 ' + up_info['name'] + "　" + up_info['following'] + '　UID：' +str(mid),
+            "vod_content": up_info['desc'],
+            'vod_play_from': '关注TA$$$视频投稿在动态标签——筛选——上个UP，选择后查看'
+        }
+        vod['vod_play_url'] = doWhat
+
+        result = {
+            'list': [
+                vod
+            ]
+        }
+        return result
+
+    def setting_login_detailContent(self, key):
+        cookie_dic_tmp = self.cookie_dic_tmp.get(key, '')
+        message = ''
+        if not cookie_dic_tmp:
+            message = self.get_cookies(key)
+        if message:
+            message = f"【{message}】通过手机客户端扫码确认登录后点击相应按钮设置账号"
+        else:
+            message = '【已扫码并确认登录】请点击相应按钮设置当前获取的账号为：'
+        vod = {
+            "vod_name": "登录与设置",
+            "vod_content": '通过手机客户端扫码并确认登录后，点击相应按钮设置cookie，设置后不需要管嗅探结果，直接返回二维码页面刷新，查看是否显示已登录，已登录即可重新打开APP以加载全部标签',
+        }
+        vod_play_from = ['登录$$$退出登录']
+        vod_play_url = []
+        first = message + '$ '
+        login = '设置为主账号，动态收藏关注等内容源于此$' + str(key) + '_master_login_setting'
+        login_vip = '设置为备用的VIP账号，仅用于播放会员番剧$' + str(key) + '_vip_login_setting'
+        vod_play_url.append('#'.join([first, login, login_vip]))
+        second = '点击相应按钮退出账号>>>$ '
+        logout = '退出主账号$master_logout_setting'
+        logout_vip = '退出备用的VIP账号$vip_logout_setting'
+        vod_play_url.append('#'.join([second, logout, logout_vip]))
+        cate_lis = [{
+            'f': '主页站点推荐栏',
+            'c': 'maxHomeVideoContent',
+            'd': {
+                '3': '3图',
+                '4': '4图',
+                '6': '6图',
+                '8': '8图',
+                '10': '10图',
+            }
+        },{
+            'f': '视频画质',
+            'c': 'vodDefaultQn',
+            'd': self.vod_qn_id
+        },{
+            'f': '视频编码',
+            'c': 'vodDefaultCodec',
+            'd': self.vod_codec_id
+        },{
+            'f': '音频码率',
+            'c': 'vodDefaultAudio',
+            'd': self.vod_audio_id
+        },{
+            'f': '收藏默认显示',
+            'c': 'favMode',
+            'd': {
+                '0': '默认收藏夹',
+                '1': '追番',
+                '2': '追剧',
+            }
+        },{
+            
+            'f': '上传播放进度',
+            'c': 'heartbeatInterval',
+            'd': {
+                '0': '关',
+                '15': '开',
+            }
+        },{
+            
+            'f': '直播筛选细化',
+            'c': 'showLiveFilterTag',
+            'd': {
+                '0': '关',
+                '1': '开',
+            }
+        }]
+        #检查更新
+        update_dic = {
+            'f': '检查更新',
+            'c': 'checkUpdate'
+        }
+        newVersion = self.userConfig.get('newVersion', '检查失败')
+        updateStatus = actionCode = 0
+        if newVersion != '检查失败':
+            newVersion = '远端：' + str(self.userConfig['newVersion']['ver'])
+            actionCode = 1
+            updateStatus = self.userConfig['newVersion'].get('status')
+        update_dic['d'] = {str(actionCode): newVersion}
+        if updateStatus:
+            update_dic['d'][' '] = updateStatus
+        cate_lis.insert(0, update_dic)
+        for cate in cate_lis:
+            vod_play_from.append(cate['f'])
+            if cate['c'] == 'checkUpdate':
+                defaultConfig = self.userConfig['currentVersion']
+            else:
+                defaultConfig = cate['d'][str(int(self.userConfig[cate['c']]))]
+            if 'vodDefaultAudio' == cate['c']:
+                defaultConfig = str(defaultConfig).replace('000', 'k')
+            url = ['当前：' + defaultConfig + '$ ']
+            for id, name in cate['d'].items():
+                if 'vodDefaultAudio' == cate['c']:
+                    name = str(name).replace('000', 'k')
+                url.append(name + '$' + str(id) + '_' + cate['c'] + '_setting')
+            vod_play_url.append('#'.join(url))
+        vod['vod_play_from'] = '$$$'.join(vod_play_from)
+        vod['vod_play_url'] = '$$$'.join(vod_play_url)
+        result = {
+            'list': [
+                vod
+            ]
+        }
+        return result
+
+    def setting_tab_filter_detailContent(self):
+        vod = {
+            "vod_name": "标签与筛选",
+            "vod_content": '依次点击各标签，同一标签第一次点击为添加，第二次删除，可以返回到二维码页后重进本页查看预览，最后点击保存，未选择的将追加到末尾，如果未保存就重启app，将丢失未保存的配置',
+        }
+        vod_play_from = []
+        vod_play_url = []
+        cate_lis = [
+            {'n': 'cateManual', 'v': '标签'},
+            {'n': 'tuijianLis', 'v': '推荐[分区]'},
+            {'n': 'rankingLis', 'v': '推荐[排行榜]'},
+            {'n': 'cateManualLive', 'v': '直播'},
+        ]
+        for cate in cate_lis:
+            _List = cate['n']
+            vod_play_from.append(cate['v'])
+            List_tmp = self.userConfig.get(str(_List) + '_tmp', [])
+            status = ''
+            if List_tmp:
+                status = '【未保存】'
+            else:
+                List_tmp = self.userConfig.get(_List, [])
+            if not List_tmp:
+                List_tmp = self.defaultConfig.get(_List)
+            if List_tmp and type(List_tmp[0]) == dict:
+                List_tmp = list(map(lambda x:x['n'], List_tmp))
+            url = ['当前: ' + ','.join(List_tmp) + '$ ', f"{status}点击这里保存$_{_List}_save_setting", f"点击这里恢复默认并保存$_{_List}_clear_setting"]
+            defaultConfig = self.defaultConfig[_List].copy()
+            if _List == 'cateManual' and not 'UP' in defaultConfig:
+                defaultConfig.append('UP')
+            elif _List == 'cateManualLive':
+                extra_live_filter = self.userConfig.get('cateManualLiveExtra', [])
+                defaultConfig.extend(extra_live_filter.copy())
+            for name in defaultConfig:
+                value = str(name)
+                if type(name) == dict:
+                    value = name['n'] + '@@@' + name['v'].replace('_', '@@@')
+                    name = name['n']
+                url.append(f"{name}${value}_{_List}_setting")
+            vod_play_url.append('#'.join(url))
+        vod['vod_play_from'] = '$$$'.join(vod_play_from)
+        vod['vod_play_url'] = '$$$'.join(vod_play_url)
+        result = {
+            'list': [
+                vod
+            ]
+        }
+        return result
+
+    def setting_liveExtra_detailContent(self):
+        vod = {
+            "vod_name": "查看直播细化标签",
+            "vod_content": '点击想要添加的标签，同一标签第一次点击为添加，第二次删除，完成后在[标签与筛选]页继续操作，以添加到直播筛选分区列中',
+        }
+        vod_play_from = ['已添加']
+        cateManualLiveExtra = self.userConfig.get('cateManualLiveExtra', [])
+        vod_play_url = ['点击相应标签(只)可以删除$ #清空$clear_liveFilter_setting']
+        for name in cateManualLiveExtra:
+            value = name['v']
+            name = name['n']
+            vod_play_url.append(name + '$' + 'del_' + name + '_' + value + '_liveFilter_setting')
+        vod_play_url = ['#'.join(vod_play_url)]
+        cateLive = self.userConfig.get('cateLive', {})
+        for parent, parent_dic in cateLive.items():
+            area_dic = parent_dic['value']['value']
+            if len(area_dic) == 1:
+                continue
+            vod_play_from.append(parent)
+            url = []
+            for area in area_dic:
+                name = str(area['n']).replace('_', '-').replace("#", "﹟").replace("$", "﹩")
+                id = str(area['v']).replace('_', '@@@').replace("#", "﹟").replace("$", "﹩")
+                url.append(name + '$add_' + name + '_' + id + '_liveFilter_setting')
+            vod_play_url.append('#'.join(url))
+        vod['vod_play_from'] = '$$$'.join(vod_play_from)
+        vod['vod_play_url'] = '$$$'.join(vod_play_url)
+        result = {
+            'list': [
+                vod
+            ]
+        }
+        return result
+
+    def get_all_season(self, season):
+        season_id = str(season['season_id'])
+        season_title = season['season_title']
+        if season_id == self.detailContent_args['ssid']:
+            self.detailContent_args['s_title'] = season_title
+        pic = season['cover']
+        remark = season['new_ep']['index_show']
+        result = {
+            "vod_id": season_id + 'ss',
+            "vod_name": '系列：' + season_title,
+            "vod_pic": self.format_img(pic),
+            "vod_remarks": remark}
+        return result
+
+    def get_bangumi_section(self, section):
+        sec_title = section['title'].replace("#", "﹟").replace("$", "﹩")
+        sec_type = section['type']
+        if sec_type in [1, 2] and len(section['episode_ids']) == 0:
+            episodes = section['episodes']
+            playUrl = '#'.join(map(lambda x: self.get_normal_episodes(x)[0], episodes))
+            return (sec_title, playUrl)
+
+    def ysContent(self, array):
+        aid = array[0]
+        if 'ep' in aid:
+            self.detailContent_args['fromep'] = aid
+            aid = 'ep_id=' + aid.replace('ep', '')
+        elif 'ss' in aid:
+            aid = 'season_id=' + aid.replace('ss', '')
+        url = "https://api.bilibili.com/pgc/view/web/season?{0}".format(aid)
+        rsp = self._get_sth(url, 'fake')
+        jRoot = json.loads(rsp.text)
+        jo = jRoot['result']
+        self.detailContent_args['ssid'] = str(jo['season_id'])
+        title = jo['title']
+        self.detailContent_args['s_title'] = jo['season_title']
+        self.detailContent_args['title_type'] = '集'
+        if jo['type'] in [1, 4]:
+            self.detailContent_args['title_type'] = '话'
+        #添加系列到搜索
+        seasons = jo.get('seasons')
+        if len(seasons) == 1:
+            self.detailContent_args['s_title'] = seasons[0]['season_title']
+            seasons = 0
+        else:
+            self.detailContent_args['seasons'] = list(self.pool.map(self.get_all_season, seasons))
+        #获取正片
+        episodes = jo.get('episodes')
+        #获取花絮
+        section_task = []
+        for s in jo.get('section', []):
+            if s:
+                t = self.pool.submit(self.get_bangumi_section, s)
+                section_task.append(t)
+        pic = jo['cover']
+        typeName = jo['share_sub_title']
+        date = jo['publish']['pub_time'][0:4]
+        dec = jo['evaluate']
+        remark = jo['new_ep']['desc']
+        stat = jo['stat']
+        # 演员和导演框展示视频状态，包括以下内容：
+        status = "▶" + self.zh(stat['views']) + "　💬" + self.zh(stat['danmakus']) + "　👍" + self.zh(stat['likes']) + "　💰" + self.zh(
+            stat['coins']) + "　❤" + self.zh(stat['favorites'])
+        if 'rating' in jo:
+            status = str(jo['rating']['score']) + '分　' + status
+        vod = {
+            "vod_id": 'ss' + self.detailContent_args['ssid'],
+            "vod_name": title,
+            "vod_pic": pic,
+            "type_name": typeName,
+            "vod_year": date,
+            "vod_area": "bilidanmu",
+            "vod_remarks": remark,
+            "vod_actor": status,
+            #"vod_director": score,
+            "vod_content": dec
+        }
+        ZhuiPf = []
+        ZhuiPu = []
+        if self.userid:
+            ZhuiPf = ['做点什么']
+            ZhuiPu = '是否追番剧$ #❤追番剧$add_notplay_zhui#💔取消追番剧$del_notplay_zhui'
+            defaultQn = int(self.userConfig['vodDefaultQn'])
+            if defaultQn > 116:
+                ZhuiPu += '#⚠️限高1080$116_notplay_vodTMPQn'
+            ZhuiPu = [ZhuiPu]
+        if seasons:
+            ZhuiPf.append('更多系列')
+            ZhuiPu.append('更多系列在快速搜索中查看$ #')
+        FirstPf = []
+        FirstPu = []
+        PreviewPf = []
+        PreviewPu = []
+        ParsePf = []
+        ParsePu = []
+        if episodes:
+            for x, y in self.pool.map(self.get_normal_episodes, episodes):
+                if y:
+                    FirstPu.append(x)
+                    ParsePu.append(y)
+                else:
+                    PreviewPu.append(x)
+            if FirstPu:
+                FirstPf = [self.detailContent_args['s_title']]
+                FirstPu = ['#'.join(FirstPu)]
+            if PreviewPu:
+                PreviewPf = ['预告']
+                PreviewPu = ['#'.join(PreviewPu)]
+            if not self.detailContent_args.get('parse'):
+                ParsePu = []
+            if ParsePu:
+                ParsePf = [str(self.detailContent_args['s_title']) + '【解析】']
+                ParsePu = ['#'.join(ParsePu)]
+        fromL = ParsePf + FirstPf + PreviewPf
+        urlL = ParsePu + FirstPu + PreviewPu
+        for t in as_completed(section_task):
+            s = t.result()
+            if s:
+                fromL.append(s[0])
+                urlL.append(s[1])
+        fromep = self.detailContent_args.get('fromep', '')
+        if '_' in fromep:
+            fromL = ['B站'] + fromL
+            urlL = [fromep] + urlL
+        if self.userConfig['show_vod_hot_reply']:
+            self.get_vod_hot_reply_event.wait()
+            ReplyPu = self.detailContent_args.get('Reply', '')
+            if ReplyPu:
+                ZhuiPf.append('热门评论')
+                ZhuiPu.append(ReplyPu)
+        fromL.insert(1, '$$$'.join(ZhuiPf))
+        urlL.insert(1, '$$$'.join(ZhuiPu))
+        vod['vod_play_from'] = '$$$'.join(fromL)
+        vod['vod_play_url'] = '$$$'.join(urlL)
+        result = {
+            'list': [
+                vod
+            ]
+        }
+        return result
+
+    def get_live_api2_playurl(self, room_id):
+        playFrom = []
+        playUrl = []
+        url = 'https://api.live.bilibili.com/xlive/web-room/v2/index/getRoomPlayInfo?room_id={0}&no_playurl=0&mask=1&qn=0&platform=web&protocol=0,1&format=0,1,2&codec=0,1&dolby=5&panorama=1'.format(room_id)
+        rsp = self._get_sth(url, 'fake')
+        jo = json.loads(rsp.text)
+        if jo['code'] == 0:
+            playurl_info = jo['data'].get('playurl_info', '')
+            if playurl_info:
+                stream = playurl_info['playurl']['stream']
+                liveDic = {
+                    'codec': {'avc': '0', 'hevc': '1'},
+                    'format': {'flv': '0', 'ts': '1', 'fmp4': '2'},
+                }
+                liveDic['qn'] = dict(self.pool.map(lambda x:(x['qn'], x['desc']), playurl_info['playurl']['g_qn_desc']))
+                vodList = []
+                for i in stream:
+                    vodList.extend(i['format'])
+                api2_playUrl = {}
+                for v in vodList:
+                    format = str(v.get('format_name'))
+                    for c in v['codec']:
+                        codec = str(c.get('codec_name'))
+                        accept_qn = c.get('accept_qn')
+                        for qn in accept_qn:
+                            url = format + '_' + codec + '$liveapi2_' + str(qn) + '_' + liveDic['format'][format] + '_' + liveDic['codec'][codec] + '_' + str(room_id)
+                            if not api2_playUrl.get(liveDic['qn'][qn]):
+                                api2_playUrl[liveDic['qn'][qn]] = []
+                            api2_playUrl[liveDic['qn'][qn]].append(url)
+                for key, value in api2_playUrl.items():
+                    playFrom.append(key)
+                    playUrl.append('#'.join(value))
+        result = {'From': playFrom, 'url': playUrl}
+        return result
+
+    def live_detailContent(self, array):
+        room_id = array[0]
+        get_live_api2_playurl = self.pool.submit(self.get_live_api2_playurl, room_id)
+        url = "https://api.live.bilibili.com/room/v1/Room/get_info?room_id=" + str(room_id)
+        rsp = self._get_sth(url, 'fake')
+        jRoot = json.loads(rsp.text)
+        result = {}
+        if jRoot.get('code') == 0:
+            jo = jRoot['data']
+            self.detailContent_args['mid'] = mid = str(jo["uid"])
+            self.get_up_info_event.clear()
+            self.pool.submit(self.get_up_info, mid)
+            title = jo['title'].replace("<em class=\"keyword\">", "").replace("</em>", "")
+            pic = jo.get("user_cover")
+            desc = jo.get('description')
+            typeName = jo.get('parent_area_name') + '--' + jo.get('area_name')
+            live_status = jo.get('live_status', '')
+            if live_status:
+                live_status = "开播时间：" + jo.get('live_time').replace('-', '.')
+            else:
+                live_status = "未开播"
+            vod = {
+                "vod_id": room_id,
+                "vod_name": title,
+                "vod_pic": pic,
+                "type_name": typeName,
+                "vod_year": "",
+                "vod_area": "bililivedanmu",
+                "vod_actor": "房间号：" + room_id +  "　UID：" + mid + "　" + live_status,
+                "vod_content": desc,
+            }
+            secondPFrom = ''
+            secondP = ''
+            if self.userid:
+                secondPFrom = '关注Ta'
+                first = '是否关注$ '
+                follow = '➕关注$1_notplay_follow'
+                unfollow = '➖取关$2_notplay_follow'
+                secondPList = [first, follow, unfollow]
+                secondP = '#'.join(secondPList)
+            playFrom = get_live_api2_playurl.result().get('From', [])
+            playUrl = get_live_api2_playurl.result().get('url', [])
+            if playFrom:
+                api1_playFrom = 'API_1'
+                api1_playUrl = 'flv线路原画$platform=web&quality=4_' + room_id + '#flv线路高清$platform=web&quality=3_' + room_id + '#h5线路原画$platform=h5&quality=4_' + room_id + '#h5线路高清$platform=h5&quality=3_' + room_id
+                playFrom.append(api1_playFrom)
+                playUrl.append(api1_playUrl)
+            if secondPFrom:
+                playFrom.insert(1, secondPFrom)
+                playUrl.insert(1, secondP)
+            vod['vod_play_from'] = '$$$'.join(playFrom)
+            vod['vod_play_url'] = '$$$'.join(playUrl)
+            self.get_up_info_event.wait()
+            up_info = self.up_info[mid]
+            vod["vod_director"] = '🆙 ' + up_info['name']  + "　👥 " + self.zh(jo.get('attention')) + '　' + up_info['following']
+            result['list'] = [vod]
+        return result
+
+    search_key = ''
+    
+    def searchContent(self, key, quick):
+        if not self.session_fake.cookies:
+            self.pool.submit(self.getFakeCookie, True)
+        for t in self.task_pool:
+            t.cancel()
+        self.task_pool = []
+        self.search_key = key
+        mid = self.detailContent_args.get('mid', '')
+        if quick and mid:
+            get_up_videos = self.pool.submit(self.get_up_videos, mid, 1, 'quicksearch')
+        types = {'video': '','media_bangumi': '番剧: ', 'media_ft': '影视: ', 'bili_user': '用户: ', 'live': '直播: '}
+        for type, value in types.items():
+            t = self.pool.submit(self.get_search_content, key = key, pg = value, duration_diff = 0, order = '', type = type, ps = self.userConfig['page_size'])
+            self.task_pool.append(t)
+        result = {'list': []}
+        for t in as_completed(self.task_pool):
+            res = t.result().get('list', [])
+            result['list'].extend(res)
+            self.task_pool.remove(t)
+        if quick:
+            if mid:
+                result['list'] = self.detailContent_args.get('interaction', []) + get_up_videos.result().get('list', []) + self.detailContent_args.get('Reply_jump', []) + result['list']
+            else:
+                result['list'] = self.detailContent_args.get('seasons', []) + result['list']
+        return result
+
+    stop_heartbeat_event = threading.Event()
+
+    def start_heartbeat(self, aid, cid, ids):
+        duration = ssid = epid = ''
+        for i in ids:
+            if 'ss' in i:
+                ssid = i.replace('ss', '')
+            elif 'ep' in i:
+                epid = i.replace('ep', '')
+            elif 'dur' in i:
+                duration = int(i.replace('dur', ''))
+        url = 'https://api.bilibili.com/x/player/v2?aid={0}&cid={1}'.format(aid, cid)
+        rsp = self._get_sth(url)
+        jo = json.loads(rsp.text)
+        data = jo.get('data',{})
+        interaction = data.get('interaction', {})
+        if interaction.get('graph_version'):
+            graph_version = interaction.get('graph_version')
+            old = self.detailContent_args.get('graph_version')
+            if old != graph_version:
+                self.detailContent_args['graph_version'] = graph_version
+                self.pool.submit(self.interaction_detailContent)
+        heartbeatInterval = int(self.userConfig['heartbeatInterval'])
+        if not self.userid or not heartbeatInterval:
+            return
+        if not duration:
+            url = 'https://api.bilibili.com/x/web-interface/view?aid={0}&cid={1}'.format(aid, cid)
+            rsp = self._get_sth(url, 'fake')
+            jRoot = json.loads(rsp.text)
+            duration = jRoot['data']['duration']
+        played_time = 0
+        if int(data.get('last_play_cid', 0)) == int(cid):
+            last_play_time = int(data.get('last_play_time'))
+            if last_play_time > 0:
+                played_time = int(last_play_time / 1000)
+        heartbeat_times = int((duration - played_time) / heartbeatInterval) + 1
+        url = 'https://api.bilibili.com/x/click-interface/web/heartbeat'
+        data = {'aid': str(aid), 'cid': str(cid), 'csrf': str(self.csrf)}
+        if ssid:
+            data['sid'] = str(ssid)
+            data['epid'] = str(epid)
+            data['type'] = '4'
+        heartbeat_count = 0
+        self.stop_heartbeat_event.clear()
+        while True:
+            if heartbeat_count == heartbeatInterval or self.stop_heartbeat_event.is_set():
+                played_time += heartbeat_count
+                heartbeat_count = 0
+            if not heartbeat_count:
+                heartbeat_times -= 1
+                if not heartbeat_times:
+                    #播完为-1
+                    played_time = -1
+                    self.stop_heartbeat_event.set()
+                data['played_time'] = str(played_time)
+                self.pool.submit(self._post_sth, url=url, data=data)
+                if self.stop_heartbeat_event.is_set():
+                    break
+            time.sleep(1)
+            heartbeat_count += 1
+
+    wbi_key = {}
+    def get_wbiKey(self, wts):
+        r = self.fetch("https://api.bilibili.com/x/web-interface/nav", headers=self.header)
+        wbi_img_url = r.json()['data']['wbi_img']['img_url']
+        wbi_sub_url = r.json()['data']['wbi_img']['sub_url']
+        oe = [46, 47, 18, 2, 53, 8, 23, 32, 15, 50, 10, 31, 58, 3, 45, 35, 27, 43, 5, 49, 33, 9, 42, 19, 29, 28, 14, 39, 12,
+            38, 41, 13, 37, 48, 7, 16, 24, 55, 40, 61, 26, 17, 0, 1, 60, 51, 30, 4, 22, 25, 54, 21, 56, 59, 6, 63, 57, 62,
+            11, 36, 20, 34, 44, 52]
+        ae = wbi_img_url.split("/")[-1].split(".")[0] + wbi_sub_url.split("/")[-1].split(".")[0]
+        le = reduce(lambda s, i: s + ae[i], oe, "")
+        self.wbi_key = {
+            "key": le[:32],
+            "wts": wts
+        }
+    
+    def encrypt_wbi(self, **params):
+        wts = round(time.time())
+        if not self.wbi_key or abs(self.wbi_key['wts']) < 30:
+            self.get_wbiKey(wts)
+        params["wts"] = wts
+        params = dict(sorted(params.items()))
+        params = {k : ''.join(filter(lambda chr: chr not in "!'()*", str(v))) for k, v in params.items()}
+        Ae = urlencode(params)
+        return Ae + "&w_rid=" + hashlib.md5((Ae + self.wbi_key['key']).encode(encoding='utf-8')).hexdigest()
+
+    def _get_sth(self, url, _type='master'):
+        if _type == 'vip' and self.session_vip.cookies:
+            rsp = self.session_vip.get(url, headers=self.header)
+        elif _type == 'fake':
+            if not self.session_fake.cookies:
+                self.getFakeCookie_event.wait()
+            rsp = self.session_fake.get(url, headers=self.header)
+        else:
+            rsp = self.session_master.get(url, headers=self.header)
+        return rsp
+
+    def _post_sth(self, url, data):
+        return self.session_master.post(url, headers=self.header, data=data)
+
+    def post_live_history(self, room_id):
+        data = {'room_id': str(room_id), 'platform': 'pc', 'csrf': str(self.csrf)}
+        url = 'https://api.live.bilibili.com/xlive/web-room/v1/index/roomEntryAction'
+        self._post_sth(url=url, data=data)
+
+    def do_notplay(self, ids):
+        aid = self.detailContent_args.get('aid')
+        mid = self.detailContent_args.get('mid')
+        ssid = self.detailContent_args.get('ssid')
+        data = {'csrf': str(self.csrf)}
+        url = ''
+        if 'vodTMPQn' in ids:
+            self.detailContent_args['vodTMPQn'] = str(ids[0])
+            return
+        elif 'follow' in ids:
+            if 'special' in ids:
+                data.update({'fids': str(mid), 'tagids': str(ids[0])})
+                url = 'https://api.bilibili.com/x/relation/tags/addUsers'
+            else:
+                data.update({'fid': str(mid), 'act': str(ids[0])})
+                url = 'https://api.bilibili.com/x/relation/modify'
+        elif 'zhui' in ids:
+            data.update({'season_id': str(ssid)})
+            url = 'https://api.bilibili.com/pgc/web/follow/' + str(ids[0])
+        elif 'like' in ids:
+            data.update({'aid': str(aid), 'like': str(ids[0])})
+            url = 'https://api.bilibili.com/x/web-interface/archive/like'
+        elif 'coin' in ids:
+            data.update({'aid': str(aid), 'multiply': str(ids[0]), 'select_like': '1'})
+            url = 'https://api.bilibili.com/x/web-interface/coin/add'
+        elif 'fav' in ids:
+            data.update({'rid': str(aid), 'type': '2'})
+            data[ids[1] + '_media_ids'] = str(ids[0])
+            url = 'https://api.bilibili.com/x/v3/fav/resource/deal'
+        elif 'triple' in ids:
+            data.update({'aid': str(aid)})
+            url = 'https://api.bilibili.com/x/web-interface/archive/like/triple'
+        elif 'reply' in ids:
+            data.update({'oid': str(ids[0]), 'rpid': str(ids[1]), 'type': '1', 'action': '1'})
+            url = 'http://api.bilibili.com/x/v2/reply/action'
+        self._post_sth(url=url, data=data)
+
+    def get_cid(self, video):
+        url = "https://api.bilibili.com/x/web-interface/view?aid=%s" % str(video['aid'])
+        rsp = self._get_sth(url)
+        jRoot = json.loads(rsp.text)
+        jo = jRoot['data']
+        video['cid'] = jo['cid']
+        video['duration'] = jo['duration']
+        if 'redirect_url' in jo and 'bangumi' in jo['redirect_url']:
+            video['ep'] = self.find_bangumi_id(jo['redirect_url'])
+
+    cookie_dic_tmp = {}
+
+    def get_cookies(self, key):
+        url = 'https://passport.bilibili.com/x/passport-login/web/qrcode/poll?qrcode_key=' + key
+        rsp = self._get_sth(url, 'fake')
+        jo = json.loads(rsp.text)
+        if jo['code'] == 0:
+            message = jo['data']['message']
+            if not message:
+                self.cookie_dic_tmp[key] = dict(self.session_fake.cookies)
+                self.pool.submit(self.getFakeCookie)
+            return message
+        return '网络错误'
+
+    def set_cookie(self, key, _type):
+        cookie_dic_tmp = self.cookie_dic_tmp.get(key, '')
+        if not cookie_dic_tmp:
+            message = self.get_cookies(key)
+            if message:
+                return
+        users = self.userConfig.get('users', {})
+        users[_type] = {'cookies_dic': self.cookie_dic_tmp.get(key, {})}
+        self.userConfig.update({'users': users})
+        self.getCookie(_type)
+        self.dump_config()
+
+    def unset_cookie(self, _type):
+        if _type == 'vip':
+            self.session_vip.cookies.clear()
+        else:
+            self.session_master.cookies = self.session_fake.cookies
+            self.userid = self.csrf = ''
+        if _type in self.userConfig.get('users', {}):
+            self.userConfig['users'].pop(_type)
+            self.dump_config()
+
+    def set_normal_default(self, id, type):
+        self.userConfig[type] = str(id)
+        self.dump_config()
+
+    def set_normal_cateManual(self, name, _List, action):
+        List_tmp = self.userConfig.get(str(_List) + '_tmp')
+        if not List_tmp:
+            List_tmp = self.userConfig[str(_List) + '_tmp'] = []
+        if action == 'save':
+            for _item in self.defaultConfig[_List]:
+                if not _item in List_tmp.copy():
+                    self.userConfig[str(_List) + '_tmp'].append(_item)
+            self.userConfig[_List] = self.userConfig[str(_List) + '_tmp'].copy()
+            self.userConfig.pop(_List + '_tmp')
+            self.dump_config()
+        elif action == 'clear':
+            self.userConfig[_List] = self.defaultConfig[_List].copy()
+            self.userConfig.pop(str(_List) + '_tmp')
+            self.dump_config()
+        else:
+            if _List == 'cateManualLive':
+                name = name.split('@@@')
+                if len(name) == 3:
+                    name[1] += '_' + str(name[2])
+                name = {'n': name[0], 'v': str(name[1])}
+            if name in List_tmp:
+                self.userConfig[str(_List) + '_tmp'].remove(name)
+            else:
+                self.userConfig[str(_List) + '_tmp'].append(name)
+
+    def add_cateManualLiveExtra(self, action, name, id):
+        _Extra = self.userConfig.get('cateManualLiveExtra', [])
+        if not _Extra:
+            _Extra = self.userConfig['cateManualLiveExtra'] = []
+        if action == 'clear':
+            for _ext in _Extra:
+                _ext['v'] = _ext['v'].replace('@@@', '_')
+                if _ext in self.userConfig.get('cateManualLive', []):
+                    self.userConfig['cateManualLive'].remove(_ext)
+                if _ext in self.userConfig.get('cateManualLive_tmp', []):
+                    self.userConfig['cateManualLive_tmp'].remove(_ext)
+            self.userConfig.pop('cateManualLiveExtra')
+        elif id in list(map(lambda x:x['v'], self.userConfig.get('cateManualLiveExtra', []))):
+            area_dict = {'n': name, 'v': id}
+            self.userConfig['cateManualLiveExtra'].remove(area_dict)
+            area_dict['v'] = id.replace('@@@', '_')
+            if area_dict in self.userConfig.get('cateManualLive', []):
+                self.userConfig['cateManualLive'].remove(area_dict)
+            if area_dict in self.userConfig.get('cateManualLive_tmp', []):
+                self.userConfig['cateManualLive_tmp'].remove(area_dict)
+        else:
+            area_dict = {'n': name, 'v': id}
+            self.userConfig['cateManualLiveExtra'].append(area_dict)
+        self.dump_config()
+
+    def _checkUpdate(self, action):
+        header = {"User-Agent": self.header["User-Agent"]}
+        if int(action):
+            newVersion = self.userConfig.get('newVersion')
+            if newVersion and newVersion['ver'] != self.userConfig['currentVersion']:
+                self.userConfig['newVersion']['status'] = '正在更新'
+                url = newVersion['url']
+                rsp = requests_get(url=url, headers=header, timeout=(3, 5))
+                if rsp.status_code == 200:
+                    filename = url.split('/')
+                    with open(f"{dirname}/{filename[-1]}", 'w', encoding="utf-8") as f:
+                        f.write(rsp.text)
+                    self.userConfig['newVersion']['status'] = '更新完成'
+                else:
+                    self.userConfig['newVersion']['status'] = '更新失败'
+        else:
+            url = self.mirror_site + '/index.php/update.json'
+            rsp = self.fetch(url, headers=header)
+            jo = json.loads(rsp.text)
+            ver = jo.get('ver')
+            if ver:
+                self.userConfig['newVersion'] = jo
+
+    vod_qn_id = {
+        '127': "8K",
+        '126': "杜比视界",
+        '125': "HDR",
+        '120': "4K",
+        '116': "1080P60帧",
+        '112': "1080P+",
+        '80': "1080P",
+        '64': "720P",
+    }
+    vod_codec_id = {
+        '7': 'avc',
+        '12': 'hevc',
+        '13': 'av1',
+    }
+    vod_audio_id = {
+        '30280': '192000',
+        '30232': '132000',
+        '30216': '64000',
+    }
+
+    def get_dash_media(self, video):
+        qnid = str(video.get('id'))
+        codecid = video.get('codecid')
+        media_codecs = video.get('codecs')
+        media_bandwidth = video.get('bandwidth')
+        media_startWithSAP = video.get('startWithSap')
+        media_mimeType = video.get('mimeType')
+        media_BaseURL = video.get('baseUrl').replace('&', '&amp;')
+        media_SegmentBase_indexRange = video['SegmentBase'].get('indexRange')
+        media_SegmentBase_Initialization = video['SegmentBase'].get('Initialization')
+        mediaType = media_mimeType.split('/')[0]
+        if mediaType == 'video':
+            media_frameRate = video.get('frameRate')
+            media_sar = video.get('sar')
+            media_width = video.get('width')
+            media_height = video.get('height')
+            media_type_params = f"height='{media_height}' width='{media_width}' frameRate='{media_frameRate}' sar='{media_sar}'"
+        elif mediaType == 'audio':
+            audioSamplingRate = self.vod_audio_id.get(qnid, '192000')
+            media_type_params = f"numChannels='2' sampleRate='{audioSamplingRate}'"
+        if codecid:
+            qnid += '_' + str(codecid)
+        result = f"""
+      <Representation id="{qnid}" bandwidth="{media_bandwidth}" codecs="{media_codecs}" mimeType="{media_mimeType}" {media_type_params} startWithSAP="{media_startWithSAP}">
+        <BaseURL>{media_BaseURL}</BaseURL>
+        <SegmentBase indexRange="{media_SegmentBase_indexRange}">
+          <Initialization range="{media_SegmentBase_Initialization}"/>
         </SegmentBase>
-      </Representation>''';return V
-	def get_dash_media_list(I,media_lis):
-		D=media_lis
-		if not D:return B
-		E=D[0][D4].split(AA)[0];C=N=B
-		if E==AB:
-			C=J=I.detailContent_args.get(CK,B)
-			if J:J=F(J)
-			else:C=A(I.userConfig[Ao]);J=120
-			N=A(I.userConfig[Bm])
-		elif E==Bd:C=A(I.userConfig[Ap]);J=F(C);N=L
-		G=s(f(lambda x:A(x[m])+K+A(x[D3]),D));H=[]
-		if C+K+N in G:H.append(D[G.index(C+K+N)])
-		if not H and E==AB:
-			for Q in I.vod_codec_id.keys():
-				if C+K+A(Q)in G:H.append(D[G.index(C+K+A(Q))])
-		if not H:
-			M=B
-			for P in G:
-				O=P.split(K)
-				if M and F(M)>F(O[0]):break
-				elif E==AB and F(O[0])<=J and not M or E==Bd and not M or F(O[0])==M:
-					M=F(O[0])
-					if E==AB and A(O[1])==N:H=[D[G.index(A(P))]];break
-					H.append(D[G.index(A(P))])
-		R=f'\n    <AdaptationSet>\n      <ContentComponent contentType="{E}"/>{B.join(f(I.get_dash_media,H))}\n    </AdaptationSet>';return R
-	get_dash_event=j.Event()
-	def get_dash(A,ja):
-		B=ja.get(d);C=ja.get('minBufferTime');D=A.pool.submit(A.get_dash_media_list,ja.get(AB));E=A.pool.submit(A.get_dash_media_list,ja.get(Bd));F=f'<MPD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:mpeg:dash:schema:mpd:2011" xsi:schemaLocation="urn:mpeg:dash:schema:mpd:2011 DASH-MPD.xsd" type="static" mediaPresentationDuration="PT{B}S" minBufferTime="PT{C}S" profiles="urn:mpeg:dash:profile:isoff-on-demand:2011">\n  <Period duration="PT{B}S" start="PT0S">{D.result()}{E.result()}\n  </Period>\n</MPD>'
-		with B9(f"{AF}/playurl.mpd",'w',encoding=At)as G:G.write(F)
-		A.get_dash_event.set();x.sleep(3);os.remove(f"{AF}/playurl.mpd")
-	def get_durl(I,ja):
-		H='size';C=-1;A=-1
-		for D in range(V(ja)):
-			E=ja[D]
-			if C<F(E[H]):C=F(E[H]);A=D
-		G=B
-		if V(ja)>0:
-			if A==-1:A=0
-			G=ja[A][o]
-		return G
+      </Representation>"""
+        return result
 
-	def playerContent(C,flag,id,vipFlags):
-		C.stop_heartbeat_event.set();D={D5:B,o:B};F=id.split(K)
-		if'web'in id or D6==F[0]:return C.live_playerContent(flag,id,vipFlags)
-		if V(F)<2:return D
-		H=F[0];G=F[1]
-		if Cr in F:
-			if'liveFilter'in id:id=F[2];C.add_cateManualLiveExtra(H,G,id)
-			elif G==CE:C._checkUpdate(H)
-			elif G in[Ar,y,BC,BD]:S=F[2];C.set_normal_cateManual(H,G,S)
-			elif'login'in id:C.set_cookie(H,G)
-			elif'logout'in id:C.unset_cookie(H)
-			else:C.set_normal_default(H,G)
-			return D
-		elif'notplay'in F:C.pool.submit(C.do_notplay,F);return D
-		elif G==n:
-			N={a:A(H)};C.get_cid(N);G=N[n];F.append(CH+A(N[d]));P=N.get(z)
-			if P:id+=K+P;F.append(P)
-		U=C.encrypt_wbi(avid=H,cid=G,fnval=4048,fnver=0,fourk=1)
-		O=f"https://api.bilibili.com/x/player/wbi/playurl?{U}"
-		dan = f'https://api.bilibili.com/x/v1/dm/list.so?oid={G}'
-		if z in id:
-			if Al in id:
-				W=s(A for A in f(lambda x:x if z in x else AU,F)if A is not AU);O='https://www.bilibili.com/bangumi/play/'+W[0];D[o]=O;D['flag']='bilibili';D[Al]=T;D['jx']=T;D[CL]=A({A9:C.header[A9]})
-				D['danmaku'] = dan
-				return D
-			O='https://api.bilibili.com/pgc/player/web/playurl?aid={}&cid={}&fnval=4048&fnver=0&fourk=1'.format(H,G)
-		X=C._get_sth(O,AS);J=I.loads(X.text)
-		if J[M]==0:
-			if E in J:Q=J[E]
-			elif AM in J:Q=J[AM]
-			else:
-				D['danmaku'] = dan
-				return D
-		else:
-			D['danmaku'] = dan
-			return D
-		R=Q.get('dash')
-		if R:C.get_dash_event.clear();Y=C.pool.submit(C.get_dash,R);C.get_dash_event.wait();D[o]=f"{AF}/playurl.mpd"
-		else:D[o]=C.get_durl(Q.get('durl',{}))
-		D[Al]=L;D[B8]=B;D[CL]=C.header;C.pool.submit(C.start_heartbeat,H,G,F)
-		D['danmaku'] = dan
-		return D
+    def get_dash_media_list(self, media_lis):
+        if not media_lis:
+            return ""
+        mediaType = media_lis[0]['mimeType'].split('/')[0]
+        defaultQn = defaultCodec = ''
+        if mediaType == 'video':
+            defaultQn = vodTMPQn = self.detailContent_args.get('vodTMPQn', '')
+            if vodTMPQn:
+                vodTMPQn = int(vodTMPQn)
+            else:
+                defaultQn = str(self.userConfig['vodDefaultQn'])
+                vodTMPQn = 120
+            defaultCodec = str(self.userConfig['vodDefaultCodec'])
+        elif mediaType == 'audio':
+            defaultQn = str(self.userConfig['vodDefaultAudio'])
+            vodTMPQn = int(defaultQn)
+            defaultCodec = '0'
+        qn_codec = list(map(lambda x: str(x['id']) + '_' + str(x['codecid']), media_lis))
+        Qn_available_lis = []
+        #按设定的质量和设定的编码找
+        if defaultQn + '_' + defaultCodec in qn_codec:
+            Qn_available_lis.append(media_lis[qn_codec.index(defaultQn + '_' + defaultCodec)])
+        #按设定的质量找推荐的编码
+        if not Qn_available_lis and mediaType == 'video':
+            for c in self.vod_codec_id.keys():
+                if defaultQn + '_' + str(c) in qn_codec:
+                    Qn_available_lis.append(media_lis[qn_codec.index(defaultQn + '_' + str(c))])
+        #找4K及以下最高可用画质/音质
+        if not Qn_available_lis:
+            qn_top = ''
+            for q in qn_codec:
+                q_c = q.split('_')
+                if qn_top and int(qn_top) > int(q_c[0]):
+                    break
+                elif mediaType == 'video' and int(q_c[0]) <= vodTMPQn and not qn_top or mediaType == 'audio' and not qn_top or int(q_c[0]) == qn_top:
+                    qn_top = int(q_c[0])
+                    #匹配设定的编码，否则全部
+                    if mediaType == 'video' and str(q_c[1]) == defaultCodec:
+                        Qn_available_lis = [media_lis[qn_codec.index(str(q))]]
+                        break
+                    Qn_available_lis.append(media_lis[qn_codec.index(str(q))])
+        result = f"""
+    <AdaptationSet>
+      <ContentComponent contentType="{mediaType}"/>{''.join(map(self.get_dash_media, Qn_available_lis))}
+    </AdaptationSet>"""
+        return result
 
-	def live_playerContent(G,flag,id,vipFlags):
-		U='video/x-flv';T='url_info';C={D5:B,o:B};D=id.split(K)
-		dan = f'https://api.bilibili.com/x/v1/dm/list.so?oid={D[1]}'
-		if V(D)<2:
-			C['danmaku'] = dan
-			return C
-		if G.userid and F(G.userConfig[BB])>0:G.pool.submit(G.post_live_history,D[-1])
-		if D[0]==D6:
-			W=F(D[1]);format=F(D[2]);H=F(D[3]);X=F(D[-1]);O='https://api.live.bilibili.com/xlive/web-room/v2/index/getRoomPlayInfo?room_id={0}&protocol=0,1&format={1}&codec={2}&qn={3}&ptype=8&platform=web&dolby=5&panorama=1&no_playurl=0&mask=1'.format(X,format,H,W);Q=G._get_sth(O,P);J=I.loads(Q.text)
-			if J[M]==0:
-				try:N=J[E][Cz].get(CG);H=N[C_][0][Bc][0][Bb][0]
-				except:
-					C['danmaku'] = dan
-					return C
-				Y=A(H['base_url']);Z=A(H[T][0]['host']);a=A(H[T][0]['extra']);N=Z+Y+a;C[o]=N
-				if'.flv'in N:C[B8]=U
-				else:C[B8]=B
-			else:
-				C['danmaku'] = dan
-				return C
-		else:
-			O='https://api.live.bilibili.com/room/v1/Room/playUrl?cid=%s&%s'%(D[1],D[0])
-			try:Q=G._get_sth(O)
-			except:
-				C['danmaku'] = dan
-				return C
-			R=I.loads(Q.text)
-			if R[M]==0:
-				J=R[E];S=J['durl']
-				if V(S)>0:C[o]=S[0][o]
-				if'h5'in D[0]:C[B8]=B
-				else:C[B8]=U
-			else:
-				C['danmaku'] = dan
-				return C
-		C[Al]=L;C[CL]={D7:'https://live.bilibili.com',A9:G.header[A9]}
-		C['danmaku'] = dan
-		return C
-	config={'player':{},Z:{BE:[{S:C6,J:'分类',G:[{D:B1,C:B1},{D:C1,C:C1},{D:B2,C:B2},{D:C2,C:C2},{D:'我的粉丝',C:'我的粉丝'}]}],AI:[{S:b,J:'个人动态排序',G:[{D:'最新发布',C:Ah},{D:'最多播放',C:'click'},{D:'最多收藏',C:'stow'},{D:'最早发布',C:Ce}]}],Ad:[{S:A1,J:'分类',G:[{D:'番剧',C:T},{D:'国创',C:AV},{D:'电影',C:A0},{D:'电视剧',C:'5'},{D:'纪录片',C:AQ},{D:'综艺',C:'7'}]},{S:b,J:'排序',G:[{D:A3,C:A3},{D:'播放数量',C:A0},{D:'更新时间',C:L},{D:'最高评分',C:AV},{D:'弹幕数量',C:T},{D:'追看人数',C:AQ},{D:'开播时间',C:'5'},{D:'上映时间',C:'6'}]},{S:C5,J:'付费',G:[{D:'全部',C:'-1'},{D:'免费',C:T},{D:'付费',C:'2%2C6'},{D:'大会员',C:'4%2C6'}]}],As:[{S:b,J:'排序',G:[{D:'近期热门',C:'hot'},{D:'月播放量',C:Ay},{D:'最新投稿',C:'new'},{D:'频道精选',C:Cl}]}],Ae:[{S:b,J:'排序',G:[{D:'收藏时间',C:'mtime'},{D:'播放量',C:Ay},{D:'投稿时间',C:'pubtime'}]}],BF:[{S:r,J:'分类',G:[{D:'视频',C:BM},{D:AH,C:AW},{D:BL,C:BL},{D:BS,C:BS}]}],BG:[{S:r,J:'类型',G:[{D:'视频',C:AB},{D:'番剧',C:D0},{D:Ad,C:D1},{D:AH,C:AW},{D:'用户',C:C7}]},{S:b,J:'视频排序',G:[{D:'综合排序',C:Cn},{D:'最新发布',C:Ah},{D:'最多点击',C:'click'},{D:'最多收藏',C:'stow'},{D:'最多弹幕',C:'dm'}]},{S:d,J:'视频时长',G:[{D:'全部',C:L},{D:'60分钟以上',C:AV},{D:'30~60分钟',C:AQ},{D:'5~30分钟',C:A0},{D:'5分钟以下',C:T}]}]}};header={'Origin':Bt,D7:Bt,A9:'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15'}
-	def localProxy(A,param):return[200,'video/MP2T',action,B]
+    get_dash_event = threading.Event()
+    def get_dash(self, ja):
+        duration = ja.get('duration')
+        minBufferTime = ja.get('minBufferTime')
+        video_list = self.pool.submit(self.get_dash_media_list, ja.get('video'))
+        audio_list = self.pool.submit(self.get_dash_media_list, ja.get('audio'))
+        mpd = f"""<MPD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:mpeg:dash:schema:mpd:2011" xsi:schemaLocation="urn:mpeg:dash:schema:mpd:2011 DASH-MPD.xsd" type="static" mediaPresentationDuration="PT{duration}S" minBufferTime="PT{minBufferTime}S" profiles="urn:mpeg:dash:profile:isoff-on-demand:2011">
+  <Period duration="PT{duration}S" start="PT0S">{video_list.result()}{audio_list.result()}
+  </Period>
+</MPD>"""
+        with open(f"{dirname}/playurl.mpd", 'w', encoding="utf-8") as f:
+            f.write(mpd)
+        self.get_dash_event.set()
+        time.sleep(3)
+        os.remove(f"{dirname}/playurl.mpd")
+        
+    def get_durl(self, ja):
+        maxSize = -1
+        position = -1
+        for i in range(len(ja)):
+            tmpJo = ja[i]
+            if maxSize < int(tmpJo['size']):
+                maxSize = int(tmpJo['size'])
+                position = i
+        url = ''
+        if len(ja) > 0:
+            if position == -1:
+                position = 0
+            url = ja[position]['url']
+        return url
+        
+    def playerContent(self, flag, id, vipFlags):
+        self.stop_heartbeat_event.set()
+        result = {'playUrl': '', 'url': ''}
+        ids = id.split("_")
+        if 'web' in id or 'liveapi2' == ids[0]:
+            return self.live_playerContent(flag, id, vipFlags)
+        if len(ids) < 2:
+            return result
+        aid = ids[0]
+        cid = ids[1]
+        if 'setting' in ids:
+            if 'liveFilter' in id:
+                id = ids[2]
+                self.add_cateManualLiveExtra(aid, cid, id)
+            elif cid == 'checkUpdate':
+                self._checkUpdate(aid)
+            elif cid in ['cateManual', 'cateManualLive', 'tuijianLis', 'rankingLis']:
+                action = ids[2]
+                self.set_normal_cateManual(aid, cid, action)
+            elif 'login' in id:
+                self.set_cookie(aid, cid)
+            elif 'logout' in id:
+                self.unset_cookie(aid)
+            else:
+                self.set_normal_default(aid, cid)
+            return result
+        elif 'notplay' in ids:
+            self.pool.submit(self.do_notplay, ids)
+            return result
+        elif cid == 'cid':
+            video = {'aid': str(aid)}
+            self.get_cid(video, )
+            cid = video['cid']
+            ids.append('dur' + str(video['duration']))
+            ep = video.get('ep')
+            if ep:
+                id += '_' + ep
+                ids.append(ep)
+        query = self.encrypt_wbi(avid=aid, cid=cid, fnval=4048, fnver=0, fourk=1)
+        url = f'https://api.bilibili.com/x/player/wbi/playurl?{query}'
+        if 'ep' in id:
+            if 'parse' in id:
+                test = list(x for x in map(lambda x: x if 'ep' in x else None, ids) if x is not None)
+                url = 'https://www.bilibili.com/bangumi/play/' + test[0]
+                result["url"] = url
+                result["flag"] = 'bilibili'
+                result["parse"] = '1'
+                result['jx'] = '1'
+                result["header"] = str({"User-Agent": self.header["User-Agent"]})
+                result["danmaku"] = 'https://api.bilibili.com/x/v1/dm/list.so?oid=' + str(cid)
+                return result
+            url = 'https://api.bilibili.com/pgc/player/web/playurl?aid={}&cid={}&fnval=4048&fnver=0&fourk=1'.format(aid, cid)
+        rsp = self._get_sth(url, 'vip')
+        jRoot = json.loads(rsp.text)
+        if jRoot['code'] == 0:
+            if 'data' in jRoot:
+                jo = jRoot['data']
+            elif 'result' in jRoot:
+                jo = jRoot['result']
+            else:
+                return result
+        else:
+            return result
+        ja = jo.get('dash')
+        if ja:
+            self.get_dash_event.clear()
+            get_dash = self.pool.submit(self.get_dash, ja)
+            self.get_dash_event.wait()
+            result["url"] = f"file://{dirname}/playurl.mpd"
+        else:
+            result["url"] = self.get_durl(jo.get('durl', {}))
+        result["parse"] = '0'
+        result["contentType"] = ''
+        result["header"] = self.header
+        result["danmaku"] = 'https://api.bilibili.com/x/v1/dm/list.so?oid=' + str(cid)
+        #回传播放记录
+        self.pool.submit(self.start_heartbeat, aid, cid, ids)
+        return result
+
+    def live_playerContent(self, flag, id, vipFlags):
+        result = {'playUrl': '', 'url': ''}
+        ids = id.split("_")
+        if len(ids) < 2:
+            return result
+        # 回传观看直播记录
+        if self.userid and int(self.userConfig['heartbeatInterval']) > 0:
+            self.pool.submit(self.post_live_history, ids[-1])
+        if ids[0] == 'liveapi2':
+            qn = int(ids[1])
+            format = int(ids[2])
+            codec = int(ids[3])
+            room_id = int(ids[-1])
+            url = 'https://api.live.bilibili.com/xlive/web-room/v2/index/getRoomPlayInfo?room_id={0}&protocol=0,1&format={1}&codec={2}&qn={3}&ptype=8&platform=web&dolby=5&panorama=1&no_playurl=0&mask=1'.format(room_id, format, codec, qn)
+            rsp = self._get_sth(url, 'fake')
+            jo = json.loads(rsp.text)
+            if jo['code'] == 0:
+                try:
+                    playurl = jo['data']['playurl_info'].get('playurl')
+                    codec = playurl['stream'][0]['format'][0]['codec'][0]
+                except:
+                    return result
+                base_url = str(codec['base_url'])
+                host = str(codec['url_info'][0]['host'])
+                extra = str(codec['url_info'][0]['extra'])
+                playurl = host + base_url + extra
+                result["url"] = playurl
+                if ".flv" in playurl:
+                    result["contentType"] = 'video/x-flv'
+                else:
+                    result["contentType"] = ''
+            else:
+                return result
+        else:
+            url = 'https://api.live.bilibili.com/room/v1/Room/playUrl?cid=%s&%s' % (ids[1], ids[0])
+            # raise Exception(url)
+            try:
+                rsp = self._get_sth(url)
+            except:
+                return result
+            jRoot = json.loads(rsp.text)
+            if jRoot['code'] == 0:
+                jo = jRoot['data']
+                ja = jo['durl']
+                if len(ja) > 0:
+                    result["url"] = ja[0]['url']
+                if "h5" in ids[0]:
+                    result["contentType"] = ''
+                else:
+                    result["contentType"] = 'video/x-flv'
+            else:
+                return result
+        result["parse"] = '0'
+        # result['type'] ="m3u8"
+        result["header"] = {
+            "Referer": "https://live.bilibili.com",
+            "User-Agent": self.header["User-Agent"]
+        }
+        return result
+
+    config = {
+        "player": {},
+        "filter": {
+            "关注": [{"key": "sort", "name": "分类",
+                      "value": [{"n": "正在直播", "v": "正在直播"},
+                                {"n": "最近关注", "v": "最近关注"}, {"n": "特别关注", "v": "特别关注"},
+                                {"n": "悄悄关注", "v": "悄悄关注"}, {"n": "我的粉丝", "v": "我的粉丝"}]}],
+            "动态": [{"key": "order", "name": "个人动态排序",
+                    "value": [{"n": "最新发布", "v": "pubdate"}, {"n": "最多播放", "v": "click"},
+                              {"n": "最多收藏", "v": "stow"}, {"n": "最早发布", "v": "oldest"}]}, ],
+            "影视": [{"key": "tid", "name": "分类",
+                      "value": [{"n": "番剧", "v": "1"}, {"n": "国创", "v": "4"}, {"n": "电影", "v": "2"},
+                              {"n": "电视剧", "v": "5"}, {"n": "纪录片", "v": "3"}, {"n": "综艺", "v": "7"}]},
+                    {"key": "order", "name": "排序",
+                      "value": [{"n": "热门", "v": "热门"}, {"n": "播放数量", "v": "2"}, {"n": "更新时间", "v": "0"},
+                                {"n": "最高评分", "v": "4"}, {"n": "弹幕数量", "v": "1"}, {"n": "追看人数", "v": "3"},
+                                {"n": "开播时间", "v": "5"}, {"n": "上映时间", "v": "6"}]},
+                    {"key": "season_status", "name": "付费",
+                      "value": [{"n": "全部", "v": "-1"}, {"n": "免费", "v": "1"},
+                                {"n": "付费", "v": "2%2C6"}, {"n": "大会员", "v": "4%2C6"}]}],
+            "频道": [{"key": "order", "name": "排序",
+                    "value": [{"n": "近期热门", "v": "hot"}, {"n": "月播放量", "v": "view"},
+                              {"n": "最新投稿", "v": "new"}, {"n": "频道精选", "v": "featured"}, ]}, ],
+            "收藏": [{"key": "order", "name": "排序",
+                      "value": [{"n": "收藏时间", "v": "mtime"}, {"n": "播放量", "v": "view"},
+                                {"n": "投稿时间", "v": "pubtime"}]}, ],
+            "历史": [{"key": "type", "name": "分类",
+                          "value": [{"n": "视频", "v": "archive"}, {"n": "直播", "v": "live"}, {"n": "UP主", "v": "UP主"}, {"n": "稍后再看", "v": "稍后再看"}]}, ],
+            "搜索": [{"key": "type", "name": "类型",
+                      "value": [{"n": "视频", "v": "video"}, {"n": "番剧", "v": "media_bangumi"}, {"n": "影视", "v": "media_ft"},
+                                {"n": "直播", "v": "live"}, {"n": "用户", "v": "bili_user"}]},
+                    {"key": "order", "name": "视频排序",
+                      "value": [{"n": "综合排序", "v": "totalrank"}, {"n": "最多点击", "v": "click"}, {"n": "最新发布", "v": "pubdate"},
+                                {"n": "最多收藏", "v": "stow"}, {"n": "最多弹幕", "v": "dm"}]},
+                    {"key": "duration", "name": "视频时长",
+                      "value": [{"n": "全部", "v": "0"}, {"n": "60分钟以上", "v": "4"}, {"n": "30~60分钟", "v": "3"},
+                                {"n": "5~30分钟", "v": "2"}, {"n": "5分钟以下", "v": "1"}]}],
+        }
+    }
+
+    header = {
+        'Origin': 'https://www.bilibili.com',
+        'Referer': 'https://www.bilibili.com',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15'
+    }
+
+    def localProxy(self, param):
+        return [200, "video/MP2T", action, ""]
