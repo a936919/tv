@@ -226,43 +226,83 @@
             "name": "超嗅探",
             "type": 3,
             "url": "Web"
-        },{"name": "官解","type": 1,"url": "http://119.91.123.253:1234/Api/cs.php?url=",
-"ext": {"flag": ["qq", "腾讯", "qiyi", "爱奇艺", "奇艺", "youku", "优酷", "mgtv", "芒果", "sohu", "bilibili", "哔哩哔哩", "哔哩"],"header": {"User-Agent": "okhttp/3.12.11"}}},
-{"name": "玉米","type": 1,"url": "http://61.147.93.21:8090/index.php?url="},
-{"name": "玉米1","type": 1,"url": "https://jxjson.cf/json.php?url="},
-{"name": "官哔","type": 1,"url": "http://175.178.183.192:84/api/?key=f3913eb3f85a8298b3e6e427b8712b2e&url="},
-{"name": "大厂","type": 1,"url": "http://110.42.2.247:880/analysis/json/?uid=2449&my=acfgikquvzFGJRW459&format=data&url="},
-{"name": "大厂1","type": 1,"url": "http://110.42.2.247:880/analysis/json/?uid=2384&my=bcijquvxAFKMUY0579&format=json&url="},
-{"name": "大厂2","type": 1,"url": "http://110.42.2.247:880/analysis/json/?uid=2255&my=eknpqvADFHOPR02458&format=json&url="},
-{"name": "大厂3","type": 1,"url": "http://110.42.2.247:880/analysis/json/?uid=2100&my=cdmqvxBNRSTUWXYZ19&mgtv=app&url="},
-{"name": "鑫官","type": 1,"url": "https://jiexi.xn--654a.cc/home/api?type=ys&uid=10456764&key=bgiuvEGIMQRSTWX689&url="},
-        {"name":"官源0","type":1,"url":"http://27.124.4.42:4567//jhjson//ceshi.php?url=","ext":{"flag":["mgtv","qiyi","imgo","爱奇艺","奇艺","qq","腾讯","youku","优酷","pptv","PPTV","letv","乐视","leshi","bilibili","哔哩哔哩","哔哩","mgtv","芒果","芒果"],"header":{"User-Agent":"okhttp/3.12.0"}}}, {"name":"官源1","type":1,"url":"http://110.42.2.247:880/analysis/json/?uid=2449&my=acfgikquvzFGJRW459&format=data&url="}, {"name": "官源2","type":1,"url":"http://110.42.2.247:880/analysis/json/?uid=2384&my=bcijquvxAFKMUY0579&format=json&url="}, {"name":"官源3","type":1,"url":"http://110.42.2.247:880/analysis/json/?uid=2255&my=eknpqvADFHOPR02458&format=json&url="}, {"name": "官源4","type": 1,"url": "http://110.42.2.247:880/analysis/json/?uid=2100&my=ehilmnqyCDGHILNUXZ&mgtv=app&url="}, {"name":"莫问前程","type":1,"url": "http://27.124.4.42:4567/jhjson/ceshi.php?url=","flag":["qq","腾讯","qiyi","爱奇艺","奇艺","youku","优酷","mgtv","芒果","letv","leshi","LS","乐视","pptv","PPTV","sohu","bilibili","哔哩哔哩","哔哩"]}, {"name":"夜曲解析","type":1,"url":"https://www.aliyundrive.com.2kj.org/?url=","flag":["qq","腾讯","qiyi","爱奇艺","奇艺","youku","优酷","mgtv","芒果","letv","leshi","LS","乐视","pptv","PPTV","sohu","bilibili","哔哩哔哩","哔哩"]}, {"name":"腾讯嗅探","type": 0,"url":"https://jx.777jiexi.com/player/?url="}, {"name": "芒果嗅探","type":0,"url": "https://jx.xmflv.com/?url="}, {"name":"白茶嗅探","url":"https://jx.bozrc.com:4433/player/?url=","showType":1}, {"name":"滇红嗅探","type":0,"url":"https://jx.777jiexi.com/player/?url="}, {"name":"小种嗅探","type":0,"url":"https://jx.jsonplayer.com/player/?url="}, {"name":"毛尖嗅探","type":0,"url":"https://jx.bozrc.com:4433/player/?url=","flag":["qq","腾讯","qiyi","爱奇艺","奇艺","youku","优","mgtv","芒果","letv","leshi","LS","乐视","pptv","PPTV","sohu","bilibili","哔哩哔哩","哔哩"]}, {"name":"普洱嗅探","url":"https://jx.bozrc.com:4433/player/?url=","type":0,"flag":["qiyi","imgo","爱奇艺","奇艺","qq","腾讯","youku","优","pptv","PPTV","letv","乐视","leshi","bilibili","哔哩哔哩","哔哩","mgtv","芒果","sohu","xigua","fun","风行"]}, {"name":"红茶嗅探","type":0,"url":"https://jx.4kdv.com/?url=","flag":["qq","腾讯","qiyi","爱奇艺","奇艺","youku","优","mgtv","芒果","letv","leshi","LS","乐视","pptv","PPTV","sohu","bilibili","哔哩哔哩","哔哩"]}, {"name":"嗅探1","type":0,"url":"https://jx.jsonplayer.com/player/?url=","flag":["qq","腾讯","qiyi","爱奇艺","奇艺","youku","优","mgtv","芒果","letv","leshi","LS","乐视","pptv","PPTV","sohu","bilibili","哔哩哔哩","哔哩"]}, {"name":"嗅探2","type":0,"url":"https://jx.bozrc.com:4433/player/?url=","flag":["qq","腾讯","qiyi","爱奇艺","奇艺","youku","优","mgtv","芒果","letv","leshi","LS","乐视","pptv","PPTV","sohu","bilibili","哔哩哔哩","哔哩"]},
-     {
-            "name": "🏯解析",
-            "type": 1,
-            "url": "http://110.42.2.247:880/analysis/json/?uid=2449&my=acfgikquvzFGJRW459&format=data&url="
         },
-        {
-            "name": "小书",
-            "type": 1,
-            "url": "http://27.124.4.42:4567/jhjson/ceshi.php?url="
-        },
-        {
-            "name": "官解",
-            "type": 1,
-            "url": "http://119.91.123.253:1234/Api/cs.php?url="
-        },
-        {
-            "name": "大厂",
-            "type": 1,
-            "url": "http://110.42.2.247:880/analysis/json/?uid=2449&my=acfgikquvzFGJRW459&format=data&url="
-        },
-        {
-            "name": "🚛解析",
-            "type": 1,
-            "url": "http://110.42.2.247:880/analysis/json/?uid=2384&my=bcijquvxAFKMUY0579&format=json&url="
-        }
-    ],
+         {
+      "name": "解析1",
+      "type": 1,
+      "url": "https://api.tyun77.cn/api.php/provide/parseDicturl?url="
+    },
+    {
+      "name": "解析2",
+      "type": 1,
+      "url": "https://cache.json.icu/s1804857380.php?url="
+    },
+    {
+      "name": "嗅探1",
+      "type": 0,
+      "url": "https://jx.haokantv.cyou/player/?url="
+    },
+    {
+      "name": "嗅探2",
+      "type": 0,
+      "url": "http://bfqjc.xwyxpw.cn/?url="
+    },
+    {
+      "name": "嗅探3",
+      "type": 0,
+      "url": "https://jx.jsonplayer.com/player/?url="
+    },
+    {
+      "name": "嗅探4",
+      "type": 0,
+      "url": "https://jx.bozrc.com:4433/player/?url="
+    },
+    {
+      "name": "嗅探5",
+      "type": 0,
+      "url": "https://jx.777jiexi.com/player/?url="
+    },
+    {
+      "name": "嗅探6",
+      "type": 0,
+      "url": "https://jx.xmflv.com/?url="
+    }
+  ],
+  "flags": [
+    "youku",
+    "优酷",
+    "优 酷",
+    "优酷视频",
+    "qq",
+    "腾讯",
+    "腾 讯",
+    "腾讯视频",
+    "iqiyi",
+    "qiyi",
+    "奇艺",
+    "爱奇艺",
+    "爱 奇 艺",
+    "m1905",
+    "xigua",
+    "letv",
+    "leshi",
+    "乐视",
+    "乐 视",
+    "sohu",
+    "搜狐",
+    "搜 狐",
+    "搜狐视频",
+    "tudou",
+    "pptv",
+    "mgtv",
+    "芒果",
+    "imgo",
+    "芒果TV",
+    "芒 果 T V",
+    "bilibili",
+    "哔 哩",
+    "哔 哩 哔 哩"
+  ],
     "rules": [
         {
             "host": [
@@ -401,7 +441,7 @@
     ],
     "sites": [
         {
-            "api": "http://超超越越.cc:8085/lib/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/douban.js",
             "filterable": 0,
             "key": "豆瓣",
@@ -471,7 +511,18 @@
             "name": "✳️360影视",
             "searchable": 1,
             "type": 3
-        },
+        },{"key":"Ppxzy","name":"🥘皮皮虾","type":3,"api":"csp_Ppxzy", "quickSearch":1, "changeable":1, "filterable":1, "ext":"./tv/token.txt$$$https://ppxzy.net/$$$null$$$1", "timeout":30}, 
+{"key":"Mino","name":"🥪Mino","type":3,"api":"csp_AppMao","searchable":1,"quickSearch":1,"changeable":1,"ext": "FbjDcUxPqpfNr0QF4QvE6sExbcpBF4MRDm4TvbCzxUxQS9bPrS+dwlqC+K21Byi2fnbN32ExknwkTyVnT4ZkO1NUAJnYhg/LOWYSnzESguc1X7n/JQ1wPh7lInAdzJ2qxzb2fKg8RZczmhg8lF/+BAMaZaqxv0MMB5dPInMBPwir$$$null$$$1"},
+
+        {
+                        "key": "NanGua",
+                        "name": "🧂南瓜",
+                        "type": 3,
+                        "api": "csp_NanGua",
+                        "searchable": 1,
+                        "changeable": 1,
+                        "ext": "null$$$1"
+                },
         {
             "api": "https://qu.ax/foob.js",
             "filterable": 1,
@@ -494,7 +545,7 @@
         },
       
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/厂长.js",
             "key": "厂长",
             "name": "🐼️厂长",
@@ -513,7 +564,34 @@
             "type": 3
         },
 
-       
+           {
+      "key": "小胡",
+      "name": "🔥小胡",
+      "type": 1,
+      "playerType": 1,
+      "api": "http://d.xzam.cn/api.php/provide/vod/"
+    },
+        {
+      "key": "玉米",
+      "name": "🌽玉米",
+      "type": 0,
+      "api": "http://124.222.116.5/macos/api.php/provide/vod/at/xml/",
+      "playUrl": "json:https://www.qiaoji8.com/tvbox/json.php?url=",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+        {
+      "key": "佳靓",
+      "name": "🍪佳靓",
+      "type": 3,
+      "api": "csp_AppYsV2",
+      "playerType": 2,
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": "http://api.jialiangos.com:81/api.php/app/"
+    },
         {
             "api": "https://suoniapi.com/api.php/provide/vod/?ac=list",
             "categories": [
@@ -715,7 +793,7 @@
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/奇优.js",
             "filterable": 1,
             "key": "奇优",
@@ -725,7 +803,7 @@
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/libvio.js",
             "filterable": 0,
             "key": "csp_Lib",
@@ -735,7 +813,7 @@
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/livb.js",
             "filterable": 0,
             "key": "Lib",
@@ -745,56 +823,56 @@
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/tengxun.js",
             "key": "腾讯",
             "name": "🐧腾讯",
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/iqy.js",
             "key": "爱奇艺",
             "name": "💜奇艺",
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/youku.js",
             "key": "优酷",
             "name": "🆒优酷",
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/360.js",
             "key": "360",
             "name": "🔍360",
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/畅梦.js",
             "key": "畅梦",
             "name": "🛌畅梦",
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/sougou.js",
             "key": "搜狗",
             "name": "🐶搜狗",
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/mangguo.js",
             "key": "芒果",
             "name": "🍋芒果",
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/荐片.js",
             "filterable": 0,
             "key": "磁力",
@@ -804,14 +882,14 @@
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/南瓜.js",
             "key": "南瓜",
             "name": "🎃南瓜",
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/ddys.js",
             "key": "低端",
             "name": "🔅低端",
@@ -819,28 +897,28 @@
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/子子影视.js",
             "key": "子子",
             "name": "👼子子",
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/两个bt.js",
             "key": "两个bt",
             "name": "💰两个",
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/JustLive.js",
             "key": "JustLive",
             "name": "☸️JustLive",
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "ext": "./js/新片场.js",
             "filterable": 0,
             "key": "新片场",
@@ -890,7 +968,7 @@
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/meow.js",
             "key": "drpy-meow",
@@ -900,7 +978,7 @@
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/cilixiong.js",
             "key": "磁力熊",
@@ -910,7 +988,7 @@
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/meijumi.js",
             "key": "drpy_js_美剧迷",
@@ -920,7 +998,7 @@
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/yyets.js",
             "key": "drpy_js_yyets",
@@ -930,7 +1008,7 @@
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/kkpans.js",
             "key": "drpy_js_kkpans",
@@ -940,7 +1018,7 @@
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/xzys.js",
             "key": "drpy_js_校长影视",
@@ -950,7 +1028,7 @@
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/aipanso.js",
             "key": "drpy_js_愛盤搜",
@@ -960,7 +1038,7 @@
             "type": 3
         },
         {
-            "api": "https://agit.ai/alanchaotang/dr_py/raw/branch/main/libs/drpy2.min.js",
+            "api": "./lib/drpy2.min.js",
             "changeable": 1,
             "ext": "./js/funletu.js",
             "key": "drpy_js_趣盤搜",
