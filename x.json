@@ -472,6 +472,12 @@
             "type": 3,
             "api": "csp_Wobg",
             "ext": "./tv/token.txt$$$"
+        },   {
+            "key": "小胡",
+            "name": "🔥小胡",
+            "type": 1,
+            "playerType": 1,
+            "api": "http://d.xzam.cn/api.php/provide/vod/"
         },
         {
             "api": "csp_XiaoZhiTiao",
@@ -555,7 +561,7 @@
             "timeout": 30
         },	{
 			"key": "蝴蝶",
-			"name": "蝴蝶┃App",
+			"name": "蝴蝶",
 			"type": 3,
 			"api": "csp_Hudie",
 			"playerType": 2,
@@ -572,7 +578,7 @@
             "ext": "FbjDcUxPqpfNr0QF4QvE6sExbcpBF4MRDm4TvbCzxUxQS9bPrS+dwlqC+K21Byi2fnbN32ExknwkTyVnT4ZkO1NUAJnYhg/LOWYSnzESguc1X7n/JQ1wPh7lInAdzJ2qxzb2fKg8RZczmhg8lF/+BAMaZaqxv0MMB5dPInMBPwir$$$null$$$1"
         },{
 			"key": "追忆",
-			"name": "追忆┃App",
+			"name": "追忆",
 			"type": 3,
 			"api": "csp_Appto",
 			"playerType": 2,
@@ -580,7 +586,7 @@
 		},
 		{
 			"key": "伊人",
-			"name": "伊人┃App",
+			"name": "伊人",
 			"type": 3,
 			"api": "csp_Appto",
 			"playerType": 2,
@@ -588,7 +594,7 @@
 		},
 		{
 			"key": "攻阁",
-			"name": "攻阁┃App",
+			"name": "攻阁",
 			"type": 3,
 			"api": "csp_Appto",
 			"playerType": 2,
@@ -596,7 +602,7 @@
 		},
 		{
 			"key": "剧猫",
-			"name": "剧猫┃App",
+			"name": "剧猫",
 			"type": 3,
 			"api": "csp_Appto",
 			"playerType": 2,
@@ -604,7 +610,7 @@
 		},
 		{
 			"key": "布蕾",
-			"name": "布蕾┃App",
+			"name": "布蕾",
 			"type": 3,
 			"api": "csp_Appto",
 			"playerType": 2,
@@ -612,7 +618,7 @@
 		},
 		{
 			"key": "tvbsk",
-			"name": "TVB云播┃App",
+			"name": "TVB云播",
 			"type": 3,
 			"api": "csp_Skapp",
 			"playerType": 2,
@@ -620,7 +626,7 @@
 		},
 		{
 			"key": "二三",
-			"name": "二三┃App",
+			"name": "二三",
 			"type": 3,
 			"api": "csp_Skapp",
 			"playerType": 2,
@@ -628,7 +634,7 @@
 		},
 		{
 			"key": "极光",
-			"name": "极光┃App",
+			"name": "极光",
 			"type": 3,
 			"api": "csp_Skapp",
 			"playerType": 2,
@@ -636,7 +642,7 @@
 		},
 		{
 			"key": "嘶哩",
-			"name": "嘶哩┃App",
+			"name": "嘶哩",
 			"type": 3,
 			"api": "csp_Skapp",
 			"playerType": 2,
@@ -644,7 +650,7 @@
 		},
 		{
 			"key": "嘿嘿",
-			"name": "嘿嘿┃App",
+			"name": "嘿嘿",
 			"type": 3,
 			"api": "csp_DDMJ",
 			"searchable": 1,
@@ -655,7 +661,7 @@
 		},
 		{
 			"key": "橘子",
-			"name": "橘子┃App",
+			"name": "橘子",
 			"type": 3,
 			"api": "csp_Appto",
 			"searchable": 1,
@@ -666,7 +672,7 @@
 		},
 		{
 			"key": "樱花",
-			"name": "樱花┃App",
+			"name": "樱花",
 			"type": 3,
 			"api": "csp_Appto",
 			"searchable": 1,
@@ -677,7 +683,7 @@
 		},
 		{
 			"key": "星星",
-			"name": "星星┃App",
+			"name": "星星",
 			"type": 3,
 			"api": "csp_Appto",
 			"playerType": 2,
@@ -685,7 +691,7 @@
 		},
 		{
 			"key": "喵喵",
-			"name": "喵喵┃App",
+			"name": "喵喵",
 			"type": 3,
 			"api": "csp_Appto",
 			"playerType": 2,
@@ -693,7 +699,7 @@
 		},
 		{
 			"key": "mino",
-			"name": "mino┃App",
+			"name": "mino",
 			"type": 3,
 			"api": "csp_Appto",
 			"playerType": 2,
@@ -701,7 +707,7 @@
 		},
 		{
 			"key": "视觉",
-			"name": "视觉┃App",
+			"name": "视觉",
 			"type": 3,
 			"api": "csp_Appto",
 			"searchable": 1,
@@ -712,7 +718,7 @@
 		},
 		{
 			"key": "闪电",
-			"name": "闪电┃App",
+			"name": "闪电",
 			"type": 3,
 			"api": "csp_Appto",
 			"searchable": 1,
@@ -723,7 +729,7 @@
 		},
 		{
 			"key": "米米",
-			"name": "米米┃App",
+			"name": "米米",
 			"type": 3,
 			"api": "csp_DDMJ",
 			"searchable": 1,
@@ -734,7 +740,7 @@
 		},
 		{
 			"key": "Cokemv",
-			"name": "Cokemv┃App",
+			"name": "Cokemv",
 			"type": 3,
 			"api": "csp_Appto",
 			"searchable": 1,
@@ -790,13 +796,7 @@
             "searchable": 1,
             "type": 3
         },
-        {
-            "key": "小胡",
-            "name": "🔥小胡",
-            "type": 1,
-            "playerType": 1,
-            "api": "http://d.xzam.cn/api.php/provide/vod/"
-        },
+     
    
   
         {
