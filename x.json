@@ -797,27 +797,8 @@
             "playerType": 1,
             "api": "http://d.xzam.cn/api.php/provide/vod/"
         },
-        {
-            "key": "玉米",
-            "name": "🌽玉米",
-            "type": 0,
-            "api": "http://124.222.116.5/macos/api.php/provide/vod/at/xml/",
-            "playUrl": "json:https://www.qiaoji8.com/tvbox/json.php?url=",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1
-        },
-        {
-            "key": "佳靓",
-            "name": "🍪佳靓",
-            "type": 3,
-            "api": "csp_AppYsV2",
-            "playerType": 2,
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "ext": "http://api.jialiangos.com:81/api.php/app/"
-        },
+   
+  
         {
             "api": "https://suoniapi.com/api.php/provide/vod/?ac=list",
             "categories": [
@@ -885,13 +866,7 @@
             "searchable": 1,
             "type": 3
         },
-        {
-            "api": "csp_AppYsV2",
-            "ext": "http://www.miniku.cc/xgapp.php/v2/",
-            "key": "apv2_瑞丰",
-            "name": "⛄瑞丰",
-            "type": 3
-        },
+
         {
             "api": "csp_AppYsV2",
             "ext": "https://www.tvkuys.xyz/api.php/app/",
