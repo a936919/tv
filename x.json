@@ -563,25 +563,16 @@
         },
         {
             "key": "蝴蝶",
-            "name": "蝴蝶",
+            "name": "🦋蝴蝶",
             "type": 3,
             "api": "csp_Hudie",
             "playerType": 2,
             "ext": "https://yundun-hdsign.zhuifeng100.cn|kT2taP|75f7fac7f56d812d1f9ce89d9f312984|b7688bd6347da0b2b62515b0730b872b$$$null$$$1"
         },
-        {
-            "key": "Mino",
-            "name": "🥪Mino",
-            "type": 3,
-            "api": "csp_AppMao",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "ext": "FbjDcUxPqpfNr0QF4QvE6sExbcpBF4MRDm4TvbCzxUxQS9bPrS+dwlqC+K21Byi2fnbN32ExknwkTyVnT4ZkO1NUAJnYhg/LOWYSnzESguc1X7n/JQ1wPh7lInAdzJ2qxzb2fKg8RZczmhg8lF/+BAMaZaqxv0MMB5dPInMBPwir$$$null$$$1"
-        },
+
         {
             "key": "攻阁",
-            "name": "攻阁",
+            "name": "🥪攻阁",
             "type": 3,
             "api": "csp_Appto",
             "playerType": 2,
@@ -589,7 +580,7 @@
         },
         {
             "key": "嘶哩",
-            "name": "嘶哩",
+            "name": "🦝嘶哩",
             "type": 3,
             "api": "csp_Skapp",
             "playerType": 2,
@@ -597,7 +588,7 @@
         },
         {
             "key": "樱花",
-            "name": "樱花",
+            "name": "💥樱花",
             "type": 3,
             "api": "csp_Appto",
             "searchable": 1,
@@ -803,16 +794,6 @@
             "filterable": 1,
             "key": "奇优",
             "name": "🚤奇优",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/libvio.js",
-            "filterable": 0,
-            "key": "csp_Lib",
-            "name": "🌟利播",
             "quickSearch": 1,
             "searchable": 1,
             "type": 3
