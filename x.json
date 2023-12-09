@@ -548,7 +548,7 @@
         },
         {
             "api": "csp_Wogg",
-            "ext": "./tv/tokentemplate.json$$$https://www.wogg.xyz/",
+            "ext": "./lib/tokenm.json$$$https://www.wogg.xyz/",
             "filterable": 0,
             "key": "csp_Wogg",
             "name": "👽玩偶",
@@ -562,7 +562,7 @@
             "name": "📺玩偶表哥",
             "type": 3,
             "api": "csp_Wobg",
-            "ext": "./tv/tokentemplate.json$$$"
+            "ext": "./lib/tokenm.json$$$"
         },
         {
             "key": "小胡",
@@ -588,11 +588,11 @@
                 "type": "rect",
                 "ratio": 1
             },
-            "ext": "./tv/tokentemplate.json"
+            "ext": "./lib/tokenm.json"
         },
         {
             "api": "csp_XiaoZhiTiao",
-            "ext": "./tv/tokentemplate.json",
+            "ext": "./lib/tokenm.json",
             "filterable": 0,
             "key": "xiaozhitiao",
             "name": "📃小纸条",
@@ -602,7 +602,7 @@
         },
         {
             "api": "csp_YiSo",
-            "ext": "./tv/tokentemplate.json",
+            "ext": "./lib/tokenm.json",
             "filterable": 0,
             "key": "YiSo",
             "name": "😹易搜",
@@ -612,7 +612,7 @@
         },
         {
             "api": "csp_Zhaozy",
-            "ext": "./tv/tokentemplate.json$$$fanfan$$$qqq111",
+            "ext": "./lib/tokenm.json$$$fanfan$$$qqq111",
             "filterable": 0,
             "key": "Zhaozy",
             "name": "🐺找资源",
@@ -622,7 +622,7 @@
         },
         {
             "api": "csp_PanSou",
-            "ext": "./tv/tokentemplate.json",
+            "ext": "./lib/tokenm.json",
             "filterable": 0,
             "key": "PanSou",
             "name": "🦊盘搜",
@@ -632,7 +632,7 @@
         },
         {
             "api": "csp_UpYun",
-            "ext": "./tv/tokentemplate.json",
+            "ext": "./lib/tokenm.json",
             "filterable": 0,
             "key": "UpYun",
             "name": "😻Up搜",
@@ -642,7 +642,7 @@
         },
         {
             "api": "csp_PanSearch",
-            "ext": "./tv/tokentemplate.json",
+            "ext": "./lib/tokenm.json",
             "filterable": 0,
             "key": "PanSearch",
             "name": "🙀盘Se",
@@ -668,7 +668,7 @@
             "quickSearch": 1,
             "changeable": 1,
             "filterable": 1,
-            "ext": "./tv/tokentemplate.json$$$https://ppxzy.net/$$$null$$$1",
+            "ext": "./lib/tokenm.json$$$https://ppxzy.net/$$$null$$$1",
             "timeout": 30
         },
         {
