@@ -507,6 +507,15 @@
             "type": 3
         },
         {
+			"key": "豆瓣",
+			"name": "豆瓣",
+			"type": 3,
+			"api": "csp_Douban",
+			"searchable": 0,
+			"changeable": 1,
+			"ext": "./js/douban.json"
+		},
+        {
             "api": "py_bilibili",
             "ext": "./py_bilibili.py",
             "filterable": 1,
@@ -641,6 +650,50 @@
             "type": 3
         },
         {
+            "key": "DaPanSo",
+            "name": "大盘搜|网盘",
+            "type": 3,
+            "api": "csp_DaPanSo",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 30,
+            "ext": "./lib/tokenm.json$$$https://dapanso.com$$$null"
+        },
+        {
+            "key": "Qianfan",
+            "name": "千帆|网盘",
+            "type": 3,
+            "api": "csp_Qianfan",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 30,
+            "ext": "./lib/tokenm.json$$$https://pan.qianfan.app$$$null$$$QianFanID="
+        },
+        {
+            "key": "YunSo",
+            "name": "小云搜索|网盘",
+            "type": 3,
+            "api": "csp_YunSo",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 30,
+            "ext": "./lib/tokenm.json"
+        },
+        {
+            "key": "YunPanOne",
+            "name": "云盘资源|网盘",
+            "type": 3,
+            "api": "csp_YunPanOne",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 30,
+            "ext": "./lib/tokenm.json"
+        },
+        {
             "api": "csp_PanSearch",
             "ext": "./lib/tokenm.json",
             "filterable": 0,
@@ -670,33 +723,6 @@
             "filterable": 1,
             "ext": "./lib/tokenm.json$$$https://ppxzy.net/$$$null$$$1",
             "timeout": 30
-        },
-        {
-            "key": "攻阁",
-            "name": "🥪攻阁",
-            "type": 3,
-            "api": "csp_Appto",
-            "playerType": 2,
-            "ext": "cepveeMdL3qzBp3D86fBcgucTPCRb88AXoITrxvmypEbJbvnC/4ipv8+gLYBHlIYBFWfcZr3fkzfxQ8gAmZel3ej+I4REk7LnHUBNtZ9P0S97uBwswzPtz3voKW2TcVbBKQNmA2XowTEbiwPTJTkP8H3KpHtipqyoPNDOoDXGviUlUQqn3+A8FSXDyoySvEvG3eTw64Pj48USmhQvQPG8Jvhpo9+YRSg3pa6vv9hUjYmgheP1X8rA6zqy9N4L++/NL5gszaaf8yH4omdSxtYrj330jkXC4vPWU5fE4p6vRrq7mxA5Bp48Lhp3GjrKDyoOjBrI7+yvKarHhyoklswLFD3vfmM4J3osXIoUnwpXBBktdkDgFzUHvxY8BUeCTMBIPQfGiS8v88z6OPR8ven+KdreBl8BV6RqFK7vHb/OM9O5qLNpsPNSImbet1tdaAbSyEUxNUjplKpbGCxM5RZgcdyl/prki2aDcpICE54hcagK8d0JvmohzpLE2xper9AdIP1lD+sYndodhIYejNPFP3BiKPdRkBTrcQbicyp9oA6OIg2/aoJRvH1tai/OcozC5DaT0TPg1eo1NhodMKHa/CZ3Srg0ij9ocYwbX/e42JrBCgnp0gCph/oz7EipyUDI3n437r/skJ/cDEPColQ8PfT2LQE7hPGbp1/mDG3aKLNSuVCiMkQy66a6jyfyPKd8GqzpkGPCrPpneBNsMjGqLCveMl/PgXloTG7BZbg+X0VoXpCjOC3u9n2/Z4xqdnc+Dhw1LBXpdhvLKKl6d9K6/dOVgWRIfYx2I5DPQn79fU47+UkPxPA7qAaU0v9tRXYKXfRh2yJcijXre4/JzBxSmR2owrKVmnXcwBlsIseor36jbISj4TJdA+gVP5Ayfh5a09kpFDYvuPTgRhs4O2z2t3LBnQzLE3KBT2xPznJurYInw7P4yVxDOhpFkGGPZNV/+ehl9CcWwhZzUvHqtPD2zqZXKZvgB3BxR4b1NTgtRY+h28BFD4N9ejY5aJ9yS50kXYTIhXvwrzbRAjHLf+sj4t0gybV7S4osR92WoOyf3rpyeUQdO+9Bqfl5fWvqVl9tMC7/ukkgqlb2p+R1TLbiqD+ruQNMYGdETK4Nl4dkgUVOxOmabWH6RjKiykA5GQWKwo2PLrxE4fwhgkNCYlVDP8gYUBPdo5SeXM7p2ZKrRs7hlFGA2WbSnC4Ni05mwCmlOw9pJzbCXUMalJcD+9b53sLKgb4JYWjEmPe1/4fpH+xwZPlNDjQXGVolNxGkUodNzUFTECEWZLjGtqwQiQYNrErYXRYfea5Vx02WW1JyrHbYJ4FJv61h1KQ6fXAxty+OdtMTU95TwpNr8E62aFNSMQ==$$$null$$$1"
-        },
-        {
-            "key": "嘶哩",
-            "name": "🦝嘶哩",
-            "type": 3,
-            "api": "csp_Skapp",
-            "playerType": 2,
-            "ext": "wf7jTHTllmPx90cSfqYsxOFbNiEn/OOwcQMioXntTCgGo6loj/amsxwUNfJPF2W00I+ZJzSan7pD3OPqeGn1/3CaJLZhzh/OtQFo7cJf/AA/LRGchJ/NNsdu8c3HeY8X3ic+nAYiOFIT7HiLfqFnBom04dCSbujoxb0RoT6iYiZSArenzm5E5lEpGHD/KltmbDpcX9Lkxj+9HnF/okAhK8nsUmta/Jrnk40HP7cZodP3QGeLUpeoOCQZzw++LuS9iYZSentZVKL9q/puBZ78nhjx4fw94cM1SbG0rcAB9vwZr4z9YYNRythGAfNeOsMgRpAOnZH8K5JuWFoADNhHLMA==$$$null$$$1"
-        },
-        {
-            "key": "樱花",
-            "name": "💥樱花",
-            "type": 3,
-            "api": "csp_Appto",
-            "searchable": 1,
-            "quickSearch": 1,
-            "playerType": 2,
-            "filterable": 1,
-            "ext": "qebgGqODxKrWujD2TaoZoyh6aeYntZLsTaZW8MQvVNORiHLLi/o/cEEEXkSs1vfHEuiURxMTr9zL2Kwbffz2pDvLCamrK1tuxIcczsaI7cfsAh5gcgyzOOdZUszoU45ZgS9Bi4HZ3RDHZAWEqP0JyTaH32oDxgO9nx/xhe1xyVRyj9y5gkfPVt2AP94I8/DwDI9CEstcPzGfRNHYxlCuGMtnMvVwzonmkNDyOw+N5xr2ZI3P8O1cj04mCEAE6/d2tGSU/o+EOyWVLWWw0R3hoduHvjAtuMbBt6WNCcsL51zWceiTcsl34acqd9Pya3lA52ZFRojME/R4zdTzMbvwrOEF3Up0eB58//+NM6k4tW+cBNAHDGgO8t7hcfSG/TnJLQ7Gigrn899dGbFeQMCEQf0zxMxfgYBDkADs0aza9N2QIXChgEDVFDvw0vE2m6b+bJfswmbrhNEIM//95XpMv68HEP3jCTwFEehattwHjyYE4fJoH3OtPO++pDiZltaxdizfFD6WmTO+v4qub1QfpUEXWHzG6nqDA9MioigiTRdRAb4PEMioBCJS5/gel+PGRja1cR1NtBjl4RKpSPstwrmczG8qKQrn2Zjwkz8f4OdnEBKRLaWzb/hVDAQgqRfUyohEdnQyocaYsnB5lJoMSp93QCzwAuHYueyMh2fNpcemWGfs58wrZr5VFSBaQDYv/HjsNntoPaCDpoQIV9DJKiqQsiYMblsz/Mdbnlfd1vI5X69TVPvItzh26zXjgpFBKsiFDOtvd3bNe92XnTH3jiDgBQbqoL6jUbvhNQapqRUZxovWk30UQ0YTQnqODkorKdrEB1IeNhKt0epurJG/G7A6DQ6/6lZ7pAwlYVlfXzFgZOGNb1Hs52j2F+sGvgWY00BAH1eHtpHPPdckL25JMKai3QDQUAVBxAI8njCmcNUPfl9kDZe62QMNJwaZKD9eaOjNrdVsKjah9gkiWL8BnDxJeGErZyrvKhyqg0fwNvyn8wEfeUlwRzfDysrvjdBz3$$$null$$$1"
         },
         {
             "key": "NanGua",
@@ -736,32 +762,33 @@
             "type": 3
         },
         {
-            "api": "https://suoniapi.com/api.php/provide/vod/?ac=list",
-            "categories": [
-                "动作片",
-                "喜剧片",
-                "爱情片",
-                "科幻片",
-                "恐怖片",
-                "剧情片",
-                "战争片",
-                "国产剧",
-                "欧美剧",
-                "韩剧",
-                "日剧",
-                "港剧",
-                "台剧",
-                "海外剧",
-                "大陆综艺",
-                "国产动漫"
-            ],
-            "changeable": 1,
-            "filterable": 1,
-            "key": "SNzy",
-            "name": "🚠索尼 ",
-            "quickSearch": 1,
+            "key": "996影院",
+            "name": "996影院",
+            "type": 3,
+            "api": "csp_Cs1369",
             "searchable": 1,
-            "type": 1
+            "changeable": 1
+        },
+        {
+            "key": "FirstAid",
+            "name": "🚑 急救知识 ",
+            "type": 3,
+            "api": "csp_FirstAid",
+            "searchable": 0,
+            "quickSearch": 0,
+            "changeable": 0,
+            "style": {
+                "type": "rect",
+                "ratio": 3.8
+            }
+        },
+        {
+            "key": "短剧",
+            "name": "短剧",
+            "type": 3,
+            "api": "csp_Duanju",
+            "searchable": 0,
+            "changeable": 1
         },
         {
             "api": "https://www.xy1080.net/api.php/provide/vod",
@@ -803,60 +830,15 @@
             "type": 3
         },
         {
-            "api": "csp_XBPQ",
-            "ext": "./json/耐看点播.json",
-            "filterable": 1,
-            "jar": "./xyq.jar",
-            "key": "csp_XBPQ_耐看",
-            "name": "❤️耐看",
+            "key": "Libvio",
+            "name": "LIBVIO|网盘",
+            "type": 3,
+            "api": "csp_Libvio",
             "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_XBPQ",
-            "ext": {
-                "二次截取": "class=\"content-body\"&&class=\"content-lift\"",
-                "分类": "电影$电影#美剧$美剧#日剧$日剧#韩剧$韩剧#动漫$动漫#纪录$纪录",
-                "分类url": "https://jojo.bdys.top/video/{cateId}?page={catePg}&size=18;;u0",
-                "副标题": "class=\"item-speed\">&&</p>",
-                "嗅探词": "aliyundrive.net#cn-beijing-data.aliyundrive.net#alicloudccp.com#srcurity-token",
-                "图片": "src=\"&&\"",
-                "搜索url": "https://jojo.bdys.top/video/search?q={wd}&pid=bB1Kab3-WDn8d6cfsfnR7K4O1zcGkEOp-8rQ2qJDu9U=",
-                "播放数组": "class=\"plyr-sidebar-list&&</div>",
-                "数组": "<a&&</a>",
-                "标题": "class=\"card-title\">&&</p>",
-                "链接": "href=\"&&\""
-            },
+            "changeable": 1,
             "filterable": 1,
-            "jar": "./xyq.jar",
-            "key": "csp_XBPQ_JOJO",
-            "name": "🥗JOJO",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_XBPQ",
-            "ext": "./xyq/hdmoli.json",
-            "filterable": 1,
-            "jar": "./xyq.jar",
-            "key": "csp_hd魔力",
-            "name": "🍃魔力",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_XYQHiker",
-            "ext": "./xyq/六度.json",
-            "filterable": 1,
-            "jar": "./xyq.jar",
-            "key": "csp_XYQHiker_六度",
-            "name": "🛫六度",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
+            "timeout": 30,
+            "ext": "./lib/tokenm.json$$$https://www.libvio.fun$$$null"
         },
         {
             "api": "./lib/drpy2.min.js",
