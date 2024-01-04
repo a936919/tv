@@ -507,14 +507,14 @@
             "type": 3
         },
         {
-			"key": "豆瓣",
-			"name": "豆瓣",
-			"type": 3,
-			"api": "csp_Douban",
-			"searchable": 0,
-			"changeable": 1,
-			"ext": "./js/douban.json"
-		},
+            "key": "豆瓣",
+            "name": "豆瓣",
+            "type": 3,
+            "api": "csp_Douban",
+            "searchable": 0,
+            "changeable": 1,
+            "ext": "./js/douban.json"
+        },
         {
             "api": "py_bilibili",
             "ext": "./py_bilibili.py",
@@ -539,21 +539,40 @@
             "type": 4
         },
         {
-            "api": "csp_XiaoYa",
-            "changeable": 0,
-            "ext": "eyJhcGlLZXkiOiIyZmQ0YzM0ZS1jNDg2LTQ4Y2QtOTZmNy01ODJiYTFmMzNhMDMiLCJhcGkiOiJodHRwOi8veG4tLXFxM2FhcGEuY2M6NDU2NyJ9",
-            "filterable": 1,
-            "jar": "http://xn--qq3aapa.cc:4567/spring.jar",
-            "key": "csp_XiaoYa",
-            "name": "💛丫仙女",
-            "quickSearch": 1,
-            "searchable": 1,
+            "key": "77",
+            "name": "🌹┃柒柒┃影视",
             "type": 3,
-            "viewType": {
-                "style": {
-                    "type": "rect"
-                }
-            }
+            "api": "csp_Kunyu77",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1
+        },
+        {
+            "key": "天天",
+            "name": "⛩️天天",
+            "type": 3,
+            "api": "csp_TTian",
+            "playerType": 1,
+            "ext": "http://op.ysdqjs.cn",
+            "jar": "http://cdn.qiaoji8.com/fix12210.jar;md5;a5c29d1840207b137a855e23526d6e32"
+        },
+        {
+            "key": "996影院",
+            "name": "🐩狗狗遛影视",
+            "type": 3,
+            "api": "csp_Cs1369",
+            "searchable": 1,
+            "changeable": 1,
+            "jar": "https://agit.ai/alanchaotang/if/raw/branch/main/jar/pg.jar;md5;9acd9ebf0a5b997e2c8f73cc32b78e6d"
+        },
+        {
+            "key": "NanGua",
+            "name": "🧂南瓜",
+            "type": 3,
+            "api": "csp_NanGua",
+            "searchable": 1,
+            "changeable": 1,
+            "ext": "null$$$1"
         },
         {
             "api": "csp_Wogg",
@@ -572,19 +591,6 @@
             "type": 3,
             "api": "csp_Wobg",
             "ext": "./lib/tokenm.json$$$"
-        },
-        {
-            "key": "小胡",
-            "name": "🔥小胡",
-            "type": 1,
-            "playerType": 1,
-            "api": "http://d.xzam.cn/api.php/provide/vod/"
-        },
-        {
-            "key": "Local",
-            "name": "本地",
-            "type": 3,
-            "api": "csp_Local"
         },
         {
             "key": "阿里夸克配置",
@@ -625,16 +631,6 @@
             "filterable": 0,
             "key": "Zhaozy",
             "name": "🐺找资源",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_PanSou",
-            "ext": "./lib/tokenm.json",
-            "filterable": 0,
-            "key": "PanSou",
-            "name": "🦊盘搜",
             "quickSearch": 1,
             "searchable": 1,
             "type": 3
@@ -683,6 +679,17 @@
             "ext": "./lib/tokenm.json"
         },
         {
+            "key": "影视车",
+            "name": "影视车|网盘",
+            "type": 3,
+            "api": "csp_Wogg",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 30,
+            "ext": "./lib/tokenm.json$$$https://www.weixine.net/$$$null$$$1$$$./lib/wogg.json"
+        },
+        {
             "key": "YunPanOne",
             "name": "云盘资源|网盘",
             "type": 3,
@@ -725,15 +732,6 @@
             "timeout": 30
         },
         {
-            "key": "NanGua",
-            "name": "🧂南瓜",
-            "type": 3,
-            "api": "csp_NanGua",
-            "searchable": 1,
-            "changeable": 1,
-            "ext": "null$$$1"
-        },
-        {
             "api": "https://qu.ax/foob.js",
             "filterable": 1,
             "key": "cntv",
@@ -762,14 +760,6 @@
             "type": 3
         },
         {
-            "key": "996影院",
-            "name": "996影院",
-            "type": 3,
-            "api": "csp_Cs1369",
-            "searchable": 1,
-            "changeable": 1
-        },
-        {
             "key": "FirstAid",
             "name": "🚑 急救知识 ",
             "type": 3,
@@ -791,24 +781,6 @@
             "changeable": 1
         },
         {
-            "api": "https://www.xy1080.net/api.php/provide/vod",
-            "key": "星影1080cms",
-            "name": "🦛星影",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 1
-        },
-        {
-            "api": "csp_AppYsV2",
-            "ext": "http://4k.953365.cn:8090/xgapp.php/v3/",
-            "filterable": 1,
-            "key": "可口可乐",
-            "name": "♐可乐",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
             "api": "csp_AppYsV2",
             "ext": "https://www.tvkuys.xyz/api.php/app/",
             "filterable": 1,
@@ -828,17 +800,6 @@
             "quickSearch": 1,
             "searchable": 1,
             "type": 3
-        },
-        {
-            "key": "Libvio",
-            "name": "LIBVIO|网盘",
-            "type": 3,
-            "api": "csp_Libvio",
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 30,
-            "ext": "./lib/tokenm.json$$$https://www.libvio.fun$$$null"
         },
         {
             "api": "./lib/drpy2.min.js",
@@ -965,16 +926,6 @@
             "type": 3
         },
         {
-            "api": "csp_Czsapp",
-            "ext": "https://cz01.me/",
-            "filterable": 1,
-            "key": "py_czspp",
-            "name": "🏭厂长",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
             "api": "csp_Mayiys",
             "changeable": 1,
             "filterable": 1,
@@ -982,27 +933,6 @@
             "name": "🐜蚂蚁",
             "quickSearch": 1,
             "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_DDMJ",
-            "changeable": 1,
-            "ext": "http://103.222.188.33:6688",
-            "filterable": 1,
-            "key": "DDMJ",
-            "name": "🎭米酷",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "changeable": 1,
-            "ext": "./js/meow.js",
-            "key": "drpy-meow",
-            "name": "🐈喵搜",
-            "quickSearch": 1,
-            "timeout": 30,
             "type": 3
         },
         {
@@ -1028,16 +958,6 @@
         {
             "api": "./lib/drpy2.min.js",
             "changeable": 1,
-            "ext": "./js/yyets.js",
-            "key": "drpy_js_yyets",
-            "name": "🍥人人",
-            "quickSearch": 1,
-            "timeout": 30,
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "changeable": 1,
             "ext": "./js/kkpans.js",
             "key": "drpy_js_kkpans",
             "name": "🚵kk盘",
@@ -1053,36 +973,6 @@
             "name": "💂🏿‍♀️校长",
             "quickSearch": 1,
             "timeout": 30,
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "changeable": 1,
-            "ext": "./js/aipanso.js",
-            "key": "drpy_js_愛盤搜",
-            "name": "💅🏻爱盘搜",
-            "quickSearch": 1,
-            "timeout": 30,
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "changeable": 1,
-            "ext": "./js/funletu.js",
-            "key": "drpy_js_趣盤搜",
-            "name": "⛄趣盘搜",
-            "quickSearch": 1,
-            "timeout": 30,
-            "type": 3
-        },
-        {
-            "api": "csp_BLSGod",
-            "filterable": 1,
-            "key": "csp_BLSGod",
-            "name": "💾80S",
-            "playerType": 1,
-            "quickSearch": 1,
-            "searchable": 1,
             "type": 3
         },
         {
