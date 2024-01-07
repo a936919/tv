@@ -516,38 +516,6 @@
             "ext": "./js/douban.json"
         },
         {
-            "api": "py_bilibili",
-            "ext": "./py_bilibili.py",
-            "filterable": 1,
-            "key": "py_bili",
-            "name": "🅱️哔哩哔哩",
-            "quickSearch": 1,
-            "searchable": 0,
-            "style": {
-                "ratio": 1.433,
-                "type": "rect"
-            },
-            "type": 3
-        },
-        {
-            "api": "https://t4.secan.icu/vod?sites=all&ali_token=c4b33b4e72df4b9fab4752cb46ce7a0d&timeout=5",
-            "filterable": 1,
-            "key": "T4a",
-            "name": "📡T4聚合",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 4
-        },
-        {
-            "key": "77",
-            "name": "🌹┃柒柒┃影视",
-            "type": 3,
-            "api": "csp_Kunyu77",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1
-        },
-        {
             "key": "天天",
             "name": "⛩️天天",
             "type": 3,
@@ -573,6 +541,13 @@
             "searchable": 1,
             "changeable": 1,
             "ext": "null$$$1"
+        },
+        {
+            "key": "小胡",
+            "name": "🔥小胡影视",
+            "type": 1,
+            "playerType": 1,
+            "api": "http://c.xn--yetu07f.icu/api.php/provide/vod/"
         },
         {
             "api": "csp_Wogg",
@@ -647,7 +622,7 @@
         },
         {
             "key": "DaPanSo",
-            "name": "大盘搜|网盘",
+            "name": "👼大盘搜网盘",
             "type": 3,
             "api": "csp_DaPanSo",
             "quickSearch": 1,
@@ -658,7 +633,7 @@
         },
         {
             "key": "Qianfan",
-            "name": "千帆|网盘",
+            "name": "🔱千帆网盘",
             "type": 3,
             "api": "csp_Qianfan",
             "quickSearch": 1,
@@ -669,7 +644,7 @@
         },
         {
             "key": "YunSo",
-            "name": "小云搜索|网盘",
+            "name": "📷小云网盘",
             "type": 3,
             "api": "csp_YunSo",
             "quickSearch": 1,
@@ -680,7 +655,7 @@
         },
         {
             "key": "影视车",
-            "name": "影视车|网盘",
+            "name": "💡影视车网盘",
             "type": 3,
             "api": "csp_Wogg",
             "quickSearch": 1,
@@ -691,7 +666,7 @@
         },
         {
             "key": "YunPanOne",
-            "name": "云盘资源|网盘",
+            "name": "🌝云盘网盘",
             "type": 3,
             "api": "csp_YunPanOne",
             "quickSearch": 1,
@@ -742,21 +717,6 @@
                 "ratio": 0.8,
                 "type": "rect"
             },
-            "type": 3
-        },
-        {
-            "api": "csp_YingShi",
-            "ext": "socks5://Clash:a2171802833@192.168.2.1:7891",
-            "key": "csp_YingShi",
-            "name": "💠影视",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/厂长.js",
-            "key": "厂长",
-            "name": "🐼️厂长",
-            "playerType": 2,
             "type": 3
         },
         {
