@@ -497,6 +497,15 @@
     ],
     "sites": [
         {
+            "key": "豆瓣",
+            "name": "豆瓣",
+            "type": 3,
+            "api": "csp_Douban",
+            "searchable": 0,
+            "changeable": 1,
+            "ext": "./lib/douban.json"
+        },
+        {
             "api": "./lib/drpy2.min.js",
             "ext": "./js/douban.js",
             "filterable": 0,
@@ -515,15 +524,7 @@
             "changeable": 1,
             "ext": "./js/douban.json"
         },
-        {
-            "key": "天天",
-            "name": "⛩️天天",
-            "type": 3,
-            "api": "csp_TTian",
-            "playerType": 1,
-            "ext": "http://op.ysdqjs.cn",
-            "jar": "http://cdn.qiaoji8.com/fix12210.jar;md5;a5c29d1840207b137a855e23526d6e32"
-        },
+        {"key": "天天","name": "⛩️天天","type": 3,"api": "csp_TTian","playerType": 1,"ext": "http://op.ysdqjs.cn","jar":"http://cdn.qiaoji8.com/fix12210.jar;md5;a5c29d1840207b137a855e23526d6e32"},
         {
             "key": "996影院",
             "name": "🐩狗狗遛影视",
@@ -568,8 +569,44 @@
             "ext": "./lib/tokenm.json$$$"
         },
         {
+            "key": "AliShare",
+            "name": "🅿阿里云盘分享",
+            "type": 3,
+            "api": "csp_AliShare",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 0,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$./lib/alishare.txt"
+        },
+        {
+            "key": "ThunderShare",
+            "name": "🅿迅雷云盘分享",
+            "type": 3,
+            "api": "csp_ThunderShare",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 0,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$./lib/thundershare.txt"
+        },
+        {
+            "key": "QuarkShare",
+            "name": "🅿夸克云盘分享",
+            "type": 3,
+            "api": "csp_QuarkShare",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 0,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$./lib/quarkshare.txt"
+        },
+        {
             "key": "阿里夸克配置",
-            "name": "阿里夸克配置",
+            "name": "🅿阿里夸克配置",
             "type": 3,
             "api": "csp_Config",
             "searchable": 0,
@@ -579,6 +616,24 @@
                 "ratio": 1
             },
             "ext": "./lib/tokenm.json"
+        },
+        {
+            "key": "混合盘",
+            "name": "🅿混合盘|网盘",
+            "type": 3,
+            "api": "csp_HunHePan",
+            "timeout": 30,
+            "ext": "./lib/tokenm.json"
+        },
+        {
+            "key": "Ys23",
+            "name": "📵影视23",
+            "type": 3,
+            "api": "csp_Ys23",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 30
         },
         {
             "api": "csp_XiaoZhiTiao",
