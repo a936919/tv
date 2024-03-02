@@ -517,15 +517,7 @@
         },
      
         {"key": "天天","name": "⛩️天天","type": 3,"api": "csp_TTian","playerType": 1,"ext": "http://op.ysdqjs.cn","jar":"http://cdn.qiaoji8.com/fix12210.jar;md5;a5c29d1840207b137a855e23526d6e32"},
-        {
-            "key": "996影院",
-            "name": "🐩狗狗遛影视",
-            "type": 3,
-            "api": "csp_Cs1369",
-            "searchable": 1,
-            "changeable": 1,
-            "jar": "https://agit.ai/alanchaotang/if/raw/branch/main/jar/pg.jar;md5;9acd9ebf0a5b997e2c8f73cc32b78e6d"
-        },
+       
         {"key":"DiDuan","name":"⏮️低端","type":3,"api":"csp_Ddrk","playerType":"2","searchable":1,"quickSearch":1,"changeable":1},
         {
             "key": "NanGua",
