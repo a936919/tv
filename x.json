@@ -562,6 +562,16 @@
             "ext": "./lib/tokenm.json$$$"
         },
         {
+            "key": "YQKan",
+            "name": "一起看",
+            "type": 3,
+            "api": "csp_YQKan",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "changeable": 1
+        },
+        {
             "key": "AliShare",
             "name": "🅿阿里云盘分享",
             "type": 3,
@@ -619,14 +629,169 @@
             "ext": "./lib/tokenm.json"
         },
         {
-            "key": "Ys23",
-            "name": "📵影视23",
+            "key": "Bt0",
+            "name": "不太灵|磁力",
             "type": 3,
-            "api": "csp_Ys23",
+            "api": "csp_Bt0",
             "quickSearch": 1,
             "changeable": 1,
             "filterable": 1,
-            "timeout": 30
+            "timeout": 60,
+            "ext": "null$$$null$$$1"
+        },
+        {
+            "key": "YunPan",
+            "name": "云盘资源|网盘",
+            "type": 3,
+            "api": "csp_YunPan",
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$null$$$proxy$$$1"
+        },
+        {
+            "key": "YingSo",
+            "name": "影搜|网盘搜索",
+            "type": 3,
+            "api": "csp_YingSo",
+            "timeout": 60,
+            "ext": "./lib/tokenm.json"
+        },
+        {
+            "key": "混合盘",
+            "name": "混合盘|网盘搜索",
+            "type": 3,
+            "api": "csp_HunHePan",
+            "timeout": 60,
+            "ext": "./lib/tokenm.json",
+            "style": {
+                "type": "list",
+                "ratio": 1.1
+            }
+        },
+        {
+            "key": "88Pan",
+            "name": "88网盘|网盘搜索",
+            "type": 3,
+            "api": "csp_EightEight",
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://662688.xyz",
+            "style": {
+                "type": "list",
+                "ratio": 1.1
+            }
+        },
+        {
+            "key": "PanSearch",
+            "name": "PanSearch|网盘搜索",
+            "type": 3,
+            "api": "csp_PanSearch",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json"
+        },
+        {
+            "key": "盘友圈",
+            "name": "盘友圈|网盘搜索",
+            "type": 3,
+            "api": "csp_Panyq",
+            "timeout": 60,
+            "ext": "./lib/tokenm.json"
+        },
+        {
+            "key": "易搜",
+            "name": "易搜|网盘搜索",
+            "type": 3,
+            "api": "csp_YiSo",
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$./lib/yiso.txt",
+            "style": {
+                "type": "list",
+                "ratio": 1.1
+            }
+        },
+        {
+            "key": "秒搜",
+            "name": "秒搜|网盘搜索",
+            "type": 3,
+            "api": "csp_MiaoSou",
+            "timeout": 60,
+            "ext": "./lib/tokenm.json",
+            "style": {
+                "type": "list",
+                "ratio": 1.1
+            }
+        },
+        {
+            "key": "Funletu",
+            "name": "趣盘搜|夸克搜索",
+            "type": 3,
+            "api": "csp_Funletu",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json",
+            "style": {
+                "type": "list",
+                "ratio": 1.1
+            }
+        },
+        {
+            "key": "QuarkPanso",
+            "name": "夸克盘搜|夸克搜索",
+            "type": 3,
+            "api": "csp_QuarkPanso",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json",
+            "style": {
+                "type": "list",
+                "ratio": 1.1
+            }
+        },
+        {
+            "key": "Panta",
+            "name": "盘Ta|网盘",
+            "type": 3,
+            "api": "csp_Panta",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://www.91panta.cn/$$$null$$$1",
+            "style": {
+                "type": "list",
+                "ratio": 1.1
+            }
+        },
+        {
+            "key": "DaPanSo",
+            "name": "大盘搜|网盘搜索",
+            "type": 3,
+            "api": "csp_DaPanSo",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://dapanso.com$$$null$$$1"
+        },
+        {
+            "key": "PikaSo",
+            "name": "皮卡搜|网盘搜索",
+            "type": 3,
+            "api": "csp_PikaSo",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://www.pikaso.top/$$$null",
+            "style": {
+                "type": "list",
+                "ratio": 1.1
+            }
         },
         {
             "api": "csp_XiaoZhiTiao",
@@ -678,6 +843,17 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "./lib/tokenm.json$$$https://dapanso.com$$$null"
+        },
+        {
+            "key": "YunPanOne",
+            "name": "云盘One|网盘搜索",
+            "type": 3,
+            "api": "csp_YunPanOne",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$null$$$proxy$$$1"
         },
         {
             "key": "Qianfan",
