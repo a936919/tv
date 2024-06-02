@@ -506,16 +506,6 @@
             "ext": "./lib/douban.json"
         },
         {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/douban.js",
-            "filterable": 0,
-            "key": "豆瓣1",
-            "name": "🏝豆瓣",
-            "quickSearch": 0,
-            "searchable": 0,
-            "type": 3
-        },
-        {
             "key": "天天",
             "name": "⛩️天天",
             "type": 3,
@@ -525,16 +515,6 @@
             "jar": "http://cdn.qiaoji8.com/fix12210.jar;md5;a5c29d1840207b137a855e23526d6e32"
         },
         {
-            "key": "DiDuan",
-            "name": "⏮️低端",
-            "type": 3,
-            "api": "csp_Ddrk",
-            "playerType": "2",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1
-        },
-        {
             "key": "NanGua",
             "name": "🧂南瓜",
             "type": 3,
@@ -542,6 +522,121 @@
             "searchable": 1,
             "changeable": 1,
             "ext": "null$$$1"
+        },
+        {
+            "api": "csp_Kuaikan",
+            "filterable": 1,
+            "key": "快看",
+            "name": "👀快看",
+            "quickSearch": 1,
+            "searchable": 1,
+            "type": 3
+        },
+        {
+            "api": "csp_Mayiys",
+            "changeable": 1,
+            "filterable": 1,
+            "key": "Mayiys",
+            "name": "🐜蚂蚁",
+            "quickSearch": 1,
+            "searchable": 1,
+            "type": 3
+        },
+        {
+            "key": "Wexhanxiaoquan",
+            "name": "🇰🇷韩圈┃TV┃App",
+            "type": 3,
+            "api": "csp_Wexhanxiaoquan",
+            "searchable": 1,
+            "changeable": 1,
+            "jar": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1715609406645/wex.txt;md5;1d8a6792c4de97620de236430e8fee31"
+        },
+        {
+            "key": "Wexhanjutv",
+            "name": "🇰🇷韩剧┃TV┃App",
+            "type": 3,
+            "api": "csp_Wexhanjutv",
+            "searchable": 1,
+            "changeable": 1,
+            "jar": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1715609406645/wex.txt;md5;1d8a6792c4de97620de236430e8fee31"
+        },
+        {
+            "key": "Fangniu4k",
+            "name": "🐄┃放牛┃TV",
+            "type": 3,
+            "api": "csp_WexFangniu4k",
+            "searchable": 1,
+            "changeable": 1,
+            "jar": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1715609406645/wex.txt;md5;1d8a6792c4de97620de236430e8fee31"
+        },
+        {
+            "key": "Wexxpgtv",
+            "name": "🍎┃红富士┃TV",
+            "type": 3,
+            "api": "csp_Wexxpgtv",
+            "searchable": 1,
+            "changeable": 1,
+            "jar": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1715609406645/wex.txt;md5;1d8a6792c4de97620de236430e8fee31"
+        },
+        {
+            "key": "Diduanys",
+            "name": "🙈┃深渊┃影视",
+            "type": 3,
+            "api": "csp_WexDiduanys",
+            "searchable": 1,
+            "changeable": 1,
+            "jar": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1715609406645/wex.txt;md5;1d8a6792c4de97620de236430e8fee31"
+        },
+        {
+            "key": "F4kvm",
+            "name": "🦑┃纯享┃影视",
+            "type": 3,
+            "api": "csp_WexF4kvm",
+            "searchable": 1,
+            "changeable": 1,
+            "jar": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1715609406645/wex.txt;md5;1d8a6792c4de97620de236430e8fee31"
+        },
+        {
+            "key": "mingriyingshi",
+            "name": "☀️┃明日┃影视",
+            "type": 3,
+            "api": "csp_WexMingriys",
+            "searchable": 1,
+            "changeable": 1,
+            "jar": "https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1715609406645/wex.txt;md5;1d8a6792c4de97620de236430e8fee31"
+        },
+        {
+            "key": "天天",
+            "name": "🧸┃天天┃TV",
+            "type": 3,
+            "api": "csp_TTian",
+            "playerType": 1,
+            "ext": "http://op.ysdqjs.cn$$$null$$$1",
+            "jar": "./pg.jar;md5;6e1d87747bd75b4084892cb5330e6c1d"
+        },
+        {
+            "key": "AList",
+            "name": "🧸┃Alist小雅",
+            "type": 3,
+            "api": "csp_AList",
+            "searchable": 1,
+            "filterable": 1,
+            "changeable": 1,
+            "ext": {
+                "vodPic": "https://x.imgs.ovh/x/2023/09/05/64f680bb030b4.png",
+                "drives": [
+                    {
+                        "name": "小雅",
+                        "server": "http://xiaoya.xlog.cc/",
+                        "startPage": "/",
+                        "showAll": false,
+                        "search": true,
+                        "headers": {
+                            "Authorization": ""
+                        }
+                    }
+                ]
+            }
         },
         {
             "api": "csp_Wogg",
@@ -560,52 +655,6 @@
             "type": 3,
             "api": "csp_Wobg",
             "ext": "./lib/tokenm.json$$$"
-        },
-        {
-            "key": "YQKan",
-            "name": "一起看",
-            "type": 3,
-            "api": "csp_YQKan",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 1
-        },
-        {
-            "key": "AliShare",
-            "name": "🅿阿里云盘分享",
-            "type": 3,
-            "api": "csp_AliShare",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 0,
-            "timeout": 60,
-            "ext": "./lib/tokenm.json$$$./lib/alishare.txt"
-        },
-        {
-            "key": "ThunderShare",
-            "name": "🅿迅雷云盘分享",
-            "type": 3,
-            "api": "csp_ThunderShare",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 0,
-            "timeout": 60,
-            "ext": "./lib/tokenm.json$$$./lib/thundershare.txt"
-        },
-        {
-            "key": "QuarkShare",
-            "name": "🅿夸克云盘分享",
-            "type": 3,
-            "api": "csp_QuarkShare",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 0,
-            "timeout": 60,
-            "ext": "./lib/tokenm.json$$$./lib/quarkshare.txt"
         },
         {
             "key": "阿里夸克配置",
@@ -638,6 +687,176 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "null$$$null$$$1"
+        },
+        {
+            "key": "Xpanpan",
+            "name": "小盘盘|网盘",
+            "type": 3,
+            "api": "csp_Xpanpan",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://xpanpan.site$$$proxy$$$1",
+            "style": {
+                "type": "list",
+                "ratio": 1.1
+            }
+        },
+        {
+            "key": "Wogg",
+            "name": "玩偶哥哥|网盘",
+            "type": 3,
+            "api": "csp_Wogg",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://wogg.link/$$$proxy$$$1$$$./lib/wogg.json"
+        },
+        {
+            "key": "Wo4k",
+            "name": "玩偶4K|磁力",
+            "type": 3,
+            "api": "csp_Wo4k",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://www.wo4k.net/$$$proxy$$$1$$$./lib/wogg.json"
+        },
+        {
+            "key": "Wobg",
+            "name": "玩偶表哥|网盘",
+            "type": 3,
+            "api": "csp_Wobg",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://wobge.run.goorm.io$$$proxy$$$1$$$./lib/wogg.json"
+        },
+        {
+            "key": "yydsys",
+            "name": "玩你老哥|网盘",
+            "type": 3,
+            "api": "csp_Wobg",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://tv.yydsys.top/$$$proxy$$$1$$$./lib/wogg.json"
+        },
+        {
+            "key": "Gaoqing",
+            "name": "中国高清网|网盘",
+            "type": 3,
+            "api": "csp_Gaoqing",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://gaoqing.la/$$$proxy$$$1"
+        },
+        {
+            "key": "Yinfans",
+            "name": "音范丝|磁力",
+            "type": 3,
+            "api": "csp_Gaoqing",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://www.yinfans.me/$$$proxy$$$1"
+        },
+        {
+            "key": "ddys",
+            "name": "低端影视|网盘",
+            "type": 3,
+            "api": "csp_Ddys",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://ddys.pro/$$$proxy$$$1$$$"
+        },
+        {
+            "key": "Xinshijue",
+            "name": "新视觉|网盘",
+            "type": 3,
+            "api": "csp_Xinshijue",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://www.80yy3.com/$$$proxy$$$1$$$./lib/wogg.json"
+        },
+        {
+            "key": "团长资源",
+            "name": "团长资源|网盘",
+            "type": 3,
+            "api": "csp_TZFile",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$proxy$$$1"
+        },
+        {
+            "key": "Moli",
+            "name": "HDmoli|网盘",
+            "type": 3,
+            "api": "csp_Moli",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://www.hdmoli.pro/$$$proxy$$$1$$$./lib/moli.json"
+        },
+        {
+            "key": "Hdhive",
+            "name": "影巢|网盘",
+            "type": 3,
+            "api": "csp_Hdhive",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$proxy$$$1"
+        },
+        {
+            "key": "Ppxzy",
+            "name": "皮皮虾|网盘",
+            "type": 3,
+            "api": "csp_Ppxzy",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://ppxzy.ink$$$proxy$$$1"
+        },
+        {
+            "key": "校长影视",
+            "name": "校长影视|网盘",
+            "type": 3,
+            "api": "csp_XiaoZhang",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://xzyshd.com$$$proxy$$$1"
+        },
+        {
+            "key": "Bdys_spider",
+            "name": "哔滴┃磁力",
+            "api": "csp_Bdys01",
+            "type": 3,
+            "filterable": 1,
+            "searchable": 1,
+            "quickSearch": 1,
+            "searchable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://www.yjys.me/$$$proxy$$$1"
         },
         {
             "key": "YunPan",
@@ -673,7 +892,7 @@
             "type": 3,
             "api": "csp_EightEight",
             "timeout": 60,
-            "ext": "./lib/tokenm.json$$$https://662688.xyz",
+            "ext": "./lib/tokenm.json$$$https://662688.xyz$$$",
             "style": {
                 "type": "list",
                 "ratio": 1.1
@@ -696,7 +915,7 @@
             "type": 3,
             "api": "csp_Panyq",
             "timeout": 60,
-            "ext": "./lib/tokenm.json"
+            "ext": "./lib/tokenm.json$$$site$$$proxy"
         },
         {
             "key": "易搜",
@@ -776,7 +995,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "./lib/tokenm.json$$$https://dapanso.com$$$null$$$1"
+            "ext": "./lib/tokenm.json$$$https://dapanso.com$$$proxy$$$1"
         },
         {
             "key": "PikaSo",
@@ -794,55 +1013,30 @@
             }
         },
         {
-            "api": "csp_XiaoZhiTiao",
-            "ext": "./lib/tokenm.json",
-            "filterable": 0,
-            "key": "xiaozhitiao",
-            "name": "📃小纸条",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_YiSo",
-            "ext": "./lib/tokenm.json",
-            "filterable": 0,
-            "key": "YiSo",
-            "name": "😹易搜",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Zhaozy",
-            "ext": "./lib/tokenm.json$$$fanfan$$$qqq111",
-            "filterable": 0,
-            "key": "Zhaozy",
-            "name": "🐺找资源",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_UpYun",
-            "ext": "./lib/tokenm.json",
-            "filterable": 0,
-            "key": "UpYun",
-            "name": "😻Up搜",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "key": "DaPanSo",
-            "name": "👼大盘搜网盘",
+            "key": "Qianfan",
+            "name": "千帆|网盘搜索",
             "type": 3,
-            "api": "csp_DaPanSo",
+            "api": "csp_Qianfan",
             "quickSearch": 1,
             "changeable": 1,
             "filterable": 1,
-            "timeout": 30,
-            "ext": "./lib/tokenm.json$$$https://dapanso.com$$$null"
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://pan.qianfan.app$$$null$$$./lib/qianfan.txt$$$1"
+        },
+        {
+            "key": "YunSo",
+            "name": "小云搜索|网盘搜索",
+            "type": 3,
+            "api": "csp_YunSo",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://www.yunso.net$$$null$$$1",
+            "style": {
+                "type": "list",
+                "ratio": 1.1
+            }
         },
         {
             "key": "YunPanOne",
@@ -856,81 +1050,6 @@
             "ext": "./lib/tokenm.json$$$null$$$proxy$$$1"
         },
         {
-            "key": "Qianfan",
-            "name": "🔱千帆网盘",
-            "type": 3,
-            "api": "csp_Qianfan",
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 30,
-            "ext": "./lib/tokenm.json$$$https://pan.qianfan.app$$$null$$$QianFanID="
-        },
-        {
-            "key": "YunSo",
-            "name": "📷小云网盘",
-            "type": 3,
-            "api": "csp_YunSo",
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 30,
-            "ext": "./lib/tokenm.json"
-        },
-        {
-            "key": "影视车",
-            "name": "💡影视车网盘",
-            "type": 3,
-            "api": "csp_Wogg",
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 30,
-            "ext": "./lib/tokenm.json$$$https://www.weixine.net/$$$null$$$1$$$./lib/wogg.json"
-        },
-        {
-            "key": "YunPanOne",
-            "name": "🌝云盘网盘",
-            "type": 3,
-            "api": "csp_YunPanOne",
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 30,
-            "ext": "./lib/tokenm.json"
-        },
-        {
-            "api": "csp_PanSearch",
-            "ext": "./lib/tokenm.json",
-            "filterable": 0,
-            "key": "PanSearch",
-            "name": "🙀盘Se",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Sp360",
-            "changeable": 1,
-            "filterable": 1,
-            "jar": "./921.jar",
-            "key": "sp360",
-            "name": "✳️360影视",
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "key": "Ppxzy",
-            "name": "🥘皮皮虾",
-            "type": 3,
-            "api": "csp_Ppxzy",
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "ext": "./lib/tokenm.json$$$https://ppxzy.net/$$$null$$$1",
-            "timeout": 30
-        },
-        {
             "api": "https://qu.ax/foob.js",
             "filterable": 1,
             "key": "cntv",
@@ -942,6 +1061,40 @@
                 "type": "rect"
             },
             "type": 3
+        },
+        {
+            "key": "新6V",
+            "name": "新6V|网盘",
+            "type": 3,
+            "api": "csp_Xb6v",
+            "searchable": 1,
+            "changeable": 1,
+            "timeout": 60,
+            "ext": "./lib/tokenm.json$$$https://www.66ss.org$$$null$$$1"
+        },
+        {
+            "key": "天天",
+            "name": "天天┃App",
+            "type": 3,
+            "api": "csp_TTian",
+            "ext": "http://op.ysdqjs.cn$$$null$$$1"
+        },
+        {
+            "key": "追剧",
+            "name": "追剧",
+            "type": 3,
+            "api": "csp_TTian",
+            "ext": "http://app.kzjtv.com$$$null$$$1"
+        },
+        {
+            "key": "賤賤",
+            "name": "荐片",
+            "type": 3,
+            "api": "csp_Jianpian",
+            "searchable": 1,
+            "changeable": 1,
+            "ext": "./lib/jianpian.json$$$1",
+            "timeout": 60
         },
         {
             "key": "FirstAid",
@@ -963,150 +1116,6 @@
             "api": "csp_Duanju",
             "searchable": 0,
             "changeable": 1
-        },
-        {
-            "api": "csp_AppYsV2",
-            "ext": "https://www.tvkuys.xyz/api.php/app/",
-            "filterable": 1,
-            "key": "聚合",
-            "name": "🎦影视聚合",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/奇优.js",
-            "filterable": 1,
-            "key": "奇优",
-            "name": "🚤奇优",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/tengxun.js",
-            "key": "腾讯",
-            "name": "🐧腾讯",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/iqy.js",
-            "key": "爱奇艺",
-            "name": "💜奇艺",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/youku.js",
-            "key": "优酷",
-            "name": "🆒优酷",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/360.js",
-            "key": "360",
-            "name": "🔍360",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/畅梦.js",
-            "key": "畅梦",
-            "name": "🛌畅梦",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/sougou.js",
-            "key": "搜狗",
-            "name": "🐶搜狗",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/mangguo.js",
-            "key": "芒果",
-            "name": "🍋芒果",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/荐片.js",
-            "filterable": 0,
-            "key": "磁力",
-            "name": "🍈荐片",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/南瓜.js",
-            "key": "南瓜",
-            "name": "🎃南瓜",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/ddys.js",
-            "key": "低端",
-            "name": "🔅低端",
-            "playerType": 2,
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/子子影视.js",
-            "key": "子子",
-            "name": "👼子子",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/两个bt.js",
-            "key": "两个bt",
-            "name": "💰两个",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/JustLive.js",
-            "key": "JustLive",
-            "name": "☸️JustLive",
-            "type": 3
-        },
-        {
-            "api": "./lib/drpy2.min.js",
-            "ext": "./js/新片场.js",
-            "filterable": 0,
-            "key": "新片场",
-            "name": "💮新片场",
-            "quickSearch": 1,
-            "searchable": 0,
-            "type": 3
-        },
-        {
-            "api": "csp_Kuaikan",
-            "filterable": 1,
-            "key": "快看",
-            "name": "👀快看",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
-        },
-        {
-            "api": "csp_Mayiys",
-            "changeable": 1,
-            "filterable": 1,
-            "key": "Mayiys",
-            "name": "🐜蚂蚁",
-            "quickSearch": 1,
-            "searchable": 1,
-            "type": 3
         },
         {
             "api": "./lib/drpy2.min.js",
