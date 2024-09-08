@@ -1,38 +1,42 @@
-#EXTM3U
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV1
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226917/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV2
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226970/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV3
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226960/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV4
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226923/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV5
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226921/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV5+
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226978/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV6
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226937/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV7
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226935/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV8
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226972/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV9
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226941/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV10
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226952/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV11
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226950/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV12
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226956/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV13
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226919/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV14
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226958/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV15
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226524/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV17
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226954/index.m3u8?fmt=ts2hls
+#EXTM3U url-tvg="https://live.lizanyang.top/e.xml" catchup="append" catchup-source="?playseek=${(b)yyyyMMddHHmmss}-${(e)yyyyMMddHHmmss}"
+#EXTINF:-1 tvg-id="CCTV4K" tvg-name="CCTV4K" tvg-logo="https://live.fanmingming.com/tv/CCTV4K.png" group-title="央视",CCTV-4K
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227354/index.m3u8
+#EXTINF:-1 tvg-id="CCTV1" tvg-name="CCTV1" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="央视",CCTV1
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227262/index.m3u8
+#EXTINF:-1 tvg-id="CCTV2" tvg-name="CCTV2" tvg-logo="https://live.fanmingming.com/tv/CCTV2.png" group-title="央视",CCTV2
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227165/index.m3u8
+#EXTINF:-1 tvg-id="CCTV3" tvg-name="CCTV3" tvg-logo="https://live.fanmingming.com/tv/CCTV3.png" group-title="央视",CCTV3
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227333/index.m3u8
+#EXTINF:-1 tvg-id="CCTV4" tvg-name="CCTV4" tvg-logo="https://live.fanmingming.com/tv/CCTV4.png" group-title="央视",CCTV4
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227235/index.m3u8
+#EXTINF:-1 tvg-id="CCTV5" tvg-name="CCTV5" tvg-logo="https://live.fanmingming.com/tv/CCTV5.png" group-title="央视",CCTV5
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227323/index.m3u8
+#EXTINF:-1 tvg-id="CCTV5+" tvg-name="CCTV5+" tvg-logo="https://live.fanmingming.com/tv/CCTV5+.png" group-title="央视",CCTV5+
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227348/index.m3u8
+#EXTINF:-1 tvg-id="CCTV6" tvg-name="CCTV6" tvg-logo="https://live.fanmingming.com/tv/CCTV6.png" group-title="央视",CCTV6
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227325/index.m3u8
+#EXTINF:-1 tvg-id="CCTV7" tvg-name="CCTV7" tvg-logo="https://live.fanmingming.com/tv/CCTV7.png" group-title="央视",CCTV7
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227180/index.m3u8
+#EXTINF:-1 tvg-id="CCTV8" tvg-name="CCTV8" tvg-logo="https://live.fanmingming.com/tv/CCTV8.png" group-title="央视",CCTV8
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227327/index.m3u8
+#EXTINF:-1 tvg-id="CCTV9" tvg-name="CCTV9" tvg-logo="https://live.fanmingming.com/tv/CCTV9.png" group-title="央视",CCTV9
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227182/index.m3u8
+#EXTINF:-1 tvg-id="CCTV10" tvg-name="CCTV10" tvg-logo="https://live.fanmingming.com/tv/CCTV10.png" group-title="央视",CCTV10
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227169/index.m3u8
+#EXTINF:-1 tvg-id="CCTV11" tvg-name="CCTV11" tvg-logo="https://live.fanmingming.com/tv/CCTV11.png" group-title="央视",CCTV11
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227171/index.m3u8
+#EXTINF:-1 tvg-id="CCTV12" tvg-name="CCTV12" tvg-logo="https://live.fanmingming.com/tv/CCTV12.png" group-title="央视",CCTV12
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227184/index.m3u8
+#EXTINF:-1 tvg-id="CCTV13" tvg-name="CCTV13" tvg-logo="https://live.fanmingming.com/tv/CCTV13.png" group-title="央视",CCTV13
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227266/index.m3u8
+#EXTINF:-1 tvg-id="CCTV14" tvg-name="CCTV14" tvg-logo="https://live.fanmingming.com/tv/CCTV14.png" group-title="央视",CCTV14
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227173/index.m3u8
+#EXTINF:-1 tvg-id="CCTV15" tvg-name="CCTV15" tvg-logo="https://live.fanmingming.com/tv/CCTV15.png" group-title="央视",CCTV15
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227175/index.m3u8
+#EXTINF:-1 tvg-id="CCTV16" tvg-name="CCTV16" tvg-logo="https://live.fanmingming.com/tv/CCTV16.png" group-title="央视",CCTV16
+http://[2409:8087:1a01:df::7005]/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226100/index.m3u8
+#EXTINF:-1 tvg-id="CCTV17" tvg-name="CCTV17" tvg-logo="https://live.fanmingming.com/tv/CCTV17.png" group-title="央视",CCTV17
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227188/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV1
 http://[2409:8087:1a01:df::7005]:80/ottrrs.hl.chinamobile.com/TVOD/88888888/224/3221226559/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="" group-title="央视",CCTV2
@@ -809,3 +813,4 @@ http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226596/index.m3u8
 http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226624/index.m3u8
 #EXTINF:-1 tvg-id="优优宝贝" tvg-name="优优宝贝" tvg-logo="https://live.fanmingming.com/tv/优优宝贝.png" group-title="综艺动漫",优优宝贝
 http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226341/index.m3u8
+
