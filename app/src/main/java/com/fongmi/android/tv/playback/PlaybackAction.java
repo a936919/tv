@@ -6,6 +6,7 @@ import android.widget.TextView;
 import androidx.media3.common.C;
 
 import com.fongmi.android.tv.R;
+import com.fongmi.android.tv.ai.subtitle.AiSubtitleSettings;
 import com.fongmi.android.tv.player.PlayerManager;
 import com.fongmi.android.tv.setting.PlayerSetting;
 import com.fongmi.android.tv.utils.ResUtil;
@@ -78,8 +79,24 @@ public final class PlaybackAction {
         return player == null ? "" : player.getSpeedText();
     }
 
+    public static boolean canStyleSubtitle(PlayerManager player) {
+        return player != null && (player.haveTrack(C.TRACK_TYPE_TEXT) || AiSubtitleSettings.isEnabled());
+    }
+
+    public static boolean isAiOnlySubtitle(PlayerManager player) {
+        return player != null && isAiOnlySubtitle(player.haveTrack(C.TRACK_TYPE_TEXT), player.isVod(), AiSubtitleSettings.isEnabled());
+    }
+
     private static boolean hasTextTrack(PlayerManager player) {
-        return player != null && (player.haveTrack(C.TRACK_TYPE_TEXT) || player.isVod());
+        return player != null && shouldShowTextAction(player.haveTrack(C.TRACK_TYPE_TEXT), player.isVod(), AiSubtitleSettings.isEnabled());
+    }
+
+    static boolean shouldShowTextAction(boolean hasMediaTextTrack, boolean isVod, boolean aiSubtitleEnabled) {
+        return hasMediaTextTrack || isVod || aiSubtitleEnabled;
+    }
+
+    static boolean isAiOnlySubtitle(boolean hasMediaTextTrack, boolean isVod, boolean aiSubtitleEnabled) {
+        return aiSubtitleEnabled && !hasMediaTextTrack && !isVod;
     }
 
     private static boolean hasAudioTrack(PlayerManager player) {

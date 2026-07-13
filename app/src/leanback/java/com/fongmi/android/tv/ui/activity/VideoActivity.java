@@ -293,8 +293,8 @@ public class VideoActivity extends PlaybackActivity implements VodPlaybackHost, 
         mBinding.control.action.text.setOnClickListener(this::onTrack);
         mBinding.control.action.audio.setOnClickListener(this::onTrack);
         mBinding.control.action.video.setOnClickListener(this::onTrack);
-        mBinding.control.action.aiSubtitle.setOnClickListener(view -> AiSubtitlePlaybackUi.toggle(this, mBinding.control.action.aiSubtitle, mBinding.control.action.aiLanguage));
-        mBinding.control.action.aiLanguage.setOnClickListener(view -> AiSubtitlePlaybackUi.chooseLanguage(this, mBinding.control.action.aiSubtitle, mBinding.control.action.aiLanguage));
+        mBinding.control.action.aiSubtitle.setOnClickListener(view -> AiSubtitlePlaybackUi.toggle(this, mBinding.control.action.aiSubtitle, mBinding.control.action.aiLanguage, this::setTrackVisible));
+        mBinding.control.action.aiLanguage.setOnClickListener(view -> AiSubtitlePlaybackUi.chooseLanguage(this, mBinding.control.action.aiSubtitle, mBinding.control.action.aiLanguage, this::setTrackVisible));
         mBinding.control.action.speed.setUpListener(this::onSpeedAdd);
         mBinding.control.action.speed.setDownListener(this::onSpeedSub);
         mBinding.control.action.ending.setUpListener(this::onEndingAdd);
@@ -952,7 +952,12 @@ public class VideoActivity extends PlaybackActivity implements VodPlaybackHost, 
     }
 
     private void onTrack(View view) {
-        TrackDialog.create().type(Integer.parseInt(view.getTag().toString())).player(player()).show(this);
+        int type = Integer.parseInt(view.getTag().toString());
+        if (type == C.TRACK_TYPE_TEXT && PlaybackAction.isAiOnlySubtitle(player())) {
+            onSubtitleClick();
+            return;
+        }
+        TrackDialog.create().type(type).player(player()).show(this);
         hideControl();
     }
 
@@ -1250,7 +1255,9 @@ public class VideoActivity extends PlaybackActivity implements VodPlaybackHost, 
     }
 
     private void setTrackVisible() {
+        boolean restoreFocus = mBinding.control.action.text.hasFocus();
         PlaybackAction.setTracks(player(), mBinding.control.action.text, mBinding.control.action.audio, mBinding.control.action.video);
+        if (restoreFocus && mBinding.control.action.text.getVisibility() != View.VISIBLE) mBinding.control.action.aiSubtitle.requestFocus();
     }
 
     private void setMediaOptionVisible() {

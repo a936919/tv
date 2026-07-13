@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.provider.Settings;
 
 import com.fongmi.android.tv.App;
+import com.fongmi.android.tv.playback.SubtitleStyle;
 import com.github.catvod.utils.Prefers;
 
 public class PlayerSetting {
@@ -125,19 +126,20 @@ public class PlayerSetting {
     }
 
     public static float getSubtitleTextSize() {
-        return Prefers.getFloat("subtitle_text_size");
+        float value = Prefers.getFloat("subtitle_text_size");
+        return value == 0.0f ? 0.0f : SubtitleStyle.clampTextSize(value);
     }
 
     public static void putSubtitleTextSize(float value) {
-        Prefers.put("subtitle_text_size", value);
+        Prefers.put("subtitle_text_size", value == 0.0f ? 0.0f : SubtitleStyle.clampTextSize(value));
     }
 
     public static float getSubtitlePosition() {
-        return Prefers.getFloat("subtitle_position");
+        return SubtitleStyle.clampPosition(Prefers.getFloat("subtitle_position"));
     }
 
     public static void putSubtitlePosition(float value) {
-        Prefers.put("subtitle_position", value);
+        Prefers.put("subtitle_position", SubtitleStyle.clampPosition(value));
     }
 
     public static boolean hasCaption() {

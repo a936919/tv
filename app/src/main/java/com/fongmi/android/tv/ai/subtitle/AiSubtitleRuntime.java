@@ -71,6 +71,7 @@ public final class AiSubtitleRuntime implements SherpaSubtitleController.Listene
     private volatile boolean pipelinePrimed;
     private volatile boolean serviceReady;
     private volatile boolean timelineAligned;
+    private volatile boolean stylePreviewActive;
     private volatile String status = "未启动";
     private volatile String selectedAudioTrackKey;
     private volatile long latestPipelineId;
@@ -159,6 +160,7 @@ public final class AiSubtitleRuntime implements SherpaSubtitleController.Listene
     public void detachPlayerView(PlayerView view) {
         PlayerView current = playerView.get();
         if (current == view) {
+            stylePreviewActive = false;
             current.setExternalCues(null);
             TextView overlay = statusView.get();
             if (overlay != null) overlay.setVisibility(View.GONE);
@@ -176,6 +178,7 @@ public final class AiSubtitleRuntime implements SherpaSubtitleController.Listene
 
     public void stopSession() {
         sessionActive = false;
+        stylePreviewActive = false;
         sessionGeneration.incrementAndGet();
         controller.stop();
         translator.reset();
@@ -185,6 +188,29 @@ public final class AiSubtitleRuntime implements SherpaSubtitleController.Listene
         clearScheduledCues();
         hideStartingStatus();
         status = "未启动";
+    }
+
+    public void beginStylePreview() {
+        runOnMain(() -> {
+            if (!AiSubtitleSettings.isEnabled() || playerView.get() == null) return;
+            long now = android.os.SystemClock.elapsedRealtime();
+            ScheduledCue cue = currentCue;
+            if (cue != null && now < cue.endElapsedMs) return;
+            Player current = player;
+            if (current != null && current.getCurrentTracks().isTypeSelected(C.TRACK_TYPE_TEXT)) return;
+            stylePreviewActive = true;
+            renderExternalCue(stylePreviewText());
+        });
+    }
+
+    public void endStylePreview() {
+        runOnMain(() -> {
+            if (!stylePreviewActive) return;
+            stylePreviewActive = false;
+            long now = android.os.SystemClock.elapsedRealtime();
+            ScheduledCue cue = currentCue;
+            renderExternalCue(cue != null && now < cue.endElapsedMs ? cue.text : null);
+        });
     }
 
     public void onSettingsChanged() {
@@ -479,6 +505,11 @@ public final class AiSubtitleRuntime implements SherpaSubtitleController.Listene
     }
 
     private void setExternalCue(String text) {
+        if (stylePreviewActive) return;
+        renderExternalCue(text);
+    }
+
+    private void renderExternalCue(String text) {
         PlayerView view = playerView.get();
         if (view == null) return;
         if (text == null || text.isBlank()) {
@@ -491,6 +522,17 @@ public final class AiSubtitleRuntime implements SherpaSubtitleController.Listene
                 .setLineAnchor(Cue.ANCHOR_TYPE_END)
                 .build();
         view.setExternalCues(List.of(cue));
+    }
+
+    private String stylePreviewText() {
+        if (AiSubtitleSettings.getTranslationProvider() == AiSubtitleSettings.TranslationProvider.OFF) {
+            return App.get().getString(R.string.ai_subtitle_style_preview_original);
+        }
+        boolean bilingual = AiSubtitleSettings.getSubtitleMode() == AiSubtitleSettings.SubtitleMode.BILINGUAL
+                && AiSubtitleSettings.getLanguage() != AiLanguage.MANDARIN;
+        return App.get().getString(bilingual
+                ? R.string.ai_subtitle_style_preview_bilingual
+                : R.string.ai_subtitle_style_preview_translated);
     }
 
     private void resetTimeline() {

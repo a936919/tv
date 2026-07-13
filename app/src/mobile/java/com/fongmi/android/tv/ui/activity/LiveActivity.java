@@ -198,8 +198,8 @@ public class LiveActivity extends PlaybackActivity implements CustomKeyDown.List
         mBinding.control.action.text.setOnClickListener(this::onTrack);
         mBinding.control.action.audio.setOnClickListener(this::onTrack);
         mBinding.control.action.video.setOnClickListener(this::onTrack);
-        mBinding.control.action.aiSubtitle.setOnClickListener(view -> AiSubtitlePlaybackUi.toggle(this, mBinding.control.action.aiSubtitle, mBinding.control.action.aiLanguage));
-        mBinding.control.action.aiLanguage.setOnClickListener(view -> AiSubtitlePlaybackUi.chooseLanguage(this, mBinding.control.action.aiSubtitle, mBinding.control.action.aiLanguage));
+        mBinding.control.action.aiSubtitle.setOnClickListener(view -> AiSubtitlePlaybackUi.toggle(this, mBinding.control.action.aiSubtitle, mBinding.control.action.aiLanguage, this::setTrackVisible));
+        mBinding.control.action.aiLanguage.setOnClickListener(view -> AiSubtitlePlaybackUi.chooseLanguage(this, mBinding.control.action.aiSubtitle, mBinding.control.action.aiLanguage, this::setTrackVisible));
         mBinding.control.action.home.setOnClickListener(view -> onHome());
         mBinding.control.action.line.setOnClickListener(view -> onLine());
         mBinding.control.action.scale.setOnClickListener(view -> onScale());
@@ -385,7 +385,12 @@ public class LiveActivity extends PlaybackActivity implements CustomKeyDown.List
     }
 
     private void onTrack(View view) {
-        TrackDialog.create().type(Integer.parseInt(view.getTag().toString())).player(player()).show(this);
+        int type = Integer.parseInt(view.getTag().toString());
+        if (type == C.TRACK_TYPE_TEXT && PlaybackAction.isAiOnlySubtitle(player())) {
+            onSubtitleClick();
+            return;
+        }
+        TrackDialog.create().type(type).player(player()).show(this);
         hideControl();
     }
 
@@ -446,7 +451,7 @@ public class LiveActivity extends PlaybackActivity implements CustomKeyDown.List
     }
 
     private boolean onTextLong() {
-        if (!player().haveTrack(C.TRACK_TYPE_TEXT)) return false;
+        if (!PlaybackAction.canStyleSubtitle(player())) return false;
         onSubtitleClick();
         return true;
     }
@@ -937,7 +942,9 @@ public class LiveActivity extends PlaybackActivity implements CustomKeyDown.List
     }
 
     private void setTrackVisible() {
+        boolean restoreFocus = mBinding.control.action.text.hasFocus();
         PlaybackAction.setTracks(player(), mBinding.control.action.text, mBinding.control.action.audio, mBinding.control.action.video, mBinding.control.action.speed);
+        if (restoreFocus && mBinding.control.action.text.getVisibility() != View.VISIBLE) mBinding.control.action.aiSubtitle.requestFocus();
     }
 
     private MediaMetadata buildMetadata() {

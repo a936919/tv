@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.leanback.widget.OnChildViewHolderSelectedListener;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.media3.common.C;
 import androidx.media3.common.MediaMetadata;
 import androidx.media3.common.Player;
 import androidx.media3.common.VideoSize;
@@ -184,8 +185,8 @@ public class LiveActivity extends PlaybackActivity implements GroupAdapter.OnCli
         mBinding.control.action.text.setOnClickListener(this::onTrack);
         mBinding.control.action.audio.setOnClickListener(this::onTrack);
         mBinding.control.action.video.setOnClickListener(this::onTrack);
-        mBinding.control.action.aiSubtitle.setOnClickListener(view -> AiSubtitlePlaybackUi.toggle(this, mBinding.control.action.aiSubtitle, mBinding.control.action.aiLanguage));
-        mBinding.control.action.aiLanguage.setOnClickListener(view -> AiSubtitlePlaybackUi.chooseLanguage(this, mBinding.control.action.aiSubtitle, mBinding.control.action.aiLanguage));
+        mBinding.control.action.aiSubtitle.setOnClickListener(view -> AiSubtitlePlaybackUi.toggle(this, mBinding.control.action.aiSubtitle, mBinding.control.action.aiLanguage, this::setTrackVisible));
+        mBinding.control.action.aiLanguage.setOnClickListener(view -> AiSubtitlePlaybackUi.chooseLanguage(this, mBinding.control.action.aiSubtitle, mBinding.control.action.aiLanguage, this::setTrackVisible));
         mBinding.control.action.speed.setUpListener(this::onSpeedAdd);
         mBinding.control.action.speed.setDownListener(this::onSpeedSub);
         mBinding.control.action.text.setUpListener(this::onSubtitleClick);
@@ -374,7 +375,12 @@ public class LiveActivity extends PlaybackActivity implements GroupAdapter.OnCli
     }
 
     private void onTrack(View view) {
-        TrackDialog.create().type(Integer.parseInt(view.getTag().toString())).player(player()).show(this);
+        int type = Integer.parseInt(view.getTag().toString());
+        if (type == C.TRACK_TYPE_TEXT && PlaybackAction.isAiOnlySubtitle(player())) {
+            onSubtitleClick();
+            return;
+        }
+        TrackDialog.create().type(type).player(player()).show(this);
         hideControl();
     }
 
@@ -903,7 +909,9 @@ public class LiveActivity extends PlaybackActivity implements GroupAdapter.OnCli
     }
 
     private void setTrackVisible() {
+        boolean restoreFocus = mBinding.control.action.text.hasFocus();
         PlaybackAction.setTracks(player(), mBinding.control.action.text, mBinding.control.action.audio, mBinding.control.action.video, mBinding.control.action.speed);
+        if (restoreFocus && mBinding.control.action.text.getVisibility() != View.VISIBLE) mBinding.control.action.aiSubtitle.requestFocus();
     }
 
     private MediaMetadata buildMetadata() {

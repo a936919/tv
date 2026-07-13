@@ -19,19 +19,21 @@ public final class AiSubtitlePlaybackUi {
         language.setText(language.getContext().getString(R.string.ai_subtitle_language, AiSubtitleSettings.getLanguage().label()));
     }
 
-    public static void toggle(FragmentActivity activity, TextView toggle, TextView language) {
+    public static void toggle(FragmentActivity activity, TextView toggle, TextView language, Runnable onChanged) {
         AiLanguage selected = AiSubtitleSettings.getLanguage();
         if (AiSubtitleSettings.isEnabled()) {
             AiSubtitleSettings.setEnabled(false);
             AiSubtitleRuntime.get().prepareForAudioPipelineRebuild();
             reloadAudioPipeline(activity);
             refresh(toggle, language);
+            notifyChanged(onChanged);
             return;
         }
         if (!isReady(selected)) {
             AiSubtitleSettings.setEnabled(false);
             AiSubtitleRuntime.get().onSettingsChanged();
             refresh(toggle, language);
+            notifyChanged(onChanged);
             showMissing(activity, selected);
             return;
         }
@@ -39,9 +41,10 @@ public final class AiSubtitlePlaybackUi {
         AiSubtitleRuntime.get().prepareForAudioPipelineRebuild();
         reloadAudioPipeline(activity);
         refresh(toggle, language);
+        notifyChanged(onChanged);
     }
 
-    public static void chooseLanguage(FragmentActivity activity, TextView toggle, TextView language) {
+    public static void chooseLanguage(FragmentActivity activity, TextView toggle, TextView language, Runnable onChanged) {
         AiLanguage[] values = AiLanguage.values();
         String[] labels = new String[values.length];
         AsrModelManager models = AiSubtitleRuntime.get().models();
@@ -63,6 +66,7 @@ public final class AiSubtitlePlaybackUi {
                         AiSubtitleRuntime.get().onSettingsChanged();
                     }
                     refresh(toggle, language);
+                    notifyChanged(onChanged);
                     dialog.dismiss();
                     if (!isReady(selected)) showMissing(activity, selected);
                 })
@@ -76,6 +80,10 @@ public final class AiSubtitlePlaybackUi {
 
     private static void reloadAudioPipeline(FragmentActivity activity) {
         if (activity instanceof PlaybackActivity playback) playback.reloadAiSubtitleAudioPipeline();
+    }
+
+    private static void notifyChanged(Runnable onChanged) {
+        if (onChanged != null) onChanged.run();
     }
 
     private static void showMissing(FragmentActivity activity, AiLanguage language) {

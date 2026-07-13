@@ -186,6 +186,9 @@
     <string name="ai_subtitle_starting">Subtitle translation service is starting…</string>
     <string name="ai_subtitle_memory_blocked">This device does not meet the safe memory requirement for the %1$s language pack.</string>
     <string name="ai_subtitle_go_download">Download</string>
+    <string name="ai_subtitle_style_preview_original">Original subtitle preview</string>
+    <string name="ai_subtitle_style_preview_translated">Simplified Chinese subtitle preview</string>
+    <string name="ai_subtitle_style_preview_bilingual">Simplified Chinese subtitle preview\nOriginal subtitle preview</string>
     <string name="ai_secret_push_info">Open %1$s on your phone, select Settings, paste the value and tap Confirm.</string>
 
     <!-- Danmaku -->

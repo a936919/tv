@@ -185,6 +185,9 @@
     <string name="ai_subtitle_starting">字幕翻译服务正在启动中…</string>
     <string name="ai_subtitle_memory_blocked">设备内存不满足“%1$s”语言包的安全运行门槛。</string>
     <string name="ai_subtitle_go_download">去下载</string>
+    <string name="ai_subtitle_style_preview_original">原文字幕预览</string>
+    <string name="ai_subtitle_style_preview_translated">简体中文字幕预览</string>
+    <string name="ai_subtitle_style_preview_bilingual">简体中文字幕预览\nOriginal subtitle preview</string>
     <string name="ai_secret_push_info">请在手机打开 %1$s\n选择“设定”，粘贴内容后点确定。</string>
 
     <!-- Danmaku -->

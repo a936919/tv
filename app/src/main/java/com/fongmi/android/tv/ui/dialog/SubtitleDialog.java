@@ -1,5 +1,6 @@
 package com.fongmi.android.tv.ui.dialog;
 
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,9 @@ import androidx.media3.ui.SubtitleView;
 import androidx.viewbinding.ViewBinding;
 
 import com.fongmi.android.tv.databinding.DialogSubtitleBinding;
+import com.fongmi.android.tv.ai.subtitle.AiSubtitleRuntime;
 import com.fongmi.android.tv.player.PlayerManager;
+import com.fongmi.android.tv.playback.SubtitleStyle;
 import com.fongmi.android.tv.setting.PlayerSetting;
 import com.fongmi.android.tv.utils.ResUtil;
 import com.fongmi.android.tv.utils.Util;
@@ -62,6 +65,8 @@ public final class SubtitleDialog extends BaseBottomSheetDialog {
     protected void initView() {
         int count = binding.getRoot().getChildCount();
         if (isFull()) for (int i = 0; i < count; i++) ((ImageView) binding.getRoot().getChildAt(i)).getDrawable().setTint(MDColor.WHITE);
+        sanitizeStyle();
+        AiSubtitleRuntime.get().beginStylePreview();
     }
 
     @Override
@@ -74,26 +79,30 @@ public final class SubtitleDialog extends BaseBottomSheetDialog {
     }
 
     private void onUp(View view) {
-        subtitleView.addPosition(0.005f);
-        PlayerSetting.putSubtitlePosition(subtitleView.getPosition());
+        float value = SubtitleStyle.clampPosition(subtitleView.getPosition() + 0.005f);
+        subtitleView.setBottomPosition(value);
+        PlayerSetting.putSubtitlePosition(value);
         applySubtitleStyle();
     }
 
     private void onDown(View view) {
-        subtitleView.subPosition(0.005f);
-        PlayerSetting.putSubtitlePosition(subtitleView.getPosition());
+        float value = SubtitleStyle.clampPosition(subtitleView.getPosition() - 0.005f);
+        subtitleView.setBottomPosition(value);
+        PlayerSetting.putSubtitlePosition(value);
         applySubtitleStyle();
     }
 
     private void onLarge(View view) {
-        subtitleView.addTextSize(0.002f);
-        PlayerSetting.putSubtitleTextSize(subtitleView.getTextSize());
+        float value = SubtitleStyle.clampTextSize(subtitleView.getTextSize() + 0.002f);
+        subtitleView.setFractionalTextSize(value);
+        PlayerSetting.putSubtitleTextSize(value);
         applySubtitleStyle();
     }
 
     private void onSmall(View view) {
-        subtitleView.subTextSize(0.002f);
-        PlayerSetting.putSubtitleTextSize(subtitleView.getTextSize());
+        float value = SubtitleStyle.clampTextSize(subtitleView.getTextSize() - 0.002f);
+        subtitleView.setFractionalTextSize(value);
+        PlayerSetting.putSubtitleTextSize(value);
         applySubtitleStyle();
     }
 
@@ -106,6 +115,23 @@ public final class SubtitleDialog extends BaseBottomSheetDialog {
 
     private void applySubtitleStyle() {
         if (player != null && !player.isReleased()) player.setSubtitleStyle();
+    }
+
+    private void sanitizeStyle() {
+        if (subtitleView == null) return;
+        float textSize = SubtitleStyle.clampTextSize(subtitleView.getTextSize());
+        float position = SubtitleStyle.clampPosition(subtitleView.getPosition());
+        subtitleView.setFractionalTextSize(textSize);
+        subtitleView.setBottomPosition(position);
+        PlayerSetting.putSubtitleTextSize(textSize);
+        PlayerSetting.putSubtitlePosition(position);
+        applySubtitleStyle();
+    }
+
+    @Override
+    public void onDismiss(@NonNull DialogInterface dialog) {
+        AiSubtitleRuntime.get().endStylePreview();
+        super.onDismiss(dialog);
     }
 
     @Override
