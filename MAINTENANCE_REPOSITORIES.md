@@ -20,3 +20,5 @@ parent/
 ```
 
 日常编译 APK 必须同时检出 `TV` 的 `fongmi` 分支与 `media` 的 `codec-support` 分支。只有重建 `libav3aJNI.so` 时才需要检出 `VividLib`；正常 APK 编译会直接使用仓库中已构建的两个 ABI so。`sherpa-onnx` 无需作为 Gradle composite checkout，应用使用 `app/libs` 与 `app/src/main/jniLibs` 中固定版本的 runtime，语言模型按需下载。
+
+应用基准版本由根目录 [`version.properties`](version.properties) 统一维护。功能版本更新时同时递增 `VERSION_CODE` 并更新语义化 `VERSION_NAME`；公开自动构建通过 Gradle 属性生成单调递增且可追溯的 CI 版本，不直接改写源码。完整规则见 [`VERSIONING.md`](VERSIONING.md)。

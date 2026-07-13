@@ -6,6 +6,7 @@
 *build
 *.jks
 *.properties
+!version.properties
 lib-*.aar
 /Release
 /docs

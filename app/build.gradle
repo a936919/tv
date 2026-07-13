@@ -8,6 +8,32 @@ if (localPropsFile.isFile()) {
     localPropsFile.withInputStream { localProps.load(it) }
 }
 
+def versionProps = new Properties()
+def versionPropsFile = rootProject.file('version.properties')
+if (!versionPropsFile.isFile()) {
+    throw new GradleException("Missing version.properties")
+}
+versionPropsFile.withInputStream { versionProps.load(it) }
+def baseVersionCode = versionProps.getProperty('VERSION_CODE')?.toInteger()
+def baseVersionName = versionProps.getProperty('VERSION_NAME')
+if (baseVersionCode == null || baseVersionCode <= 0 || baseVersionCode > 2100000000) {
+    throw new GradleException("VERSION_CODE must be between 1 and 2100000000")
+}
+if (baseVersionName == null || baseVersionName.trim().isEmpty()) {
+    throw new GradleException("VERSION_NAME must not be empty")
+}
+def resolvedVersionCode = providers.gradleProperty('appVersionCode')
+        .map { it.toInteger() }
+        .getOrElse(baseVersionCode)
+def resolvedVersionName = providers.gradleProperty('appVersionName')
+        .getOrElse(baseVersionName)
+if (resolvedVersionCode <= 0 || resolvedVersionCode > 2100000000) {
+    throw new GradleException("appVersionCode must be between 1 and 2100000000")
+}
+if (resolvedVersionName.trim().isEmpty()) {
+    throw new GradleException("appVersionName must not be empty")
+}
+
 android {
     namespace = 'com.fongmi.android.tv'
 
@@ -17,8 +43,8 @@ android {
         applicationId "com.fongmi.android.tv"
         minSdk libs.versions.minSdk.get().toInteger()
         targetSdk libs.versions.targetSdk.get().toInteger()
-        versionCode 556
-        versionName "5.5.6"
+        versionCode resolvedVersionCode
+        versionName resolvedVersionName
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString(), "eventBusIndex": "com.fongmi.android.tv.event.EventIndex"]
