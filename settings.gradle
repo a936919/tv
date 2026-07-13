@@ -20,6 +20,51 @@ dependencyResolutionManagement {
     }
 }
 
+// This TV fork relies on the companion Media3 fork for custom extractors and renderer hooks. Keep the
+// location configurable for CI while making the normal sibling checkout work out of the box.
+def androidxMediaDir = providers.gradleProperty('androidxMediaDir')
+        .map { file(it) }
+        .getOrElse(file('../FongMi-media'))
+if (!new File(androidxMediaDir, 'core_settings.gradle').isFile()) {
+    throw new GradleException("FongMi Media3 checkout not found at ${androidxMediaDir}. " +
+            "Clone https://github.com/iptvorganization/media there or pass -PandroidxMediaDir=/path/to/media")
+}
+gradle.ext.androidxMediaModulePrefix = 'media3-'
+gradle.ext.androidxMediaSettingsDir = androidxMediaDir.canonicalPath
+gradle.ext.androidxMediaUseBuiltInKotlin = true
+def includeMediaModule = { String name, String directory ->
+    def path = ":media3-lib-${name}"
+    include path
+    project(path).projectDir = new File(androidxMediaDir, "libraries/${directory}")
+}
+// Only include the Java modules used by TV. Applying the fork's full settings file also configures
+// unrelated Kotlin/Compose demo modules and clashes with AGP's built-in Kotlin in this app.
+includeMediaModule('common', 'common')
+includeMediaModule('container', 'container')
+includeMediaModule('session', 'session')
+includeMediaModule('exoplayer', 'exoplayer')
+includeMediaModule('exoplayer-dash', 'exoplayer_dash')
+includeMediaModule('exoplayer-hls', 'exoplayer_hls')
+includeMediaModule('exoplayer-rtsp', 'exoplayer_rtsp')
+includeMediaModule('exoplayer-smoothstreaming', 'exoplayer_smoothstreaming')
+includeMediaModule('ui', 'ui')
+includeMediaModule('ui-danmaku', 'ui_danmaku')
+includeMediaModule('database', 'database')
+includeMediaModule('datasource', 'datasource')
+includeMediaModule('datasource-rtmp', 'datasource_rtmp')
+includeMediaModule('datasource-okhttp', 'datasource_okhttp')
+includeMediaModule('decoder', 'decoder')
+includeMediaModule('decoder-av3a', 'decoder_av3a')
+includeMediaModule('extractor', 'extractor')
+include ':media3-lib-inspector'
+project(':media3-lib-inspector').projectDir = file('gradle/media-stubs/inspector')
+include ':media3-test-utils'
+project(':media3-test-utils').projectDir = file('gradle/media-stubs/test-utils')
+include ':media3-test-data'
+project(':media3-test-data').projectDir = file('gradle/media-stubs/test-data')
+include ':media3-test-utils-robolectric'
+project(':media3-test-utils-robolectric').projectDir = file('gradle/media-stubs/test-utils-robolectric')
+
 include ':app'
 include ':catvod'
 include ':chaquo'

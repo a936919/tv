@@ -3,8 +3,9 @@ plugins {
 }
 
 def localProps = new Properties()
-rootProject.file('local.properties').withInputStream {
-    localProps.load(it)
+def localPropsFile = rootProject.file('local.properties')
+if (localPropsFile.isFile()) {
+    localPropsFile.withInputStream { localProps.load(it) }
 }
 
 android {
@@ -49,9 +50,18 @@ android {
         viewBinding = true
     }
 
+    sourceSets {
+        main.java {
+            srcDir 'src/codecFallback/java'
+            exclude 'com/fongmi/android/tv/player/exo/PreCache.java'
+            exclude 'com/fongmi/android/tv/player/mpv/MpvPlayerEngine.java'
+            exclude 'com/fongmi/android/tv/player/mpv/MpvUtil.java'
+        }
+    }
+
     signingConfigs {
         release {
-            storeFile file(localProps['storeFile'])
+            if (localProps['storeFile']) storeFile file(localProps['storeFile'])
             keyAlias localProps['keyAlias']
             keyPassword localProps['storePassword']
             storePassword localProps['storePassword']
@@ -62,7 +72,7 @@ android {
         release {
             minifyEnabled = true
             shrinkResources = true
-            signingConfig = signingConfigs.release
+            if (signingConfigs.release.storeFile != null) signingConfig = signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro', 'proguard-rules-media.pro'
         }
     }
@@ -79,6 +89,10 @@ android {
     lint {
         disable 'UnsafeOptInUsageError'
         disable 'ExpiredTargetSdkVersion'
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
 
     compileOptions {
@@ -101,9 +115,23 @@ androidComponents {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.aar"])
+    implementation files('libs/sherpa-onnx-v1.13.4.jar')
     implementation project(':catvod')
     implementation project(':chaquo')
     implementation project(':quickjs')
+    implementation project(':media3-lib-exoplayer')
+    implementation project(':media3-lib-exoplayer-dash')
+    implementation project(':media3-lib-exoplayer-hls')
+    implementation project(':media3-lib-exoplayer-rtsp')
+    implementation project(':media3-lib-exoplayer-smoothstreaming')
+    implementation project(':media3-lib-session')
+    implementation project(':media3-lib-ui')
+    implementation project(':media3-lib-ui-danmaku')
+    implementation project(':media3-lib-datasource-okhttp')
+    implementation(project(':media3-lib-datasource-rtmp')) {
+        exclude group: 'io.antmedia', module: 'rtmp-client'
+    }
+    implementation project(':media3-lib-decoder-av3a')
     implementation libs.appcompat
     implementation libs.lifecycle.service
     implementation libs.media
@@ -135,5 +163,8 @@ dependencies {
     annotationProcessor libs.room.compiler
     annotationProcessor libs.eventbus.annotation.processor
     annotationProcessor libs.glide.compiler
+    testImplementation "junit:junit:4.13.2"
+    testImplementation "com.squareup.okhttp3:mockwebserver:5.4.0"
+    testImplementation "org.json:json:20250517"
     coreLibraryDesugaring libs.desugar
 }

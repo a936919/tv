@@ -9,6 +9,7 @@ import android.view.View;
 import androidx.viewbinding.ViewBinding;
 
 import com.fongmi.android.tv.R;
+import com.fongmi.android.tv.ai.subtitle.AiSubtitleSettingsActivity;
 import com.fongmi.android.tv.databinding.ActivitySettingPlayerBinding;
 import com.fongmi.android.tv.impl.SpeedListener;
 import com.fongmi.android.tv.impl.UaListener;
@@ -70,6 +71,7 @@ public class SettingPlayerActivity extends BaseActivity implements UaListener, S
         mBinding.adblock.setOnClickListener(this::setAdblock);
         mBinding.preload.setOnClickListener(this::onPreloadSetting);
         mBinding.decode.setOnClickListener(this::onDecodeSetting);
+        mBinding.aiSubtitle.setOnClickListener(v -> AiSubtitleSettingsActivity.start(this));
         mBinding.ua.setOnClickListener(this::onUa);
     }
 

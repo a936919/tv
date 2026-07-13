@@ -2,6 +2,7 @@ package com.fongmi.android.tv.player.exo;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 
 import androidx.annotation.NonNull;
 import androidx.media3.common.AudioAttributes;
@@ -9,23 +10,34 @@ import androidx.media3.common.MediaItem;
 import androidx.media3.common.MimeTypes;
 import androidx.media3.common.PlaybackException;
 import androidx.media3.common.Player;
+import androidx.media3.common.audio.AudioProcessor;
+import androidx.media3.decoder.av3a.Av3aAudioRenderer;
 import androidx.media3.exoplayer.DefaultRenderersFactory;
 import androidx.media3.exoplayer.ExoPlayer;
+import androidx.media3.exoplayer.Renderer;
 import androidx.media3.exoplayer.RenderersFactory;
+import androidx.media3.exoplayer.audio.AudioRendererEventListener;
 import androidx.media3.exoplayer.audio.AudioSink;
 import androidx.media3.exoplayer.audio.AudioTrackAudioOutputProvider;
 import androidx.media3.exoplayer.audio.DefaultAudioSink;
 import androidx.media3.exoplayer.source.MediaSource;
+import androidx.media3.exoplayer.mediacodec.MediaCodecSelector;
 import androidx.media3.exoplayer.trackselection.DefaultTrackSelector;
 import androidx.media3.exoplayer.trackselection.TrackSelector;
 import androidx.media3.exoplayer.util.EventLogger;
 
 import com.fongmi.android.tv.App;
 import com.fongmi.android.tv.BuildConfig;
+import com.fongmi.android.tv.ai.subtitle.AiAudioTrackBufferSizeProvider;
+import com.fongmi.android.tv.ai.subtitle.AiAudioOutputProvider;
+import com.fongmi.android.tv.ai.subtitle.AiSubtitleRuntime;
+import com.fongmi.android.tv.ai.subtitle.AiSubtitleSettings;
+import com.fongmi.android.tv.ai.subtitle.PcmTapAudioProcessor;
 import com.fongmi.android.tv.player.engine.PlayerEngine;
 import com.fongmi.android.tv.player.track.LangUtil;
 import com.fongmi.android.tv.setting.PlayerSetting;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -33,7 +45,14 @@ import java.util.stream.Collectors;
 public class ExoUtil {
 
     public static ExoPlayer buildPlayer(int decode, Player.Listener listener) {
-        ExoPlayer player = new ExoPlayer.Builder(App.get()).setTrackSelector(buildTrackSelector()).setRenderersFactory(buildPlaybackRenderersFactory(decode)).setMediaSourceFactory(buildMediaSourceFactory()).build();
+        ExoPlayer player = new ExoPlayer.Builder(App.get())
+                .setTrackSelector(buildTrackSelector())
+                .setRenderersFactory(buildPlaybackRenderersFactory(decode))
+                .setMediaSourceFactory(buildMediaSourceFactory())
+                // Sony's Dolby Vision OMX stack regularly needs >500 ms to flush/release.  The
+                // Media3 default reports a false fatal timeout during AI AudioSink rebuilds.
+                .setReleaseTimeoutMs(3_000L)
+                .build();
         if (BuildConfig.DEBUG) player.addAnalyticsListener(new EventLogger());
         player.setAudioAttributes(AudioAttributes.DEFAULT, true);
         player.setHandleAudioBecomingNoisy(true);
@@ -61,7 +80,11 @@ public class ExoUtil {
     private static TrackSelector buildTrackSelector() {
         DefaultTrackSelector trackSelector = new DefaultTrackSelector(App.get());
         DefaultTrackSelector.Parameters.Builder builder = trackSelector.buildUponParameters();
-        if (PlayerSetting.isPreferAAC()) builder.setPreferredAudioMimeType(MimeTypes.AUDIO_AAC);
+        // AV3A live transport streams commonly carry an AAC compatibility track as well. Without
+        // an explicit preference, HLS playlist refreshes can remap the two audio groups and make
+        // the selector oscillate between AV3A 5.1 and AAC stereo, causing an audible interruption.
+        // Keep the AV3A renderer selected unless the user has explicitly enabled "prefer AAC".
+        builder.setPreferredAudioMimeType(PlayerSetting.isPreferAAC() ? MimeTypes.AUDIO_AAC : MimeTypes.AUDIO_AV3A);
         builder.setPreferredTextLanguages(LangUtil.getPreferredTextLanguages());
         builder.setTunnelingEnabled(PlayerSetting.isTunnelingEnabled());
         builder.setForceHighestSupportedBitrate(true);
@@ -83,13 +106,38 @@ public class ExoUtil {
             protected AudioSink buildAudioSink(@NonNull Context context, boolean enableFloatOutput, boolean enableAudioOutputPlaybackParams) {
                 return ExoUtil.buildAudioSink(context, enableFloatOutput, enableAudioOutputPlaybackParams);
             }
+
+            @Override
+            protected void buildAudioRenderers(Context context, int extensionRendererMode, MediaCodecSelector mediaCodecSelector, boolean enableDecoderFallback, AudioSink audioSink, Handler eventHandler, AudioRendererEventListener eventListener, ArrayList<Renderer> out) {
+                super.buildAudioRenderers(context, extensionRendererMode, mediaCodecSelector, enableDecoderFallback, audioSink, eventHandler, eventListener, out);
+                // This renderer claims audio/av3a only. AAC/AC3/E-AC3 and every normal audio track
+                // remain on the unmodified MediaCodec/extension renderer chain built above.
+                out.add(0, new Av3aAudioRenderer(eventHandler, eventListener, audioSink));
+            }
         };
         return factory.setFfmpegAudioPrefer(audioPrefer).setFfmpegVideoPrefer(videoPrefer).setEnableDecoderFallback(true).setEnableDv7HevcFallback(PlayerSetting.isDv7HevcFallback()).setExtensionRendererMode(renderMode);
     }
 
     private static AudioSink buildAudioSink(Context context, boolean enableFloatOutput, boolean enableAudioOutputPlaybackParams) {
-        DefaultAudioSink.Builder builder = new DefaultAudioSink.Builder(context).setEnableFloatOutput(enableFloatOutput).setEnableAudioOutputPlaybackParameters(enableAudioOutputPlaybackParams);
-        if (!PlayerSetting.isAudioPassThrough()) builder.setAudioOutputProvider(new AudioTrackAudioOutputProvider.Builder(null).build());
+        boolean aiSubtitle = AiSubtitleSettings.isEnabled();
+        DefaultAudioSink.Builder builder = new DefaultAudioSink.Builder(context)
+                .setEnableFloatOutput(aiSubtitle ? false : enableFloatOutput)
+                .setEnableAudioOutputPlaybackParameters(enableAudioOutputPlaybackParams);
+        if (aiSubtitle) builder.setAudioProcessors(new AudioProcessor[]{new PcmTapAudioProcessor(AiSubtitleRuntime.get().createPcmSink())});
+        if (aiSubtitle) {
+            // Match the reference application's audio-lookahead design: playback starts normally,
+            // while the renderer is allowed to fill several seconds of decoded PCM ahead of the
+            // AudioTrack play head.  ASR works on that future audio and late results are discarded.
+            // A null-capabilities provider deliberately disables encoded passthrough for this
+            // AI-enabled sink only.  Otherwise E-AC3/JOC can bypass AudioProcessors completely.
+            builder.setAudioOutputProvider(new AiAudioOutputProvider(
+                    new AudioTrackAudioOutputProvider.Builder(null)
+                            .setAudioTrackBufferSizeProvider(new AiAudioTrackBufferSizeProvider())
+                            .build(),
+                    AiSubtitleRuntime.get().createAudioClockSink()));
+        } else if (!PlayerSetting.isAudioPassThrough()) {
+            builder.setAudioOutputProvider(new AudioTrackAudioOutputProvider.Builder(null).build());
+        }
         return builder.build();
     }
 
