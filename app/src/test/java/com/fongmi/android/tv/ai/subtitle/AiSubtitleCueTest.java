@@ -74,4 +74,26 @@ public class AiSubtitleCueTest {
         assertNull(AiSubtitleRuntime.planCueWindow(
                 10_000, 12_000, 17_200, 100_000, 7_000));
     }
+
+    @Test
+    public void streamingBudgetKeepsLeanbackFiveSecondSegmentation() {
+        assertEquals(4_800L,
+                SherpaSubtitleController.streamingUtteranceBudgetMs(10_070L, 910L));
+    }
+
+    @Test
+    public void streamingBudgetReservesTranslationTimeOnShortMobileAudioTrack() {
+        assertEquals(2_580L,
+                SherpaSubtitleController.streamingUtteranceBudgetMs(5_180L, 857L));
+        assertEquals(2_530L,
+                SherpaSubtitleController.streamingUtteranceBudgetMs(5_180L, 1_450L));
+    }
+
+    @Test
+    public void streamingBudgetHasSafeBounds() {
+        assertEquals(1_200L,
+                SherpaSubtitleController.streamingUtteranceBudgetMs(3_500L, 2_000L));
+        assertEquals(4_800L,
+                SherpaSubtitleController.streamingUtteranceBudgetMs(Long.MAX_VALUE, 0L));
+    }
 }

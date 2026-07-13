@@ -316,16 +316,21 @@ public final class AiSubtitleRuntime implements SherpaSubtitleController.Listene
 
         // Atomic bilingual delivery: never publish source text first.  Translation (including the
         // OFF provider's immediate source passthrough) must finish before a single cue is queued.
+        long translationStartedMs = android.os.SystemClock.elapsedRealtime();
         translator.translate(AiSubtitleSettings.getLanguage(), segment.text(), new OpenAiSubtitleTranslator.ResultCallback() {
             @Override
             public void onSuccess(String source, String translated) {
                 if (token != sessionGeneration.get()) return;
+                long callbackMs = android.os.SystemClock.elapsedRealtime() - translationStartedMs;
+                controller.recordTranslationCallbackMs(callbackMs);
                 if (isDiagnosticResult(translated)) {
                     Log.w(TAG, "translation diagnostic result ignored");
                     return;
                 }
                 String cue = composeCue(AiSubtitleSettings.getLanguage(),
                         AiSubtitleSettings.getSubtitleMode(), source, translated);
+                Log.i(TAG, "translation completed callbackMs=" + callbackMs
+                        + " audioMs=" + segment.audioMs());
                 enqueueCue(segment, cue, token);
             }
 
@@ -539,6 +544,7 @@ public final class AiSubtitleRuntime implements SherpaSubtitleController.Listene
             return;
         }
         observedLookaheadMs = audioHeadroomMs;
+        controller.updateAudioLookaheadMs(audioHeadroomMs);
         if (serviceReady || pipelinePrimed) return;
         if (capturedMs < LOOKAHEAD_MS || observedLookaheadMs < MIN_PRIMED_LOOKAHEAD_MS) {
             lookaheadStableSinceMs = C.TIME_UNSET;
@@ -564,6 +570,7 @@ public final class AiSubtitleRuntime implements SherpaSubtitleController.Listene
         long measuredMs = readAudioHeadroomMs(elapsedNowMs);
         if (measuredMs == C.TIME_UNSET) return C.TIME_UNSET;
         observedLookaheadMs = measuredMs;
+        controller.updateAudioLookaheadMs(measuredMs);
         return measuredMs;
     }
 

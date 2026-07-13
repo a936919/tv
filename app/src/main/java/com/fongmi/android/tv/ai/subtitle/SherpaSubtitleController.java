@@ -39,7 +39,13 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class SherpaSubtitleController {
     private static final String TAG = "AiSubtitle";
     private static final long PCM_GAP_RESET_US = 50_000L;
-    private static final float STREAMING_MAX_UTTERANCE_SECONDS = 4.8f;
+    private static final long STREAMING_MAX_UTTERANCE_MS = 4_800L;
+    private static final long STREAMING_MIN_UTTERANCE_MS = 1_200L;
+    // The callback reserve includes network translation, the PCM/tap scheduling gap and a small
+    // main-thread hand-off margin.  Samsung multi-channel AudioTrack paths expose only about 5.2 s
+    // of real headroom, so keeping the old fixed 4.8 s endpoint left no time for translation.
+    private static final long MIN_TRANSLATION_RESERVE_MS = 2_600L;
+    private static final long TRANSLATION_RUNTIME_MARGIN_MS = 1_200L;
 
     public interface Listener {
         void onRecognized(RecognizedSegment segment);
@@ -88,6 +94,8 @@ public final class SherpaSubtitleController {
     private final AtomicLong recognizedSegments = new AtomicLong();
     private final AtomicLong maxOfferMicros = new AtomicLong();
     private volatile boolean active;
+    private volatile long audioLookaheadMs = Long.MAX_VALUE;
+    private volatile long worstTranslationCallbackMs;
 
     public SherpaSubtitleController(AsrModelManager models, Listener listener) {
         this.models = models;
@@ -102,6 +110,8 @@ public final class SherpaSubtitleController {
 
     public void start(AiLanguage language) {
         stop();
+        audioLookaheadMs = Long.MAX_VALUE;
+        worstTranslationCallbackMs = 0L;
         active = true;
         int token = generation.incrementAndGet();
         vadEngine.execute(() -> run(token, language));
@@ -127,6 +137,24 @@ public final class SherpaSubtitleController {
         return new Metrics(offeredChunks.get(), pcmQueue.dropped(),
                 droppedSpeechSegments.get() + speechQueue.dropped(),
                 recognizedSegments.get(), maxOfferMicros.get());
+    }
+
+    /** Updates the real AudioTrack headroom without restarting the recognizer. */
+    public void updateAudioLookaheadMs(long lookaheadMs) {
+        if (lookaheadMs > 0L) audioLookaheadMs = lookaheadMs;
+    }
+
+    /** Feeds completed request latency back into the next streaming endpoint budget. */
+    public void recordTranslationCallbackMs(long callbackMs) {
+        if (callbackMs > 0L) worstTranslationCallbackMs = Math.max(worstTranslationCallbackMs, callbackMs);
+    }
+
+    static long streamingUtteranceBudgetMs(long lookaheadMs, long worstCallbackMs) {
+        if (lookaheadMs == Long.MAX_VALUE || lookaheadMs <= 0L) return STREAMING_MAX_UTTERANCE_MS;
+        long reserveMs = Math.max(MIN_TRANSLATION_RESERVE_MS,
+                Math.max(0L, worstCallbackMs) + TRANSLATION_RUNTIME_MARGIN_MS);
+        return Math.max(STREAMING_MIN_UTTERANCE_MS,
+                Math.min(STREAMING_MAX_UTTERANCE_MS, lookaheadMs - reserveMs));
     }
 
     private void run(int token, AiLanguage language) {
@@ -256,8 +284,16 @@ public final class SherpaSubtitleController {
                 recognizer.decode(stream);
                 decodeNanos += System.nanoTime() - started;
             }
-            if (!isCurrent(token) || !recognizer.isEndpoint(stream)) continue;
+            long utteranceMs = Math.max(0L, (chunk.endUs - streamBaseUs) / 1_000L);
+            long budgetMs = streamingUtteranceBudgetMs(audioLookaheadMs, worstTranslationCallbackMs);
+            boolean endpoint = recognizer.isEndpoint(stream);
+            boolean adaptiveBoundary = utteranceMs >= budgetMs;
+            if (!isCurrent(token) || (!endpoint && !adaptiveBoundary)) continue;
             OnlineRecognizerResult result = recognizer.getResult(stream);
+            Log.i(TAG, "streaming endpoint adaptive=" + adaptiveBoundary
+                    + " recognizer=" + endpoint + " utteranceMs=" + utteranceMs
+                    + " budgetMs=" + budgetMs + " lookaheadMs=" + audioLookaheadMs
+                    + " worstTranslationMs=" + worstTranslationCallbackMs);
             emitStreamingResult(token, language, result, streamBaseUs, chunk.endUs,
                     TimeUnit.NANOSECONDS.toMillis(decodeNanos));
             recognizer.reset(stream);
@@ -282,7 +318,7 @@ public final class SherpaSubtitleController {
         } else {
             endUs = currentEndUs;
             startUs = Math.max(streamBaseUs,
-                    endUs - (long) (STREAMING_MAX_UTTERANCE_SECONDS * 1_000_000L));
+                    endUs - STREAMING_MAX_UTTERANCE_MS * 1_000L);
         }
         if (endUs <= startUs) {
             endUs = currentEndUs;
@@ -494,7 +530,7 @@ public final class SherpaSubtitleController {
                 .setRule3(EndpointRule.builder()
                         .setMustContainNonSilence(false)
                         .setMinTrailingSilence(0f)
-                        .setMinUtteranceLength(STREAMING_MAX_UTTERANCE_SECONDS)
+                        .setMinUtteranceLength(STREAMING_MAX_UTTERANCE_MS / 1_000f)
                         .build())
                 .build();
         FeatureConfig feature = FeatureConfig.builder()
