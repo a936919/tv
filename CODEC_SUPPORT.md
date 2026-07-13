@@ -11,10 +11,15 @@
 ```text
 parent/
 ├── FongMi-TV/       # 本仓库
-└── FongMi-media/    # 修改后的 FongMi Media3 fork
+└── FongMi-media/    # iptvorganization/media 的 codec-support 分支
 ```
 
 也可以用 `-PandroidxMediaDir=/absolute/path/to/media` 指定 Media3 fork。
+
+```bash
+git clone --branch fongmi https://github.com/iptvorganization/TV.git FongMi-TV
+git clone --branch codec-support https://github.com/iptvorganization/media.git FongMi-media
+```
 
 AV3A native decoder 不再复用 JADX 参考 APK 的预编译库。`tools/build-av3a-from-source.sh` 默认从维护仓库 [iptvorganization/VividLib](https://github.com/iptvorganization/VividLib) 的固定提交 `10a5c7140a15f179a7d94fbff76f9176063f7a97` 构建；其上游是 [mytv-android/VividLib](https://github.com/mytv-android/VividLib)，并与 [nilaoda/Sourcecodeforplayer](https://github.com/nilaoda/Sourcecodeforplayer) 同源，VividLib 额外包含 arm64 构建支持。
 

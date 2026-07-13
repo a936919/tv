@@ -27,7 +27,8 @@ def androidxMediaDir = providers.gradleProperty('androidxMediaDir')
         .getOrElse(file('../FongMi-media'))
 if (!new File(androidxMediaDir, 'core_settings.gradle').isFile()) {
     throw new GradleException("FongMi Media3 checkout not found at ${androidxMediaDir}. " +
-            "Clone https://github.com/iptvorganization/media there or pass -PandroidxMediaDir=/path/to/media")
+            "Clone the codec-support branch from https://github.com/iptvorganization/media there " +
+            "or pass -PandroidxMediaDir=/path/to/media")
 }
 gradle.ext.androidxMediaModulePrefix = 'media3-'
 gradle.ext.androidxMediaSettingsDir = androidxMediaDir.canonicalPath
