@@ -27,6 +27,7 @@ import com.fongmi.android.tv.bean.Track;
 import com.fongmi.android.tv.databinding.DialogTrackBinding;
 import com.fongmi.android.tv.player.PlayerManager;
 import com.fongmi.android.tv.player.util.PlayerHelper;
+import com.fongmi.android.tv.playback.PlaybackAction;
 import com.fongmi.android.tv.ui.adapter.TrackAdapter;
 import com.fongmi.android.tv.ui.custom.SpaceItemDecoration;
 import com.fongmi.android.tv.utils.FileChooser;
@@ -81,6 +82,10 @@ public final class TrackDialog extends BaseBottomSheetDialog implements TrackAda
         return type == C.TRACK_TYPE_AUDIO && player.haveTrack(type);
     }
 
+    private boolean canStyleSubtitle() {
+        return type == C.TRACK_TYPE_TEXT && PlaybackAction.canStyleSubtitle(player);
+    }
+
     @Override
     protected ViewBinding getBinding(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
         return binding = DialogTrackBinding.inflate(inflater, container, false);
@@ -97,7 +102,14 @@ public final class TrackDialog extends BaseBottomSheetDialog implements TrackAda
         binding.recycler.setVisibility(adapter.getItemCount() == 0 ? View.GONE : View.VISIBLE);
         binding.offset.setVisibility(hasText() || hasAudio() ? View.VISIBLE : View.GONE);
         binding.choose.setVisibility(hasChoose() ? View.VISIBLE : View.GONE);
-        binding.subtitle.setVisibility(hasText() ? View.VISIBLE : View.GONE);
+        binding.subtitle.setVisibility(canStyleSubtitle() ? View.VISIBLE : View.GONE);
+        if (adapter.getItemCount() == 0) binding.recycler.post(this::focusFirstAction);
+    }
+
+    private void focusFirstAction() {
+        if (binding.choose.getVisibility() == View.VISIBLE) binding.choose.requestFocus();
+        else if (binding.subtitle.getVisibility() == View.VISIBLE) binding.subtitle.requestFocus();
+        else if (binding.offset.getVisibility() == View.VISIBLE) binding.offset.requestFocus();
     }
 
     @Override

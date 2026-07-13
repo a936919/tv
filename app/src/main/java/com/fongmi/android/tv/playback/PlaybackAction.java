@@ -13,6 +13,12 @@ import com.fongmi.android.tv.utils.ResUtil;
 
 public final class PlaybackAction {
 
+    public enum SubtitleEntry {
+        HIDDEN,
+        STYLE,
+        TRACKS
+    }
+
     public static void setPlaybackMode(PlayerManager player, TextView engine, TextView decode) {
         setText(engine, getEngineText(player));
         setText(decode, getDecodeText(player));
@@ -80,23 +86,26 @@ public final class PlaybackAction {
     }
 
     public static boolean canStyleSubtitle(PlayerManager player) {
-        return player != null && (player.haveTrack(C.TRACK_TYPE_TEXT) || AiSubtitleSettings.isEnabled());
+        return player != null && shouldShowSubtitleStyle(player.haveTrack(C.TRACK_TYPE_TEXT), AiSubtitleSettings.isEnabled());
     }
 
-    public static boolean isAiOnlySubtitle(PlayerManager player) {
-        return player != null && isAiOnlySubtitle(player.haveTrack(C.TRACK_TYPE_TEXT), player.isVod(), AiSubtitleSettings.isEnabled());
+    public static SubtitleEntry getSubtitleEntry(PlayerManager player) {
+        if (player == null) return SubtitleEntry.HIDDEN;
+        return getSubtitleEntry(player.haveTrack(C.TRACK_TYPE_TEXT), player.isVod(), AiSubtitleSettings.isEnabled());
     }
 
     private static boolean hasTextTrack(PlayerManager player) {
-        return player != null && shouldShowTextAction(player.haveTrack(C.TRACK_TYPE_TEXT), player.isVod(), AiSubtitleSettings.isEnabled());
+        return getSubtitleEntry(player) != SubtitleEntry.HIDDEN;
     }
 
-    static boolean shouldShowTextAction(boolean hasMediaTextTrack, boolean isVod, boolean aiSubtitleEnabled) {
-        return hasMediaTextTrack || isVod || aiSubtitleEnabled;
+    static boolean shouldShowSubtitleStyle(boolean hasMediaTextTrack, boolean aiSubtitleEnabled) {
+        return hasMediaTextTrack || aiSubtitleEnabled;
     }
 
-    static boolean isAiOnlySubtitle(boolean hasMediaTextTrack, boolean isVod, boolean aiSubtitleEnabled) {
-        return aiSubtitleEnabled && !hasMediaTextTrack && !isVod;
+    static SubtitleEntry getSubtitleEntry(boolean hasMediaTextTrack, boolean isVod, boolean aiSubtitleEnabled) {
+        if (hasMediaTextTrack || isVod) return SubtitleEntry.TRACKS;
+        if (aiSubtitleEnabled) return SubtitleEntry.STYLE;
+        return SubtitleEntry.HIDDEN;
     }
 
     private static boolean hasAudioTrack(PlayerManager player) {

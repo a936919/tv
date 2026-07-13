@@ -953,7 +953,7 @@ public class VideoActivity extends PlaybackActivity implements VodPlaybackHost, 
 
     private void onTrack(View view) {
         int type = Integer.parseInt(view.getTag().toString());
-        if (type == C.TRACK_TYPE_TEXT && PlaybackAction.isAiOnlySubtitle(player())) {
+        if (type == C.TRACK_TYPE_TEXT && PlaybackAction.getSubtitleEntry(player()) == PlaybackAction.SubtitleEntry.STYLE) {
             onSubtitleClick();
             return;
         }
